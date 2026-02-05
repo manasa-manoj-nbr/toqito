@@ -829,7 +829,7 @@
 <a class="viewcode-back" href="../../../autoapi/toqito/channels/pauli_channel/index.html#toqito.channels.pauli_channel.pauli_channel">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">pauli_channel</span><span class="p">(</span>
     <span class="n">prob</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">return_kraus_ops</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">input_mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate and apply a Pauli channel to a matrix.</span>
 
 <span class="sd">    Generates the Choi matrix of a Pauli channel with given probabilities and optionally applies it</span>

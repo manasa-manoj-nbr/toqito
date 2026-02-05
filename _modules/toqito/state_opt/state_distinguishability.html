@@ -837,12 +837,12 @@
 <a class="viewcode-back" href="../../../autoapi/toqito/state_opt/state_distinguishability/index.html#toqito.state_opt.state_distinguishability.state_distinguishability">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">state_distinguishability</span><span class="p">(</span>
     <span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;min_error&quot;</span><span class="p">,</span>
     <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cvxopt&quot;</span><span class="p">,</span>
     <span class="n">primal_dual</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;dual&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">HermitianVariable</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">HermitianVariable</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">RealVariable</span><span class="p">]]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">HermitianVariable</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">SymmetricVariable</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute probability of state distinguishability :footcite:`Eldar_2003_SDPApproach`.</span>
 
 <span class="sd">    The &quot;quantum state distinguishability&quot; problem involves a collection of :math:`n` quantum states</span>
@@ -1010,7 +1010,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">_min_error_primal</span><span class="p">(</span>
     <span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
     <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cvxopt&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">HermitianVariable</span><span class="p">]]:</span>
@@ -1033,7 +1033,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">_min_error_dual</span><span class="p">(</span>
     <span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
     <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cvxopt&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">HermitianVariable</span><span class="p">]]:</span>
@@ -1152,7 +1152,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">_unambiguous_primal</span><span class="p">(</span>
     <span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
     <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cvxopt&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
@@ -1190,10 +1190,10 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_unambiguous_dual</span><span class="p">(</span>
     <span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">probs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cvxopt&quot;</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">HermitianVariable</span><span class="p">]]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">picos</span><span class="o">.</span><span class="n">SymmetricVariable</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve the dual problem for unambiguous quantum state distinguishability SDP.</span>
 
 <span class="sd">    Implemented according to Equation (5) of :footcite:`Gupta_2024_Unambiguous`.</span>
@@ -1212,7 +1212,7 @@
 
     <span class="n">problem</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">problem</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="n">lagrangian_variable_big_z</span><span class="p">,)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">problem</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="p">(</span><span class="n">lagrangian_variable_big_z</span><span class="p">,)</span>
 </pre></div>
         </article>
       </div>

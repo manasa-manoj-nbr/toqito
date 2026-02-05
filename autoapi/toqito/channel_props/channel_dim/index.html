@@ -860,7 +860,7 @@ computing the rank of the Choi matrix.</p>
 <li><p><strong>phi</strong> (<em>numpy.ndarray</em><em> | </em><em>list</em><em>[</em><em>numpy.ndarray</em><em>] </em><em>| </em><em>list</em><em>[</em><em>list</em><em>[</em><em>numpy.ndarray</em><em>]</em><em>]</em>) – A superoperator. It should be provided either as a Choi matrix,
 or as a (1d or 2d) list of numpy arrays whose entries are its Kraus operators.</p></li>
 <li><p><strong>allow_rect</strong> (<em>bool</em>) – A flag indicating that the input and output spaces of PHI can be non-square (default True).</p></li>
-<li><p><strong>dim</strong> (<em>int</em><em> | </em><em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>numpy.ndarray</em>) – A scalar, vector or matrix containing the input and output dimensions of PHI.</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em> | </em><em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>numpy.ndarray</em><em> | </em><em>None</em>) – A scalar, vector or matrix containing the input and output dimensions of PHI.</p></li>
 <li><p><strong>compute_env_dim</strong> (<em>bool</em>) – A flag indicating whether we compute the enviroment dimension.</p></li>
 </ul>
 </dd>
@@ -868,7 +868,7 @@ or as a (1d or 2d) list of numpy arrays whose entries are its Kraus operators.</
 <dd class="field-even"><p>The input, output, and environment dimensions of a channel.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[numpy.ndarray | int]</p>
+<dd class="field-odd"><p>tuple[numpy.ndarray | int, numpy.ndarray | int, int | None]</p>
 </dd>
 </dl>
 </dd></dl>

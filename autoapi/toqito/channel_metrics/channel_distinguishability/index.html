@@ -925,7 +925,7 @@ or as a (1d or 2d) list of numpy arrays whose entries are its Kraus operators.</
 <li><p><strong>psi</strong> (<em>numpy.ndarray</em><em> | </em><em>list</em><em>[</em><em>numpy.ndarray</em><em>] </em><em>| </em><em>list</em><em>[</em><em>list</em><em>[</em><em>numpy.ndarray</em><em>]</em><em>]</em>) – A superoperator. It should be provided either as a Choi matrix,
 or as a (1d or 2d) list of numpy arrays whose entries are its Kraus operators.</p></li>
 <li><p><strong>p</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – Prior probabilities of the two channels.</p></li>
-<li><p><strong>dim</strong> (<em>int</em><em> | </em><em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>numpy.ndarray</em>) – Input and output dimensions of the channels.</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em> | </em><em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>numpy.ndarray</em><em> | </em><em>None</em>) – Input and output dimensions of the channels.</p></li>
 <li><p><strong>strategy</strong> (<em>str</em>) – Whether to perform Bayesian or minimax discrimination task. Possible
 values are “Bayesian” and “minimax”. Defualt option is <code class="code docutils literal notranslate"><span class="pre">strategy=&quot;Bayesian&quot;</span></code>.</p></li>
 <li><p><strong>solver</strong> (<em>str</em>) – Optimization option for <code class="code docutils literal notranslate"><span class="pre">picos</span></code> solver. Default option is <code class="code docutils literal notranslate"><span class="pre">solver=&quot;cvxopt&quot;</span></code>.</p></li>
@@ -937,7 +937,7 @@ values are “Bayesian” and “minimax”. Defualt option is <code class="code
 <dd class="field-odd"><p>The optimal probability of discriminating two quantum channels.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
+<dd class="field-even"><p>float | numpy.floating</p>
 </dd>
 </dl>
 </dd></dl>

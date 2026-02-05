@@ -827,7 +827,7 @@
 
 <div class="viewcode-block" id="w_state">
 <a class="viewcode-back" href="../../../autoapi/toqito/states/w_state/index.html#toqito.states.w_state.w_state">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">w_state</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">coeff</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">w_state</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">coeff</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a W-state :footcite:`Dur_2000_ThreeQubits`.</span>
 
 <span class="sd">    Returns the W-state described in :footcite:`Dur_2000_ThreeQubits`. The W-state on `num_qubits` qubits is defined by:</span>
@@ -883,16 +883,16 @@
     <span class="k">if</span> <span class="n">num_qubits</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;InvalidNumQubits: `num_qubits` must be at least 2.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">coeff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">)</span>
+        <span class="n">coeff_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num_qubits</span><span class="p">:</span>
+        <span class="n">coeff_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">coeff_arr</span><span class="p">)</span> <span class="o">!=</span> <span class="n">num_qubits</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;InvalidCoeff: The variable `coeff` must be a vector of length equal to `num_qubits`.&quot;</span><span class="p">)</span>
 
     <span class="c1"># Normalize coefficients if necessary.</span>
-    <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">coeff</span><span class="p">)</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">coeff_arr</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">norm</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">):</span>
-        <span class="n">coeff</span> <span class="o">=</span> <span class="n">coeff</span> <span class="o">/</span> <span class="n">norm</span>
+        <span class="n">coeff_arr</span> <span class="o">=</span> <span class="n">coeff_arr</span> <span class="o">/</span> <span class="n">norm</span>
 
     <span class="c1"># Initialize a state vector of appropriate size.</span>
     <span class="n">ret_w_state</span> <span class="o">=</span> <span class="n">csr_array</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="n">num_qubits</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
@@ -901,7 +901,7 @@
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_qubits</span><span class="p">):</span>
         <span class="c1"># The position for an excitation on qubit i is at index 2**i.</span>
         <span class="c1"># We assign the coefficient to the position corresponding to an excitation in that qubit.</span>
-        <span class="n">ret_w_state</span><span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">coeff</span><span class="p">[</span><span class="n">num_qubits</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">ret_w_state</span><span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">coeff_arr</span><span class="p">[</span><span class="n">num_qubits</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">ret_w_state</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span></div>
 
 </pre></div>

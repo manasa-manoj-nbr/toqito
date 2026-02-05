@@ -1107,10 +1107,10 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
         <span class="n">tol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span>
-        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">initial_bob_is_random</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cvxpy</span><span class="o">.</span><span class="n">SCS</span><span class="p">,</span>
-        <span class="n">solver_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">solver_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Calculate lower bound on the quantum value of an extended nonlocal game.</span>
@@ -1238,7 +1238,7 @@
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__optimize_alice</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">fixed_bob_povms_np</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cvxpy</span><span class="o">.</span><span class="n">SCS</span><span class="p">,</span> <span class="n">solver_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">fixed_bob_povms_np</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cvxpy</span><span class="o">.</span><span class="n">SCS</span><span class="p">,</span> <span class="n">solver_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cvxpy</span><span class="o">.</span><span class="n">Problem</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Fix Bob&#39;s measurements and optimize over Alice&#39;s measurements.&quot;&quot;&quot;</span>
         <span class="c1"># The cvxpy package does not support optimizing over 4-dimensional objects.</span>
@@ -1291,7 +1291,7 @@
         <span class="k">return</span> <span class="n">rho_xa_cvxpy_vars</span><span class="p">,</span> <span class="n">problem</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__optimize_bob</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">alice_rho_cvxpy_vars</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cvxpy</span><span class="o">.</span><span class="n">SCS</span><span class="p">,</span> <span class="n">solver_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">alice_rho_cvxpy_vars</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">cvxpy</span><span class="o">.</span><span class="n">SCS</span><span class="p">,</span> <span class="n">solver_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cvxpy</span><span class="o">.</span><span class="n">Problem</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Fix Alice&#39;s measurements and optimize over Bob&#39;s measurements.&quot;&quot;&quot;</span>
         <span class="c1"># Get number of inputs and outputs.</span>

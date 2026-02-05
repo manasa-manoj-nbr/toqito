@@ -824,7 +824,7 @@
 
 <div class="viewcode-block" id="sk_vector_norm">
 <a class="viewcode-back" href="../../../autoapi/toqito/state_props/sk_vec_norm/index.html#toqito.state_props.sk_vec_norm.sk_vector_norm">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">sk_vector_norm</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sk_vector_norm</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the S(k)-norm of a vector :footcite:`Johnston_2010_AFamily`.</span>
 
 <span class="sd">    The :math:`S(k)`-norm of of a vector :math:`|v \rangle` is</span>
@@ -873,19 +873,25 @@
 
     <span class="c1"># Set default dimension if none was provided.</span>
     <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dim_xy</span><span class="p">)))</span>
+        <span class="n">dim_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dim_xy</span><span class="p">)))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">dim_val</span> <span class="o">=</span> <span class="n">dim</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dim_val</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># Allow the user to enter in a single integer for dimension.</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim_xy</span> <span class="o">/</span> <span class="n">dim</span><span class="p">])</span>
-        <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">if</span> <span class="n">dim_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim_val</span><span class="p">,</span> <span class="n">dim_xy</span> <span class="o">/</span> <span class="n">dim_val</span><span class="p">])</span>
+        <span class="n">dim_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
 
     <span class="c1"># It&#39;s faster to just compute the norm of `rho` directly if that will give</span>
     <span class="c1"># the correct answer.</span>
-    <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">):</span>
         <span class="n">nrm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">coef</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">schmidt_decomposition</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="n">coef</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">schmidt_decomposition</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">dim_arr</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
         <span class="n">nrm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">coef</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">nrm</span></div>

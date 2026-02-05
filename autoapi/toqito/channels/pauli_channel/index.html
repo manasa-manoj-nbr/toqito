@@ -857,14 +857,10 @@ integer <span class="math notranslate nohighlight">\(q\)</span> (number of qubit
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>matrix([[ 0.33094829+0.j,  0.        +0.j,  0.        +0.j,
-         -0.08200745+0.j],
-        [ 0.        +0.j,  0.66905171+0.j,  0.15459244+0.j,
-          0.        +0.j],
-        [ 0.        +0.j,  0.15459244+0.j,  0.66905171+0.j,
-          0.        +0.j],
-        [-0.08200745+0.j,  0.        +0.j,  0.        +0.j,
-          0.33094829+0.j]])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>matrix([[0.64931418+0.j, 0.        +0.j, 0.        +0.j, 0.22183028+0.j],
+        [0.        +0.j, 0.35068582+0.j, 0.33839586+0.j, 0.        +0.j],
+        [0.        +0.j, 0.33839586+0.j, 0.35068582+0.j, 0.        +0.j],
+        [0.22183028+0.j, 0.        +0.j, 0.        +0.j, 0.64931418+0.j]])
 </pre></div>
 </div>
 </div>
@@ -912,7 +908,7 @@ If <code class="docutils literal notranslate"><span class="pre">input_mat</span>
 If <code class="docutils literal notranslate"><span class="pre">return_kraus_ops</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, returns Kraus operators as well.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray</p>
+<dd class="field-even"><p>numpy.ndarray | scipy.sparse.csc_matrix | tuple</p>
 </dd>
 </dl>
 </dd></dl>

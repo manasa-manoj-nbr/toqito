@@ -862,8 +862,8 @@ called the Hilbert-Schmidt measure when <code class="code docutils literal notra
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.37461057+0.j        , 0.33140166-0.27513709j],
-       [0.33140166+0.27513709j, 0.62538943+0.j        ]])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.24431603+0.j        , 0.25901831-0.17235095j],
+       [0.25901831+0.17235095j, 0.75568397+0.j        ]])
 </pre></div>
 </div>
 </div>
@@ -896,8 +896,8 @@ called the Hilbert-Schmidt measure when <code class="code docutils literal notra
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.2708938 , 0.36102624],
-       [0.36102624, 0.7291062 ]])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.03302113, 0.15920163],
+       [0.15920163, 0.96697887]])
 </pre></div>
 </div>
 </div>
@@ -930,8 +930,8 @@ random density matrix according to the Bures metric instead as follows.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.66916262+0.j        , 0.16127827-0.15654319j],
-       [0.16127827+0.15654319j, 0.33083738+0.j        ]])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[ 0.14074499+0.j        , -0.14562511-0.05152289j],
+       [-0.14562511+0.05152289j,  0.85925501+0.j        ]])
 </pre></div>
 </div>
 </div>
@@ -984,7 +984,7 @@ random density matrix according to the Bures metric instead as follows.</p>
 <li><p><strong>dim</strong> (<em>int</em>) – The number of rows (and columns) of the density matrix.</p></li>
 <li><p><strong>is_real</strong> (<em>bool</em>) – Boolean denoting whether the returned matrix will have all
 real entries or not.</p></li>
-<li><p><strong>k_param</strong> (<em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>int</em>) – Default value is equal to <code class="code docutils literal notranslate"><span class="pre">dim</span></code>.</p></li>
+<li><p><strong>k_param</strong> (<em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>int</em><em> | </em><em>None</em>) – Default value is equal to <code class="code docutils literal notranslate"><span class="pre">dim</span></code>.</p></li>
 <li><p><strong>distance_metric</strong> (<em>str</em>) – The distance metric used to randomly generate the
 density matrix. This metric is either the Haar
 measure or the Bures measure. Default value is to

@@ -925,7 +925,7 @@ Dual Kraus operator 2:
 <dd class="field-even"><ul class="simple">
 <li><p><strong>phi_op</strong> (<em>numpy.ndarray</em><em> | </em><em>list</em><em>[</em><em>numpy.ndarray</em><em>] </em><em>| </em><em>list</em><em>[</em><em>list</em><em>[</em><em>numpy.ndarray</em><em>]</em><em>]</em>) – A superoperator. It should be provided either as a Choi matrix,
 or as a (1d or 2d) list of numpy arrays whose entries are its Kraus operators.</p></li>
-<li><p><strong>dims</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – Dimension of the input and output systems, for Choi matrix representation.
+<li><p><strong>dims</strong> (<em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>None</em>) – Dimension of the input and output systems, for Choi matrix representation.
 If <code class="code docutils literal notranslate"><span class="pre">None</span></code>, try to infer them from <code class="code docutils literal notranslate"><span class="pre">phi_op.shape</span></code>.</p></li>
 </ul>
 </dd>
@@ -933,7 +933,7 @@ If <code class="code docutils literal notranslate"><span class="pre">None</span>
 <dd class="field-odd"><p>The map dual to <code class="code docutils literal notranslate"><span class="pre">phi_op</span></code>, in the same representation.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray | list[list[numpy.ndarray]]</p>
+<dd class="field-even"><p>numpy.ndarray | list[list[numpy.ndarray]] | list[numpy.ndarray]</p>
 </dd>
 </dl>
 </dd></dl>

@@ -830,7 +830,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">has_symmetric_extension</span><span class="p">(</span>
     <span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">dim</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">ppt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">tol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -919,18 +919,24 @@
 
     <span class="c1"># Set default dimension if none was provided.</span>
     <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">len_mat</span><span class="p">)))</span>
+        <span class="n">dim_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">len_mat</span><span class="p">)))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">dim_val</span> <span class="o">=</span> <span class="n">dim</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dim_val</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># Allow the user to enter in a single integer for dimension.</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">,</span> <span class="n">len_mat</span> <span class="o">/</span> <span class="n">dim</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">len_mat</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">dim_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim_val</span><span class="p">,</span> <span class="n">len_mat</span> <span class="o">/</span> <span class="n">dim_val</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">len_mat</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;If `dim` is a scalar, it must evenly divide the length of the matrix.&quot;</span><span class="p">)</span>
-        <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">dim_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
 
-    <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">)</span>
 
-    <span class="n">dim_x</span><span class="p">,</span> <span class="n">dim_y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">dim_x</span><span class="p">,</span> <span class="n">dim_y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="c1"># In certain situations, we don&#39;t need semidefinite programming.</span>
     <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">len_mat</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">ppt</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">ppt</span><span class="p">:</span>
@@ -939,7 +945,7 @@
 
         <span class="c1"># In this case, all they asked for is a 1-copy PPT symmetric extension</span>
         <span class="c1"># (i.e., they&#39;re asking if the state is PPT).</span>
-        <span class="k">return</span> <span class="n">is_ppt</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_positive_semidefinite</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">is_ppt</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dim_arr</span><span class="p">)</span> <span class="ow">and</span> <span class="n">is_positive_semidefinite</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
 
     <span class="c1"># In the 2-qubit case, an analytic formula is known for whether or not a state has a</span>
     <span class="c1"># (2-copy, non-PPT) symmetric extension that is much faster to use than semidefinite</span>

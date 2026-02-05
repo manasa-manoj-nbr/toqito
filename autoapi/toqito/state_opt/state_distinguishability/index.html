@@ -993,7 +993,7 @@ measurement operators which may be of interest to us.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vectors</strong> (<em>list</em><em>[</em><em>numpy.ndarray</em><em>]</em>) – A list of states provided as vectors (for pure states) or density matrices (for mixed states).</p></li>
-<li><p><strong>probs</strong> (<em>list</em><em>[</em><em>float</em><em>]</em>) – Respective list of probabilities each state is selected. If no
+<li><p><strong>probs</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – Respective list of probabilities each state is selected. If no
 probabilities are provided, a uniform probability distribution is assumed.</p></li>
 <li><p><strong>strategy</strong> (<em>str</em>) – Whether to perform unambiguous or minimal error discrimination task. Possible
 values are “min_error” and “unambiguous”. Default option is <cite>strategy=”min_error”</cite>.
@@ -1008,7 +1008,7 @@ Both strategies support pure and mixed states.</p></li>
 not given from <cite>states</cite> along with the optimal set of measurements.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[float, list[picos.HermitianVariable] | tuple[picos.HermitianVariable] | tuple[picos.RealVariable]]</p>
+<dd class="field-odd"><p>tuple[float, list[picos.HermitianVariable] | list[numpy.ndarray] | tuple[picos.SymmetricVariable]]</p>
 </dd>
 </dl>
 </dd></dl>

@@ -888,7 +888,7 @@ the effort level.</p>
 <li><p><strong>k</strong> (<em>int</em>) – A positive integer indicating that the function should determine whether or not
 the input operator is k-block positive, i.e., whether or not it remains nonnegative
 under left and right multiplication by vectors with Schmidt rank &lt;= k (default 1).</p></li>
-<li><p><strong>dim</strong> (<em>int</em><em> | </em><em>list</em><em>[</em><em>int</em><em>]</em>) – The dimension of the two sub-systems. By default it’s assumed to be equal.</p></li>
+<li><p><strong>dim</strong> (<em>int</em><em> | </em><em>list</em><em>[</em><em>int</em><em>] </em><em>| </em><em>None</em>) – The dimension of the two sub-systems. By default it’s assumed to be equal.</p></li>
 <li><p><strong>effort</strong> (<em>int</em>) – An integer value indicating the amount of computation you want to devote to
 determine block positivity before giving up.</p></li>
 <li><p><strong>rtol</strong> (<em>float</em>) – The relative tolerance parameter (default 1e-05).</p></li>
@@ -900,7 +900,7 @@ determine block positivity before giving up.</p></li>
 whether or not the operator is block positive.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bool</p>
+<dd class="field-even"><p>bool | RuntimeError</p>
 </dd>
 </dl>
 </dd></dl>
