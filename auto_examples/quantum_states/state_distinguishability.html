@@ -894,12 +894,14 @@ semidefinite programming.</p></li>
 may be obtained by solving the following semidefinite program (SDP).</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-    \text{maximize:} \quad &amp; \sum_{i=0}^n p_i \langle M_i,
-    \rho_i \rangle \\
-    \text{subject to:} \quad &amp; \sum_{i=0}^n M_i = \mathbb{I}_{\mathcal{X}},\\
-                             &amp; M_i \in \text{Pos}(\mathcal{X}).
-\end{align*}\end{split}\]</div>
+\[\begin{split}\begin{equation}
+    \begin{aligned}
+        \text{maximize:} \quad &amp; \sum_{i=0}^n p_i \langle M_i,
+        \rho_i \rangle \\
+        \text{subject to:} \quad &amp; \sum_{i=0}^n M_i = \mathbb{I}_{\mathcal{X}},\\
+                                 &amp; M_i \in \text{Pos}(\mathcal{X}).
+    \end{aligned}
+\end{equation}\end{split}\]</div>
 </div>
 <p>This optimization problem is solved in <code class="code docutils literal notranslate"><span class="pre">|toqito⟩</span></code> to obtain the optimal
 probability with which Bob can distinguish state <span class="math notranslate nohighlight">\(\rho_i\)</span>.</p>
@@ -925,26 +927,26 @@ consider the following example. Assume Alice has an ensemble of quantum states</
 can optimally distinguish the state he is given perfectly, i.e. with probability
 <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <p>Using <code class="code docutils literal notranslate"><span class="pre">|toqito⟩</span></code>, we can calculate this probability directly as follows:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="linenos">118</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="linenos">119</span>
-<span class="linenos">120</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_opt</span><span class="w"> </span><span class="kn">import</span> <span class="n">state_distinguishability</span>
-<span class="linenos">121</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">basis</span>
-<span class="linenos">122</span>
-<span class="linenos">123</span> <span class="c1"># Define the standard basis |0&gt; and |1&gt;.</span>
-<span class="linenos">124</span> <span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="linenos">125</span>
-<span class="linenos">126</span> <span class="c1"># Define the corresponding density matrices of |0&gt; and |1&gt;</span>
-<span class="linenos">127</span> <span class="c1"># given as |0&gt;&lt;0| and |1&gt;&lt;1|, respectively.</span>
-<span class="linenos">128</span> <span class="n">E_0</span> <span class="o">=</span> <span class="n">e_0</span> <span class="o">@</span> <span class="n">e_0</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-<span class="linenos">129</span> <span class="n">E_1</span> <span class="o">=</span> <span class="n">e_1</span> <span class="o">@</span> <span class="n">e_1</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-<span class="linenos">130</span>
-<span class="linenos">131</span> <span class="c1"># Define a list of states and a corresponding list of probabilities with which those</span>
-<span class="linenos">132</span> <span class="c1"># states are selected.</span>
-<span class="linenos">133</span> <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">E_0</span><span class="p">,</span> <span class="n">E_1</span><span class="p">]</span>
-<span class="linenos">134</span> <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span>
-<span class="linenos">135</span>
-<span class="linenos">136</span> <span class="c1"># Calculate the probability with which Bob can distinguish the state he is provided.</span>
-<span class="linenos">137</span> <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">state_distinguishability</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">probs</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="linenos">120</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">121</span>
+<span class="linenos">122</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_opt</span><span class="w"> </span><span class="kn">import</span> <span class="n">state_distinguishability</span>
+<span class="linenos">123</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">basis</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span> <span class="c1"># Define the standard basis |0&gt; and |1&gt;.</span>
+<span class="linenos">126</span> <span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">127</span>
+<span class="linenos">128</span> <span class="c1"># Define the corresponding density matrices of |0&gt; and |1&gt;</span>
+<span class="linenos">129</span> <span class="c1"># given as |0&gt;&lt;0| and |1&gt;&lt;1|, respectively.</span>
+<span class="linenos">130</span> <span class="n">E_0</span> <span class="o">=</span> <span class="n">e_0</span> <span class="o">@</span> <span class="n">e_0</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<span class="linenos">131</span> <span class="n">E_1</span> <span class="o">=</span> <span class="n">e_1</span> <span class="o">@</span> <span class="n">e_1</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<span class="linenos">132</span>
+<span class="linenos">133</span> <span class="c1"># Define a list of states and a corresponding list of probabilities with which those</span>
+<span class="linenos">134</span> <span class="c1"># states are selected.</span>
+<span class="linenos">135</span> <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">E_0</span><span class="p">,</span> <span class="n">E_1</span><span class="p">]</span>
+<span class="linenos">136</span> <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span> <span class="c1"># Calculate the probability with which Bob can distinguish the state he is provided.</span>
+<span class="linenos">139</span> <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">state_distinguishability</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">probs</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>1.0
@@ -1010,31 +1012,31 @@ measurements.</p>
 distinguishability were initially considered in <a class="footnote-reference brackets" href="#footcite-yu-2012-four" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>. In <code class="code docutils literal notranslate"><span class="pre">|toqito⟩</span></code>,
 we can calculate the probability with which Bob can distinguish these states
 via PPT measurements in the following manner.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="linenos">210</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="linenos">211</span>
-<span class="linenos">212</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_opt</span><span class="w"> </span><span class="kn">import</span> <span class="n">ppt_distinguishability</span>
-<span class="linenos">213</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bell</span>
-<span class="linenos">214</span>
-<span class="linenos">215</span> <span class="c1"># Bell vectors:</span>
-<span class="linenos">216</span> <span class="n">psi_0</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">217</span> <span class="n">psi_1</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="linenos">218</span> <span class="n">psi_2</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="linenos">219</span> <span class="n">psi_3</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">220</span>
-<span class="linenos">221</span> <span class="c1"># YDY vectors from :footcite:`Yu_2012_Four`:</span>
-<span class="linenos">222</span> <span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_0</span><span class="p">,</span> <span class="n">psi_0</span><span class="p">)</span>
-<span class="linenos">223</span> <span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_1</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
-<span class="linenos">224</span> <span class="n">x_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_2</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
-<span class="linenos">225</span> <span class="n">x_4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_3</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
-<span class="linenos">226</span>
-<span class="linenos">227</span> <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span><span class="p">,</span> <span class="n">x_3</span><span class="p">,</span> <span class="n">x_4</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="linenos">212</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos">213</span>
+<span class="linenos">214</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_opt</span><span class="w"> </span><span class="kn">import</span> <span class="n">ppt_distinguishability</span>
+<span class="linenos">215</span> <span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bell</span>
+<span class="linenos">216</span>
+<span class="linenos">217</span> <span class="c1"># Bell vectors:</span>
+<span class="linenos">218</span> <span class="n">psi_0</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">219</span> <span class="n">psi_1</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">220</span> <span class="n">psi_2</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">221</span> <span class="n">psi_3</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">222</span>
+<span class="linenos">223</span> <span class="c1"># YDY vectors from :footcite:`Yu_2012_Four`:</span>
+<span class="linenos">224</span> <span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_0</span><span class="p">,</span> <span class="n">psi_0</span><span class="p">)</span>
+<span class="linenos">225</span> <span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_1</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
+<span class="linenos">226</span> <span class="n">x_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_2</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
+<span class="linenos">227</span> <span class="n">x_4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_3</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
 <span class="linenos">228</span>
-<span class="linenos">229</span> <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span>
-<span class="linenos">230</span> <span class="c1"># Calculate the PPT distinguishability value.</span>
-<span class="linenos">231</span> <span class="n">ppt_val</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ppt_distinguishability</span><span class="p">(</span><span class="n">vectors</span><span class="o">=</span><span class="n">states</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">subsystems</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="linenos">232</span>
-<span class="linenos">233</span> <span class="c1"># Print the rounded result.</span>
-<span class="linenos">234</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal probability with PPT measurements: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">ppt_val</span><span class="p">,</span><span class="w"> </span><span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos">229</span> <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span><span class="p">,</span> <span class="n">x_3</span><span class="p">,</span> <span class="n">x_4</span><span class="p">]</span>
+<span class="linenos">230</span>
+<span class="linenos">231</span> <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span>
+<span class="linenos">232</span> <span class="c1"># Calculate the PPT distinguishability value.</span>
+<span class="linenos">233</span> <span class="n">ppt_val</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ppt_distinguishability</span><span class="p">(</span><span class="n">vectors</span><span class="o">=</span><span class="n">states</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">subsystems</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="linenos">234</span>
+<span class="linenos">235</span> <span class="c1"># Print the rounded result.</span>
+<span class="linenos">236</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal probability with PPT measurements: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">ppt_val</span><span class="p">,</span><span class="w"> </span><span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Optimal probability with PPT measurements: 0.87
@@ -1081,7 +1083,7 @@ SDPs can be found here <a class="footnote-reference brackets" href="#footcite-na
 </aside>
 </aside>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.597 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.493 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-quantum-states-state-distinguishability-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/1fa7e91d2764213e7bef47d5c384a41d/state_distinguishability.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">state_distinguishability.ipynb</span></code></a></p>

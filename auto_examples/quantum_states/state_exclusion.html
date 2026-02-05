@@ -838,7 +838,7 @@ It may be useful to consult the
 <a class="reference internal" href="state_distinguishability.html#sphx-glr-auto-examples-quantum-states-state-distinguishability-py"><span class="std std-ref">Quantum state distinguishability</span></a>
 tutorial on this topic.</p>
 <p>Further information beyond the scope of this tutorial can be found in the text
-<cite>:footcite:Pusey_2012_On</cite> as well as the course <a class="footnote-reference brackets" href="#footcite-bandyopadhyay-2014-conclusive" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<a class="footnote-reference brackets" href="#footcite-pusey-2012-on" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> as well as the course <a class="footnote-reference brackets" href="#footcite-bandyopadhyay-2014-conclusive" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <section id="the-state-exclusion-problem">
 <h2>The state exclusion problem<a class="headerlink" href="#the-state-exclusion-problem" title="Link to this heading">¶</a></h2>
 <p>The quantum state exclusion problem is phrased as follows.</p>
@@ -862,10 +862,10 @@ In order to do so, he may measure <span class="math notranslate nohighlight">\(\
 <span class="math notranslate nohighlight">\(i\)</span> for which the state in the ensemble corresponds.</p></li>
 </ol>
 <p>This setting is depicted in the following figure.</p>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id6">
 <img alt="quantum state exclusion" src="../../_images/quantum_state_distinguish.svg" />
 <figcaption>
-<p><span class="caption-text">The quantum state exclusion setting.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<p><span class="caption-text">The quantum state exclusion setting.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
@@ -1036,7 +1036,7 @@ the antidistinguishability SDP.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Optimal SDP value: 0.0
 </pre></div>
 </div>
-<p>The SDP not only gives us the optimal value, which is $0$ in this case, indicating that the states are
+<p>The SDP not only gives us the optimal value, which is <span class="math notranslate nohighlight">\(0\)</span> in this case, indicating that the states are
 antidistinguishable, but we also get a set of optimal measurement operators. These should look familiar to the
 measurements we explicitly constructed earlier.</p>
 </section>
@@ -1044,7 +1044,7 @@ measurements we explicitly constructed earlier.</p>
 <section id="antidistinguishability-and-n-1-incoherence">
 <h2>Antidistinguishability and <span class="math notranslate nohighlight">\((n-1)\)</span>-incoherence<a class="headerlink" href="#antidistinguishability-and-n-1-incoherence" title="Link to this heading">¶</a></h2>
 <p>Antidistinguishability of a set of pure states is equivalent to a certain notion from the theory of quantum resources
-referred to as <span class="math notranslate nohighlight">\(k\)</span>-incoherence <a class="footnote-reference brackets" href="#footcite-johnston-2022-absolutely" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
+referred to as <span class="math notranslate nohighlight">\(k\)</span>-incoherence <a class="footnote-reference brackets" href="#footcite-johnston-2022-absolutely" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>:</p>
 <p><strong>Definition</strong>: Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> be positive integers. Then <span class="math notranslate nohighlight">\(X \in \text{Pos}(\mathbb{C} ^n)\)</span> is called
 <span class="math notranslate nohighlight">\(k\)</span>-incoherent* if there exists a positive integer <span class="math notranslate nohighlight">\(m\)</span>, a set
 <span class="math notranslate nohighlight">\(S = \{|\psi_0\rangle, |\psi_1\rangle,\ldots, |\psi_{m-1}\rangle\} \subset \mathbb{C} ^n\)</span> with the property that
@@ -1052,10 +1052,10 @@ each <span class="math notranslate nohighlight">\(|\psi_i\rangle\)</span> has at
 for which</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
-\[X = \sum_{j=0}^{m-1} c_j |psi_j\rangle \langle \psi_j|.\]</div>
+\[X = \sum_{j=0}^{m-1} c_j |\psi_j\rangle \langle \psi_j|.\]</div>
 </div>
 <p>It turns out that antidistinguishability is equivalent to <span class="math notranslate nohighlight">\(k\)</span>-incoherence in the <span class="math notranslate nohighlight">\(k = n - 1\)</span> case.
-Reproducing one of the results from <a class="footnote-reference brackets" href="#footcite-johnston-2025-tight" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, we have the following theorem.</p>
+Reproducing one of the results from <a class="footnote-reference brackets" href="#footcite-johnston-2025-tight" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>, we have the following theorem.</p>
 <p><strong>Theorem</strong>: Let <span class="math notranslate nohighlight">\(n \geq 2\)</span> be an integer and let <span class="math notranslate nohighlight">\(S = \{|\phi_0\rangle, |\phi_1\rangle, \ldots, |\phi_{n-1}\rangle\}\)</span>.
 Then <span class="math notranslate nohighlight">\(S\)</span> is antidistinguishable if and only if the Gram matrix <span class="math notranslate nohighlight">\(G\)</span> is <span class="math notranslate nohighlight">\((n-1)\)</span>-incoherent.</p>
 <div class="math-wrapper docutils container">
@@ -1092,23 +1092,27 @@ Is (n-1)-incoherent: False
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
-<div class="docutils container" id="id4">
+<div class="docutils container" id="id5">
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="footcite-bandyopadhyay-2014-conclusive" role="doc-footnote">
+<aside class="footnote brackets" id="footcite-pusey-2012-on" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Matthew F. Pusey, Jonathan Barrett, and Terry Rudolph. On the reality of the quantum state. <em>Nature Physics</em>, 8(6):475–478, May 2012. URL: <a class="reference external" href="http://dx.doi.org/10.1038/nphys2309">http://dx.doi.org/10.1038/nphys2309</a>, <a class="reference external" href="https://doi.org/10.1038/nphys2309">doi:10.1038/nphys2309</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-bandyopadhyay-2014-conclusive" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Somshubhro Bandyopadhyay, Rahul Jain, Jonathan Oppenheim, and Christopher Perry. Conclusive exclusion of quantum states. <em>Physical Review A</em>, Feb 2014. URL: <a class="reference external" href="http://dx.doi.org/10.1103/PhysRevA.89.022336">http://dx.doi.org/10.1103/PhysRevA.89.022336</a>, <a class="reference external" href="https://doi.org/10.1103/physreva.89.022336">doi:10.1103/physreva.89.022336</a>.</p>
 </aside>
 <aside class="footnote brackets" id="footcite-johnston-2022-absolutely" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
 <p>Nathaniel Johnston, Shirin Moein, Rajesh Pereira, and Sarah Plosker. Absolutely k-incoherent quantum states and spectral inequalities for the factor width of a matrix. <em>Physical Review A</em>, 106(5):052417, 2022.</p>
 </aside>
 <aside class="footnote brackets" id="footcite-johnston-2025-tight" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
 <p>Nathaniel Johnston, Vincent Russo, and Jamie Sikora. Tight bounds for antidistinguishability and circulant sets of pure quantum states. <em>Quantum</em>, 9:1622, 2025.</p>
 </aside>
 </aside>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.052 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.051 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-quantum-states-state-exclusion-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/dd1b1d7575f11b4fab6eac0154f6bc67/state_exclusion.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">state_exclusion.ipynb</span></code></a></p>

@@ -27,7 +27,7 @@ describe how one may use :code:`|toqito⟩` to calculate the optimal probability
 with which this problem can be solved when given access to certain
 measurements.
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-117
+.. GENERATED FROM PYTHON SOURCE LINES 12-119
 
 Further information beyond the scope of this tutorial can be found in the text
 :footcite:`Watrous_2018_TQI` as well as the course :footcite:`Sikora_2019_Semidefinite`.
@@ -100,12 +100,14 @@ The optimal probability with which Bob can distinguish the state he is given
 may be obtained by solving the following semidefinite program (SDP).
 
 .. math::
-   \begin{align*}
-       \text{maximize:} \quad & \sum_{i=0}^n p_i \langle M_i,
-       \rho_i \rangle \\
-       \text{subject to:} \quad & \sum_{i=0}^n M_i = \mathbb{I}_{\mathcal{X}},\\
-                                & M_i \in \text{Pos}(\mathcal{X}).
-   \end{align*}
+   \begin{equation}
+       \begin{aligned}
+           \text{maximize:} \quad & \sum_{i=0}^n p_i \langle M_i,
+           \rho_i \rangle \\
+           \text{subject to:} \quad & \sum_{i=0}^n M_i = \mathbb{I}_{\mathcal{X}},\\
+                                    & M_i \in \text{Pos}(\mathcal{X}).
+       \end{aligned}
+   \end{equation}
 
 This optimization problem is solved in :code:`|toqito⟩` to obtain the optimal
 probability with which Bob can distinguish state :math:`\rho_i`.
@@ -135,10 +137,10 @@ can optimally distinguish the state he is given perfectly, i.e. with probability
 
 Using :code:`|toqito⟩`, we can calculate this probability directly as follows:
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-139
+.. GENERATED FROM PYTHON SOURCE LINES 119-141
 
 .. code-block:: Python
-   :lineno-start: 118
+   :lineno-start: 120
 
 
     import numpy as np
@@ -175,7 +177,7 @@ Using :code:`|toqito⟩`, we can calculate this probability directly as follows:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-208
+.. GENERATED FROM PYTHON SOURCE LINES 145-210
 
 Specifying similar state distinguishability problems can be done so using this
 general pattern.
@@ -243,10 +245,10 @@ distinguishability were initially considered in :footcite:`Yu_2012_Four`. In :co
 we can calculate the probability with which Bob can distinguish these states
 via PPT measurements in the following manner.
 
-.. GENERATED FROM PYTHON SOURCE LINES 208-236
+.. GENERATED FROM PYTHON SOURCE LINES 210-238
 
 .. code-block:: Python
-   :lineno-start: 210
+   :lineno-start: 212
 
 
 
@@ -289,7 +291,7 @@ via PPT measurements in the following manner.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 237-245
+.. GENERATED FROM PYTHON SOURCE LINES 239-247
 
 Probability of distinguishing a state via separable measurements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -300,7 +302,7 @@ eventually does converge to the separable value. This hierarchy is based off
 the notion of symmetric extensions. More information about this hierarchy of
 SDPs can be found here :footcite:`Navascues_2008_Pure`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 247-251
+.. GENERATED FROM PYTHON SOURCE LINES 249-253
 
 References
 ----------
@@ -310,7 +312,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.597 seconds)
+   **Total running time of the script:** (0 minutes 5.493 seconds)
 
 
 .. _sphx_glr_download_auto_examples_quantum_states_state_distinguishability.py:

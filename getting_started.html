@@ -831,9 +831,14 @@
 <h2>Installing<a class="headerlink" href="#installing" title="Link to this heading">¶</a></h2>
 <p>1. Ensure you have Python 3.10 or greater installed on your machine or in
 a virtual environment (<a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>, <a class="reference external" href="https://realpython.com/intro-to-pyenv/">pyenv tutorial</a>).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Python 3.13 is not yet supported due to incompatibilities with some dependencies (e.g., <code class="code docutils literal notranslate"><span class="pre">cvxopt</span></code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On macOS, the <code class="code docutils literal notranslate"><span class="pre">cvxopt</span></code> dependency (pulled in by <code class="code docutils literal notranslate"><span class="pre">picos</span></code>) may need to be built from source
+if a pre-built wheel is not available for your Python version and macOS version. If you encounter a
+build error mentioning <code class="code docutils literal notranslate"><span class="pre">umfpack.h</span></code>, install the required system library with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>suite-sparse
+</pre></div>
+</div>
 </div>
 <p>2. Consider using a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>.
 You can also use <code class="code docutils literal notranslate"><span class="pre">pyenv</span></code> with <code class="code docutils literal notranslate"><span class="pre">virtualenv</span></code> <a class="reference external" href="https://github.com/pyenv/pyenv-virtualenv">to manage different Python versions</a>.</p>
