@@ -1,0 +1,160 @@
+
+
+.. _sphx_glr_auto_examples_quantum_states:
+
+Quantum States
+--------------
+
+- :doc:`/auto_examples/quantum_states/state_distinguishability`
+- :doc:`/auto_examples/quantum_states/state_exclusion`
+- :doc:`/auto_examples/quantum_states/classification`
+- :doc:`/auto_examples/quantum_states/circulant_states`
+- :doc:`/auto_examples/quantum_states/equiangular_threshold`
+- :doc:`/auto_examples/quantum_states/pgm_pbm`
+- :doc:`/auto_examples/quantum_states/pbr_theorem`
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial we are going to cover the problem of quantum state distinguishability (sometimes analogously referred to as quantum state discrimination). We are going to briefly describe the problem setting and then describe how one may use |toqito⟩ to calculate the optimal probability with which this problem can be solved when given access to certain measurements.">
+
+.. only:: html
+
+  .. image:: /auto_examples/quantum_states/images/thumb/sphx_glr_state_distinguishability_thumb.svg
+    :alt:
+
+  :doc:`/auto_examples/quantum_states/state_distinguishability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Quantum state distinguishability</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will explore the Pusey-Barrett-Rudolph (PBR) theorem Pusey_2012_On, a significant no-go theorem in the foundations of quantum mechanics. We will describe the theorem&#x27;s core argument and then use |toqito⟩ to verify the central mathematical property that the theorem relies on.">
+
+.. only:: html
+
+  .. image:: /auto_examples/quantum_states/images/thumb/sphx_glr_pbr_theorem_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/quantum_states/pbr_theorem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Pusey-Barrett-Rudolph (PBR) Theorem</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we investigate the antidistinguishability of a special class of quantum states known as circulant states. We will numerically verify a necessary and sufficient condition based on the eigenvalues of the states&#x27; Gram matrix, as presented in the paper by Johnston et al. Johnston_2025_Tight.">
+
+.. only:: html
+
+  .. image:: /auto_examples/quantum_states/images/thumb/sphx_glr_circulant_states_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/quantum_states/circulant_states`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Antidistinguishability of Circulant States and the Eigenvalue Criterion</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we are going to cover the problem of quantum state exclusion. We are going to briefly describe the problem setting and then describe how one may use |toqito⟩ to calculate the optimal probability with which this problem can be solved for a number of different scenarios.">
+
+.. only:: html
+
+  .. image:: /auto_examples/quantum_states/images/thumb/sphx_glr_state_exclusion_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/quantum_states/state_exclusion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Quantum state exclusion</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example accompanies the &quot;The complexity of quantum state classification&quot; paper Johnston_2025_Complexity.">
+
+.. only:: html
+
+  .. image:: /auto_examples/quantum_states/images/thumb/sphx_glr_classification_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/quantum_states/classification`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Quantum classification, factor width, k-incoherence</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we explore a sharp threshold for the antidistinguishability of a special class of quantum states known as equiangular states. We will numerically verify a tight bound presented in the paper by Johnson et.al Johnston_2025_Tight and visualize the &quot;sharp cliff&quot; where this property changes.">
+
+.. only:: html
+
+  .. image:: /auto_examples/quantum_states/images/thumb/sphx_glr_equiangular_threshold_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/quantum_states/equiangular_threshold`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Equiangular States and the Antidistinguishability Threshold</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will explore the &quot;pretty good measurement&quot; (PGM) and its novel counterpart, the &quot;pretty bad measurement&quot; (PBM). The PGM, also known as the square-root measurement, is a widely used measurement for quantum state discrimination Belavkin_1975_Optimal,Hughston_1993_Complete. The PBM, in contrast, was recently introduced by McIrvin et. al. McIrvin_2024_Pretty. Both these measurements provide elegant, easy-to-construct tools for two opposing goals in quantum information: state discrimination and state exclusion. PGM is useful for the former while PBM is of use for the latter.">
+
+.. only:: html
+
+  .. image:: /auto_examples/quantum_states/images/thumb/sphx_glr_pgm_pbm_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/quantum_states/pgm_pbm`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Pretty Good and Pretty Bad Measurements</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/quantum_states/state_distinguishability
+   /auto_examples/quantum_states/pbr_theorem
+   /auto_examples/quantum_states/circulant_states
+   /auto_examples/quantum_states/state_exclusion
+   /auto_examples/quantum_states/classification
+   /auto_examples/quantum_states/equiangular_threshold
+   /auto_examples/quantum_states/pgm_pbm
+

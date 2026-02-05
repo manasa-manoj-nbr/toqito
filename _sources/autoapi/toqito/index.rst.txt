@@ -1,0 +1,38 @@
+toqito
+======
+
+.. py:module:: toqito
+
+.. autoapi-nested-parse::
+
+   toqito package namespace.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/toqito/channel_metrics/index
+   /autoapi/toqito/channel_ops/index
+   /autoapi/toqito/channel_props/index
+   /autoapi/toqito/channels/index
+   /autoapi/toqito/helper/index
+   /autoapi/toqito/matrices/index
+   /autoapi/toqito/matrix_ops/index
+   /autoapi/toqito/matrix_props/index
+   /autoapi/toqito/measurement_ops/index
+   /autoapi/toqito/measurement_props/index
+   /autoapi/toqito/measurements/index
+   /autoapi/toqito/nonlocal_games/index
+   /autoapi/toqito/perms/index
+   /autoapi/toqito/rand/index
+   /autoapi/toqito/state_metrics/index
+   /autoapi/toqito/state_ops/index
+   /autoapi/toqito/state_opt/index
+   /autoapi/toqito/state_props/index
+   /autoapi/toqito/states/index
+
+

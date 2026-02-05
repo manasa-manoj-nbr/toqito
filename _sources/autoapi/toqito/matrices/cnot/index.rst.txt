@@ -1,0 +1,47 @@
+toqito.matrices.cnot
+====================
+
+.. py:module:: toqito.matrices.cnot
+
+.. autoapi-nested-parse::
+
+   CNOT matrix generates the CNOT operator matrix.
+
+
+
+
+
+Module Contents
+---------------
+
+.. py:function:: cnot()
+
+   Produce the CNOT matrix :footcite:`WikiCNOT`.
+
+   The CNOT matrix is defined as
+
+   .. math::
+       \text{CNOT} =
+       \begin{pmatrix}
+           1 & 0 & 0 & 0 \\
+           0 & 1 & 0 & 0 \\
+           0 & 0 & 0 & 1 \\
+           0 & 0 & 1 & 0
+       \end{pmatrix}.
+
+   .. rubric:: Examples
+
+   .. jupyter-execute::
+
+    from toqito.matrices import cnot
+
+    cnot()
+
+   .. rubric:: References
+
+   .. footbibliography::
+
+   :return: The CNOT matrix.
+
+
+

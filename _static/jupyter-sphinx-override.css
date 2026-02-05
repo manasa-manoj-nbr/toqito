@@ -1,0 +1,54 @@
+
+    /* Override jupyter-sphinx styling to match Furo theme */
+    div.jupyter_container {
+        background-color: var(--color-background-secondary);
+        border: 1px solid var(--color-background-border);
+        box-shadow: none;
+        margin-bottom: 1em;
+    }
+    
+    .jupyter_container div.code_cell {
+        background-color: var(--color-code-background);
+        border: 1px solid var(--color-background-border);
+        border-radius: 0.2rem;
+    }
+    
+    .jupyter_container div.code_cell pre {
+        background-color: var(--color-code-background);
+        color: var(--color-code-foreground);
+        font-family: var(--font-stack--monospace);
+    }
+    
+    div.jupyter_container div.highlight {
+        background-color: var(--color-code-background);
+    }
+    
+    .jupyter_container .output {
+        background-color: var(--color-background-secondary);
+        padding: 0.5em;
+        border-top: 1px solid var(--color-background-border);
+    }
+    
+    .jupyter_container div.output pre {
+        background-color: var(--color-background-secondary);
+        color: var(--color-foreground-primary);
+        font-family: var(--font-stack--monospace);
+    }
+    
+    /* Fix for output highlighting */
+    .jupyter_container .output .highlight {
+        background-color: var(--color-background-secondary);
+    }
+    
+    /* Style for the prompt */
+    .jupyter_container .highlight .gp {
+        color: var(--color-brand-primary);
+        font-weight: bold;
+    }
+    
+    /* Style for code comments */
+    .jupyter_container .highlight .c1 {
+        color: var(--color-foreground-secondary);
+        font-style: italic;
+    }
+    

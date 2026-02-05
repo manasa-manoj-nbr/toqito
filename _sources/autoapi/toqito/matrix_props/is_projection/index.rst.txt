@@ -1,0 +1,80 @@
+toqito.matrix_props.is_projection
+=================================
+
+.. py:module:: toqito.matrix_props.is_projection
+
+.. autoapi-nested-parse::
+
+   Checks if the matrix is a projection matrix.
+
+
+
+
+
+Module Contents
+---------------
+
+.. py:function:: is_projection(mat, rtol = 1e-05, atol = 1e-08)
+
+   Check if matrix is a projection matrix :footcite:`WikiProjMat`.
+
+   A matrix is a projection matrix if it is positive semidefinite (PSD) and if
+
+   .. math::
+       \begin{equation}
+           X^2 = X
+       \end{equation}
+
+   where :math:`X` is the matrix in question.
+
+   .. rubric:: Examples
+
+   Consider the following matrix
+
+   .. math::
+       A = \begin{pmatrix}
+               0 & 1 \\
+               0 & 1
+           \end{pmatrix}
+
+   our function indicates that this is indeed a projection matrix.
+
+   .. jupyter-execute::
+
+    import numpy as np
+    from toqito.matrix_props import is_projection
+
+    A = np.array([[0, 1], [0, 1]])
+
+    is_projection(A)
+
+   Alternatively, the following example matrix :math:`B` defined as
+
+   .. math::
+       B = \begin{pmatrix}
+               -1 & -1 \\
+               -1 & -1
+           \end{pmatrix}
+
+   is not positive definite.
+
+   .. jupyter-execute::
+
+    import numpy as np
+    from toqito.matrix_props import is_projection
+
+    B = np.array([[-1, -1], [-1, -1]])
+
+    is_projection(B)
+
+   .. rubric:: References
+
+   .. footbibliography::
+
+   :param mat: Matrix to check.
+   :param rtol: The relative tolerance parameter (default 1e-05).
+   :param atol: The absolute tolerance parameter (default 1e-08).
+   :return: Return :code:`True` if matrix is a projection matrix, and :code:`False` otherwise.
+
+
+

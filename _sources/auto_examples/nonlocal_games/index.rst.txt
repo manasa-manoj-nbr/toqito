@@ -1,0 +1,65 @@
+
+
+.. _sphx_glr_auto_examples_nonlocal_games:
+
+Nonlocal Games
+--------------
+
+- :doc:`/auto_examples/nonlocal_games/nonlocal_game`
+- :doc:`/auto_examples/nonlocal_games/xor_quantum_value`
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will cover the concept of an XOR game. We will also showcase how the |toqito⟩ software package can be used to calculate the classical and quantum value of a given XOR game.">
+
+.. only:: html
+
+  .. image:: /auto_examples/nonlocal_games/images/thumb/sphx_glr_xor_quantum_value_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/nonlocal_games/xor_quantum_value`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Calculating the quantum and classical value of a two-player XOR game</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we are going to cover the notion of a nonlocal game; a mathematical framework that abstractly models a physical system. The simplest instance of a nonlocal game involves two players, Alice and Bob, who are not allowed to communicate with each other once the game has started and who play cooperatively against an adversary referred to as the referee.">
+
+.. only:: html
+
+  .. image:: /auto_examples/nonlocal_games/images/thumb/sphx_glr_nonlocal_game_thumb.svg
+    :alt:
+
+  :doc:`/auto_examples/nonlocal_games/nonlocal_game`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nonlocal games</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/nonlocal_games/xor_quantum_value
+   /auto_examples/nonlocal_games/nonlocal_game
+

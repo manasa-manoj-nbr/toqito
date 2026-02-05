@@ -1,0 +1,985 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html">
+        <link rel="prefetch" href="../../../_static/logo.svg" as="image">
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 8.1.3 and Furo 2025.12.19 -->
+        <title>toqito.channels.ldot_channel - |toqito&gt; 1.1.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx-override.css?v=fa50ec8e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">|toqito> 1.1.3 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/logo.svg" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">|toqito> 1.1.3 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_of_conduct.html">Code of Conduct</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../auto_examples/index.html">Examples</a><input aria-label="Toggle navigation of Examples" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_examples/basics/index.html">Basic Tutorials</a><input aria-label="Toggle navigation of Basic Tutorials" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/basics/superdense_coding.html">Superdense Coding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/basics/intro_tutorial.html">Introductory Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_examples/quantum_states/index.html">Quantum States</a><input aria-label="Toggle navigation of Quantum States" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/quantum_states/state_distinguishability.html">Quantum state distinguishability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/quantum_states/pbr_theorem.html">The Pusey-Barrett-Rudolph (PBR) Theorem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/quantum_states/circulant_states.html">Antidistinguishability of Circulant States and the Eigenvalue Criterion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/quantum_states/state_exclusion.html">Quantum state exclusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/quantum_states/classification.html">Quantum classification, factor width, <span class="math notranslate nohighlight">\(k\)</span>-incoherence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/quantum_states/equiangular_threshold.html">Equiangular States and the Antidistinguishability Threshold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/quantum_states/pgm_pbm.html">The Pretty Good and Pretty Bad Measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_examples/nonlocal_games/index.html">Nonlocal Games</a><input aria-label="Toggle navigation of Nonlocal Games" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/nonlocal_games/xor_quantum_value.html">Calculating the quantum and classical value of a two-player XOR game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/nonlocal_games/nonlocal_game.html">Nonlocal games</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../auto_examples/extended_nonlocal_games/index.html">Extended Nonlocal Games</a><input aria-label="Toggle navigation of Extended Nonlocal Games" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/extended_nonlocal_games/enlg_introduction.html">Extended nonlocal games</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/extended_nonlocal_games/bit_commitment.html">Modeling Bit Commitment Binding Failure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/extended_nonlocal_games/enlg_mub.html">An extended nonlocal game with quantum advantage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/extended_nonlocal_games/enlg_chsh.html">The CHSH extended nonlocal game</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../auto_examples/extended_nonlocal_games/enlg_bb84.html">The BB84 extended nonlocal game</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../autoapi_members.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/index.html">toqito</a><input aria-label="Toggle navigation of toqito" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/index.html">toqito.channel_metrics</a><input aria-label="Toggle navigation of toqito.channel_metrics" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/channel_distinguishability/index.html">toqito.channel_metrics.channel_distinguishability</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/channel_fidelity/index.html">toqito.channel_metrics.channel_fidelity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/channel_measured_relative_entropy/index.html">toqito.channel_metrics.channel_measured_relative_entropy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/completely_bounded_spectral_norm/index.html">toqito.channel_metrics.completely_bounded_spectral_norm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/completely_bounded_trace_norm/index.html">toqito.channel_metrics.completely_bounded_trace_norm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/diamond_distance/index.html">toqito.channel_metrics.diamond_distance</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/fidelity_of_separability/index.html">toqito.channel_metrics.fidelity_of_separability</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/index.html">toqito.channel_ops</a><input aria-label="Toggle navigation of toqito.channel_ops" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/apply_channel/index.html">toqito.channel_ops.apply_channel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/choi_to_kraus/index.html">toqito.channel_ops.choi_to_kraus</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/complementary_channel/index.html">toqito.channel_ops.complementary_channel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/dual_channel/index.html">toqito.channel_ops.dual_channel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/kraus_to_choi/index.html">toqito.channel_ops.kraus_to_choi</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/natural_representation/index.html">toqito.channel_ops.natural_representation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/partial_channel/index.html">toqito.channel_ops.partial_channel</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/channel_props/index.html">toqito.channel_props</a><input aria-label="Toggle navigation of toqito.channel_props" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/channel_dim/index.html">toqito.channel_props.channel_dim</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/choi_rank/index.html">toqito.channel_props.choi_rank</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_completely_positive/index.html">toqito.channel_props.is_completely_positive</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_extremal/index.html">toqito.channel_props.is_extremal</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_herm_preserving/index.html">toqito.channel_props.is_herm_preserving</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_positive/index.html">toqito.channel_props.is_positive</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_quantum_channel/index.html">toqito.channel_props.is_quantum_channel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_trace_preserving/index.html">toqito.channel_props.is_trace_preserving</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_unital/index.html">toqito.channel_props.is_unital</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_unitary/index.html">toqito.channel_props.is_unitary</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/channels/index.html">toqito.channels</a><input aria-label="Toggle navigation of toqito.channels" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/amplitude_damping/index.html">toqito.channels.amplitude_damping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/bitflip/index.html">toqito.channels.bitflip</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/choi/index.html">toqito.channels.choi</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/dephasing/index.html">toqito.channels.dephasing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/depolarizing/index.html">toqito.channels.depolarizing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/ldot_channel/index.html">toqito.channels.ldot_channel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/pauli_channel/index.html">toqito.channels.pauli_channel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/phase_damping/index.html">toqito.channels.phase_damping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/realignment/index.html">toqito.channels.realignment</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/channels/reduction/index.html">toqito.channels.reduction</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/helper/index.html">toqito.helper</a><input aria-label="Toggle navigation of toqito.helper" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/helper/expr_as_np_array/index.html">toqito.helper.expr_as_np_array</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/helper/np_array_as_expr/index.html">toqito.helper.np_array_as_expr</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/helper/update_odometer/index.html">toqito.helper.update_odometer</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/matrices/index.html">toqito.matrices</a><input aria-label="Toggle navigation of toqito.matrices" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/cnot/index.html">toqito.matrices.cnot</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/comparison/index.html">toqito.matrices.comparison</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/cyclic_permutation_matrix/index.html">toqito.matrices.cyclic_permutation_matrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/fourier/index.html">toqito.matrices.fourier</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/gell_mann/index.html">toqito.matrices.gell_mann</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_gell_mann/index.html">toqito.matrices.gen_gell_mann</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_pauli/index.html">toqito.matrices.gen_pauli</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_pauli_x/index.html">toqito.matrices.gen_pauli_x</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_pauli_z/index.html">toqito.matrices.gen_pauli_z</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/hadamard/index.html">toqito.matrices.hadamard</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/pauli/index.html">toqito.matrices.pauli</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrices/standard_basis/index.html">toqito.matrices.standard_basis</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/index.html">toqito.matrix_ops</a><input aria-label="Toggle navigation of toqito.matrix_ops" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/calculate_vector_matrix_dimension/index.html">toqito.matrix_ops.calculate_vector_matrix_dimension</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/null_space/index.html">toqito.matrix_ops.null_space</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/partial_trace/index.html">toqito.matrix_ops.partial_trace</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/partial_transpose/index.html">toqito.matrix_ops.partial_transpose</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/perturb_vectors/index.html">toqito.matrix_ops.perturb_vectors</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/tensor/index.html">toqito.matrix_ops.tensor</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/tensor_comb/index.html">toqito.matrix_ops.tensor_comb</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/tensor_unravel/index.html">toqito.matrix_ops.tensor_unravel</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/to_density_matrix/index.html">toqito.matrix_ops.to_density_matrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/unvec/index.html">toqito.matrix_ops.unvec</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/vectors_from_gram_matrix/index.html">toqito.matrix_ops.vectors_from_gram_matrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/vectors_to_gram_matrix/index.html">toqito.matrix_ops.vectors_to_gram_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/index.html">toqito.matrix_props</a><input aria-label="Toggle navigation of toqito.matrix_props" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/commutant/index.html">toqito.matrix_props.commutant</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/factor_width/index.html">toqito.matrix_props.factor_width</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/has_same_dimension/index.html">toqito.matrix_props.has_same_dimension</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_absolutely_k_incoherent/index.html">toqito.matrix_props.is_absolutely_k_incoherent</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_anti_hermitian/index.html">toqito.matrix_props.is_anti_hermitian</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_block_positive/index.html">toqito.matrix_props.is_block_positive</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_circulant/index.html">toqito.matrix_props.is_circulant</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_commuting/index.html">toqito.matrix_props.is_commuting</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_density/index.html">toqito.matrix_props.is_density</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_diagonal/index.html">toqito.matrix_props.is_diagonal</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_diagonally_dominant/index.html">toqito.matrix_props.is_diagonally_dominant</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_hermitian/index.html">toqito.matrix_props.is_hermitian</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_idempotent/index.html">toqito.matrix_props.is_idempotent</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_identity/index.html">toqito.matrix_props.is_identity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_k_incoherent/index.html">toqito.matrix_props.is_k_incoherent</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_ldoi/index.html">toqito.matrix_props.is_ldoi</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_linearly_independent/index.html">toqito.matrix_props.is_linearly_independent</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_nonnegative/index.html">toqito.matrix_props.is_nonnegative</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_normal/index.html">toqito.matrix_props.is_normal</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_orthonormal/index.html">toqito.matrix_props.is_orthonormal</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_permutation/index.html">toqito.matrix_props.is_permutation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_positive/index.html">toqito.matrix_props.is_positive</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_positive_definite/index.html">toqito.matrix_props.is_positive_definite</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_positive_semidefinite/index.html">toqito.matrix_props.is_positive_semidefinite</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_projection/index.html">toqito.matrix_props.is_projection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_pseudo_hermitian/index.html">toqito.matrix_props.is_pseudo_hermitian</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_pseudo_unitary/index.html">toqito.matrix_props.is_pseudo_unitary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_rank_one/index.html">toqito.matrix_props.is_rank_one</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_square/index.html">toqito.matrix_props.is_square</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_stochastic/index.html">toqito.matrix_props.is_stochastic</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_symmetric/index.html">toqito.matrix_props.is_symmetric</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_totally_positive/index.html">toqito.matrix_props.is_totally_positive</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_unitary/index.html">toqito.matrix_props.is_unitary</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/kp_norm/index.html">toqito.matrix_props.kp_norm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/majorizes/index.html">toqito.matrix_props.majorizes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/mutual_coherence/index.html">toqito.matrix_props.mutual_coherence</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/positive_semidefinite_rank/index.html">toqito.matrix_props.positive_semidefinite_rank</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/sk_norm/index.html">toqito.matrix_props.sk_norm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/spark/index.html">toqito.matrix_props.spark</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/trace_norm/index.html">toqito.matrix_props.trace_norm</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/measurement_ops/index.html">toqito.measurement_ops</a><input aria-label="Toggle navigation of toqito.measurement_ops" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/measurement_ops/measure/index.html">toqito.measurement_ops.measure</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/measurement_props/index.html">toqito.measurement_props</a><input aria-label="Toggle navigation of toqito.measurement_props" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/measurement_props/is_povm/index.html">toqito.measurement_props.is_povm</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/measurements/index.html">toqito.measurements</a><input aria-label="Toggle navigation of toqito.measurements" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/measurements/pretty_bad_measurement/index.html">toqito.measurements.pretty_bad_measurement</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/measurements/pretty_good_measurement/index.html">toqito.measurements.pretty_good_measurement</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/index.html">toqito.nonlocal_games</a><input aria-label="Toggle navigation of toqito.nonlocal_games" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/binary_constraint_system_game/index.html">toqito.nonlocal_games.binary_constraint_system_game</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/extended_nonlocal_game/index.html">toqito.nonlocal_games.extended_nonlocal_game</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/nonlocal_game/index.html">toqito.nonlocal_games.nonlocal_game</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/quantum_hedging/index.html">toqito.nonlocal_games.quantum_hedging</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/xor_game/index.html">toqito.nonlocal_games.xor_game</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/perms/index.html">toqito.perms</a><input aria-label="Toggle navigation of toqito.perms" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/antisymmetric_projection/index.html">toqito.perms.antisymmetric_projection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/perfect_matchings/index.html">toqito.perms.perfect_matchings</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/perm_sign/index.html">toqito.perms.perm_sign</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/permutation_operator/index.html">toqito.perms.permutation_operator</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/permute_systems/index.html">toqito.perms.permute_systems</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/swap/index.html">toqito.perms.swap</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/swap_operator/index.html">toqito.perms.swap_operator</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/symmetric_projection/index.html">toqito.perms.symmetric_projection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/unique_perms/index.html">toqito.perms.unique_perms</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/perms/vec/index.html">toqito.perms.vec</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/rand/index.html">toqito.rand</a><input aria-label="Toggle navigation of toqito.rand" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_circulant_gram_matrix/index.html">toqito.rand.random_circulant_gram_matrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_density_matrix/index.html">toqito.rand.random_density_matrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_ginibre/index.html">toqito.rand.random_ginibre</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_orthonormal_basis/index.html">toqito.rand.random_orthonormal_basis</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_povm/index.html">toqito.rand.random_povm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_psd_operator/index.html">toqito.rand.random_psd_operator</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_state_vector/index.html">toqito.rand.random_state_vector</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_states/index.html">toqito.rand.random_states</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/rand/random_unitary/index.html">toqito.rand.random_unitary</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/index.html">toqito.state_metrics</a><input aria-label="Toggle navigation of toqito.state_metrics" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/bures_angle/index.html">toqito.state_metrics.bures_angle</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/bures_distance/index.html">toqito.state_metrics.bures_distance</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/fidelity/index.html">toqito.state_metrics.fidelity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/fidelity_of_separability/index.html">toqito.state_metrics.fidelity_of_separability</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/helstrom_holevo/index.html">toqito.state_metrics.helstrom_holevo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/hilbert_schmidt/index.html">toqito.state_metrics.hilbert_schmidt</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/hilbert_schmidt_inner_product/index.html">toqito.state_metrics.hilbert_schmidt_inner_product</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/matsumoto_fidelity/index.html">toqito.state_metrics.matsumoto_fidelity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/measured_relative_entropy/index.html">toqito.state_metrics.measured_relative_entropy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/sub_fidelity/index.html">toqito.state_metrics.sub_fidelity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/trace_distance/index.html">toqito.state_metrics.trace_distance</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_ops/index.html">toqito.state_ops</a><input aria-label="Toggle navigation of toqito.state_ops" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_ops/normalize/index.html">toqito.state_ops.normalize</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_ops/schmidt_decomposition/index.html">toqito.state_ops.schmidt_decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_opt/index.html">toqito.state_opt</a><input aria-label="Toggle navigation of toqito.state_opt" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/bell_inequality_max/index.html">toqito.state_opt.bell_inequality_max</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/bell_notation_conversions/index.html">toqito.state_opt.bell_notation_conversions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/npa_hierarchy/index.html">toqito.state_opt.npa_hierarchy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/optimal_clone/index.html">toqito.state_opt.optimal_clone</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/ppt_distinguishability/index.html">toqito.state_opt.ppt_distinguishability</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/state_distinguishability/index.html">toqito.state_opt.state_distinguishability</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/state_exclusion/index.html">toqito.state_opt.state_exclusion</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/state_helper/index.html">toqito.state_opt.state_helper</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_opt/symmetric_extension_hierarchy/index.html">toqito.state_opt.symmetric_extension_hierarchy</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_props/index.html">toqito.state_props</a><input aria-label="Toggle navigation of toqito.state_props" class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/abs_ppt_constraints/index.html">toqito.state_props.abs_ppt_constraints</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/common_quantum_overlap/index.html">toqito.state_props.common_quantum_overlap</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/concurrence/index.html">toqito.state_props.concurrence</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/entanglement_of_formation/index.html">toqito.state_props.entanglement_of_formation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/has_symmetric_extension/index.html">toqito.state_props.has_symmetric_extension</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/in_separable_ball/index.html">toqito.state_props.in_separable_ball</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_abs_ppt/index.html">toqito.state_props.is_abs_ppt</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_antidistinguishable/index.html">toqito.state_props.is_antidistinguishable</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_distinguishable/index.html">toqito.state_props.is_distinguishable</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_ensemble/index.html">toqito.state_props.is_ensemble</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_mixed/index.html">toqito.state_props.is_mixed</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_mutually_orthogonal/index.html">toqito.state_props.is_mutually_orthogonal</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_mutually_unbiased_basis/index.html">toqito.state_props.is_mutually_unbiased_basis</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_npt/index.html">toqito.state_props.is_npt</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_ppt/index.html">toqito.state_props.is_ppt</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_product/index.html">toqito.state_props.is_product</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_pure/index.html">toqito.state_props.is_pure</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_separable/index.html">toqito.state_props.is_separable</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_sic_povm/index.html">toqito.state_props.is_sic_povm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_unextendible_product_basis/index.html">toqito.state_props.is_unextendible_product_basis</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/l1_norm_coherence/index.html">toqito.state_props.l1_norm_coherence</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/learnability/index.html">toqito.state_props.learnability</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/log_negativity/index.html">toqito.state_props.log_negativity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/negativity/index.html">toqito.state_props.negativity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/purity/index.html">toqito.state_props.purity</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/renyi_entropy/index.html">toqito.state_props.renyi_entropy</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/schmidt_rank/index.html">toqito.state_props.schmidt_rank</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/sk_vec_norm/index.html">toqito.state_props.sk_vec_norm</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/state_props/von_neumann_entropy/index.html">toqito.state_props.von_neumann_entropy</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../../autoapi/toqito/states/index.html">toqito.states</a><input aria-label="Toggle navigation of toqito.states" class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/basis/index.html">toqito.states.basis</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/bb84/index.html">toqito.states.bb84</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/bell/index.html">toqito.states.bell</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/brauer/index.html">toqito.states.brauer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/breuer/index.html">toqito.states.breuer</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/chessboard/index.html">toqito.states.chessboard</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/dicke/index.html">toqito.states.dicke</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/domino/index.html">toqito.states.domino</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/gen_bell/index.html">toqito.states.gen_bell</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/ghz/index.html">toqito.states.ghz</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/gisin/index.html">toqito.states.gisin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/horodecki/index.html">toqito.states.horodecki</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/isotropic/index.html">toqito.states.isotropic</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/max_entangled/index.html">toqito.states.max_entangled</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/max_mixed/index.html">toqito.states.max_mixed</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/mutually_unbiased_basis/index.html">toqito.states.mutually_unbiased_basis</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/pusey_barrett_rudolph/index.html">toqito.states.pusey_barrett_rudolph</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/singlet/index.html">toqito.states.singlet</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/tile/index.html">toqito.states.tile</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/trine/index.html">toqito.states.trine</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/w_state/index.html">toqito.states.w_state</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../autoapi/toqito/states/werner/index.html">toqito.states.werner</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../autoapi/toqito/index.html">toqito</a><input aria-label="Toggle navigation of toqito" class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/index.html">toqito.channel_metrics</a><input aria-label="Toggle navigation of toqito.channel_metrics" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/channel_distinguishability/index.html">toqito.channel_metrics.channel_distinguishability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/channel_fidelity/index.html">toqito.channel_metrics.channel_fidelity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/channel_measured_relative_entropy/index.html">toqito.channel_metrics.channel_measured_relative_entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/completely_bounded_spectral_norm/index.html">toqito.channel_metrics.completely_bounded_spectral_norm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/completely_bounded_trace_norm/index.html">toqito.channel_metrics.completely_bounded_trace_norm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/diamond_distance/index.html">toqito.channel_metrics.diamond_distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_metrics/fidelity_of_separability/index.html">toqito.channel_metrics.fidelity_of_separability</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/index.html">toqito.channel_ops</a><input aria-label="Toggle navigation of toqito.channel_ops" class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/apply_channel/index.html">toqito.channel_ops.apply_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/choi_to_kraus/index.html">toqito.channel_ops.choi_to_kraus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/complementary_channel/index.html">toqito.channel_ops.complementary_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/dual_channel/index.html">toqito.channel_ops.dual_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/kraus_to_choi/index.html">toqito.channel_ops.kraus_to_choi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/natural_representation/index.html">toqito.channel_ops.natural_representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_ops/partial_channel/index.html">toqito.channel_ops.partial_channel</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/channel_props/index.html">toqito.channel_props</a><input aria-label="Toggle navigation of toqito.channel_props" class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/channel_dim/index.html">toqito.channel_props.channel_dim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/choi_rank/index.html">toqito.channel_props.choi_rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_completely_positive/index.html">toqito.channel_props.is_completely_positive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_extremal/index.html">toqito.channel_props.is_extremal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_herm_preserving/index.html">toqito.channel_props.is_herm_preserving</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_positive/index.html">toqito.channel_props.is_positive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_quantum_channel/index.html">toqito.channel_props.is_quantum_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_trace_preserving/index.html">toqito.channel_props.is_trace_preserving</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_unital/index.html">toqito.channel_props.is_unital</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channel_props/is_unitary/index.html">toqito.channel_props.is_unitary</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/channels/index.html">toqito.channels</a><input aria-label="Toggle navigation of toqito.channels" class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/amplitude_damping/index.html">toqito.channels.amplitude_damping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/bitflip/index.html">toqito.channels.bitflip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/choi/index.html">toqito.channels.choi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/dephasing/index.html">toqito.channels.dephasing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/depolarizing/index.html">toqito.channels.depolarizing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/ldot_channel/index.html">toqito.channels.ldot_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/pauli_channel/index.html">toqito.channels.pauli_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/phase_damping/index.html">toqito.channels.phase_damping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/realignment/index.html">toqito.channels.realignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/channels/reduction/index.html">toqito.channels.reduction</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/helper/index.html">toqito.helper</a><input aria-label="Toggle navigation of toqito.helper" class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/helper/expr_as_np_array/index.html">toqito.helper.expr_as_np_array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/helper/np_array_as_expr/index.html">toqito.helper.np_array_as_expr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/helper/update_odometer/index.html">toqito.helper.update_odometer</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/matrices/index.html">toqito.matrices</a><input aria-label="Toggle navigation of toqito.matrices" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/cnot/index.html">toqito.matrices.cnot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/comparison/index.html">toqito.matrices.comparison</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/cyclic_permutation_matrix/index.html">toqito.matrices.cyclic_permutation_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/fourier/index.html">toqito.matrices.fourier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/gell_mann/index.html">toqito.matrices.gell_mann</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_gell_mann/index.html">toqito.matrices.gen_gell_mann</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_pauli/index.html">toqito.matrices.gen_pauli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_pauli_x/index.html">toqito.matrices.gen_pauli_x</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/gen_pauli_z/index.html">toqito.matrices.gen_pauli_z</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/hadamard/index.html">toqito.matrices.hadamard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/pauli/index.html">toqito.matrices.pauli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrices/standard_basis/index.html">toqito.matrices.standard_basis</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/index.html">toqito.matrix_ops</a><input aria-label="Toggle navigation of toqito.matrix_ops" class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/calculate_vector_matrix_dimension/index.html">toqito.matrix_ops.calculate_vector_matrix_dimension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/null_space/index.html">toqito.matrix_ops.null_space</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/partial_trace/index.html">toqito.matrix_ops.partial_trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/partial_transpose/index.html">toqito.matrix_ops.partial_transpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/perturb_vectors/index.html">toqito.matrix_ops.perturb_vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/tensor/index.html">toqito.matrix_ops.tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/tensor_comb/index.html">toqito.matrix_ops.tensor_comb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/tensor_unravel/index.html">toqito.matrix_ops.tensor_unravel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/to_density_matrix/index.html">toqito.matrix_ops.to_density_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/unvec/index.html">toqito.matrix_ops.unvec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/vectors_from_gram_matrix/index.html">toqito.matrix_ops.vectors_from_gram_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_ops/vectors_to_gram_matrix/index.html">toqito.matrix_ops.vectors_to_gram_matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/index.html">toqito.matrix_props</a><input aria-label="Toggle navigation of toqito.matrix_props" class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/commutant/index.html">toqito.matrix_props.commutant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/factor_width/index.html">toqito.matrix_props.factor_width</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/has_same_dimension/index.html">toqito.matrix_props.has_same_dimension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_absolutely_k_incoherent/index.html">toqito.matrix_props.is_absolutely_k_incoherent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_anti_hermitian/index.html">toqito.matrix_props.is_anti_hermitian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_block_positive/index.html">toqito.matrix_props.is_block_positive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_circulant/index.html">toqito.matrix_props.is_circulant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_commuting/index.html">toqito.matrix_props.is_commuting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_density/index.html">toqito.matrix_props.is_density</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_diagonal/index.html">toqito.matrix_props.is_diagonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_diagonally_dominant/index.html">toqito.matrix_props.is_diagonally_dominant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_hermitian/index.html">toqito.matrix_props.is_hermitian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_idempotent/index.html">toqito.matrix_props.is_idempotent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_identity/index.html">toqito.matrix_props.is_identity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_k_incoherent/index.html">toqito.matrix_props.is_k_incoherent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_ldoi/index.html">toqito.matrix_props.is_ldoi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_linearly_independent/index.html">toqito.matrix_props.is_linearly_independent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_nonnegative/index.html">toqito.matrix_props.is_nonnegative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_normal/index.html">toqito.matrix_props.is_normal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_orthonormal/index.html">toqito.matrix_props.is_orthonormal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_permutation/index.html">toqito.matrix_props.is_permutation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_positive/index.html">toqito.matrix_props.is_positive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_positive_definite/index.html">toqito.matrix_props.is_positive_definite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_positive_semidefinite/index.html">toqito.matrix_props.is_positive_semidefinite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_projection/index.html">toqito.matrix_props.is_projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_pseudo_hermitian/index.html">toqito.matrix_props.is_pseudo_hermitian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_pseudo_unitary/index.html">toqito.matrix_props.is_pseudo_unitary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_rank_one/index.html">toqito.matrix_props.is_rank_one</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_square/index.html">toqito.matrix_props.is_square</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_stochastic/index.html">toqito.matrix_props.is_stochastic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_symmetric/index.html">toqito.matrix_props.is_symmetric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_totally_positive/index.html">toqito.matrix_props.is_totally_positive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/is_unitary/index.html">toqito.matrix_props.is_unitary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/kp_norm/index.html">toqito.matrix_props.kp_norm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/majorizes/index.html">toqito.matrix_props.majorizes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/mutual_coherence/index.html">toqito.matrix_props.mutual_coherence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/positive_semidefinite_rank/index.html">toqito.matrix_props.positive_semidefinite_rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/sk_norm/index.html">toqito.matrix_props.sk_norm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/spark/index.html">toqito.matrix_props.spark</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/matrix_props/trace_norm/index.html">toqito.matrix_props.trace_norm</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/measurement_ops/index.html">toqito.measurement_ops</a><input aria-label="Toggle navigation of toqito.measurement_ops" class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/measurement_ops/measure/index.html">toqito.measurement_ops.measure</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/measurement_props/index.html">toqito.measurement_props</a><input aria-label="Toggle navigation of toqito.measurement_props" class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/measurement_props/is_povm/index.html">toqito.measurement_props.is_povm</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/measurements/index.html">toqito.measurements</a><input aria-label="Toggle navigation of toqito.measurements" class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/measurements/pretty_bad_measurement/index.html">toqito.measurements.pretty_bad_measurement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/measurements/pretty_good_measurement/index.html">toqito.measurements.pretty_good_measurement</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/index.html">toqito.nonlocal_games</a><input aria-label="Toggle navigation of toqito.nonlocal_games" class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/binary_constraint_system_game/index.html">toqito.nonlocal_games.binary_constraint_system_game</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/extended_nonlocal_game/index.html">toqito.nonlocal_games.extended_nonlocal_game</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/nonlocal_game/index.html">toqito.nonlocal_games.nonlocal_game</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/quantum_hedging/index.html">toqito.nonlocal_games.quantum_hedging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/nonlocal_games/xor_game/index.html">toqito.nonlocal_games.xor_game</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/perms/index.html">toqito.perms</a><input aria-label="Toggle navigation of toqito.perms" class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/antisymmetric_projection/index.html">toqito.perms.antisymmetric_projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/perfect_matchings/index.html">toqito.perms.perfect_matchings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/perm_sign/index.html">toqito.perms.perm_sign</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/permutation_operator/index.html">toqito.perms.permutation_operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/permute_systems/index.html">toqito.perms.permute_systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/swap/index.html">toqito.perms.swap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/swap_operator/index.html">toqito.perms.swap_operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/symmetric_projection/index.html">toqito.perms.symmetric_projection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/unique_perms/index.html">toqito.perms.unique_perms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/perms/vec/index.html">toqito.perms.vec</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/rand/index.html">toqito.rand</a><input aria-label="Toggle navigation of toqito.rand" class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" role="switch" type="checkbox"/><label for="toctree-checkbox-42"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_circulant_gram_matrix/index.html">toqito.rand.random_circulant_gram_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_density_matrix/index.html">toqito.rand.random_density_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_ginibre/index.html">toqito.rand.random_ginibre</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_orthonormal_basis/index.html">toqito.rand.random_orthonormal_basis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_povm/index.html">toqito.rand.random_povm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_psd_operator/index.html">toqito.rand.random_psd_operator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_state_vector/index.html">toqito.rand.random_state_vector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_states/index.html">toqito.rand.random_states</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/rand/random_unitary/index.html">toqito.rand.random_unitary</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/index.html">toqito.state_metrics</a><input aria-label="Toggle navigation of toqito.state_metrics" class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" role="switch" type="checkbox"/><label for="toctree-checkbox-43"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/bures_angle/index.html">toqito.state_metrics.bures_angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/bures_distance/index.html">toqito.state_metrics.bures_distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/fidelity/index.html">toqito.state_metrics.fidelity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/fidelity_of_separability/index.html">toqito.state_metrics.fidelity_of_separability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/helstrom_holevo/index.html">toqito.state_metrics.helstrom_holevo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/hilbert_schmidt/index.html">toqito.state_metrics.hilbert_schmidt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/hilbert_schmidt_inner_product/index.html">toqito.state_metrics.hilbert_schmidt_inner_product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/matsumoto_fidelity/index.html">toqito.state_metrics.matsumoto_fidelity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/measured_relative_entropy/index.html">toqito.state_metrics.measured_relative_entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/sub_fidelity/index.html">toqito.state_metrics.sub_fidelity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_metrics/trace_distance/index.html">toqito.state_metrics.trace_distance</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_ops/index.html">toqito.state_ops</a><input aria-label="Toggle navigation of toqito.state_ops" class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" role="switch" type="checkbox"/><label for="toctree-checkbox-44"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_ops/normalize/index.html">toqito.state_ops.normalize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_ops/schmidt_decomposition/index.html">toqito.state_ops.schmidt_decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_opt/index.html">toqito.state_opt</a><input aria-label="Toggle navigation of toqito.state_opt" class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" role="switch" type="checkbox"/><label for="toctree-checkbox-45"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/bell_inequality_max/index.html">toqito.state_opt.bell_inequality_max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/bell_notation_conversions/index.html">toqito.state_opt.bell_notation_conversions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/npa_hierarchy/index.html">toqito.state_opt.npa_hierarchy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/optimal_clone/index.html">toqito.state_opt.optimal_clone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/ppt_distinguishability/index.html">toqito.state_opt.ppt_distinguishability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/state_distinguishability/index.html">toqito.state_opt.state_distinguishability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/state_exclusion/index.html">toqito.state_opt.state_exclusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/state_helper/index.html">toqito.state_opt.state_helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_opt/symmetric_extension_hierarchy/index.html">toqito.state_opt.symmetric_extension_hierarchy</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/state_props/index.html">toqito.state_props</a><input aria-label="Toggle navigation of toqito.state_props" class="toctree-checkbox" id="toctree-checkbox-46" name="toctree-checkbox-46" role="switch" type="checkbox"/><label for="toctree-checkbox-46"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/abs_ppt_constraints/index.html">toqito.state_props.abs_ppt_constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/common_quantum_overlap/index.html">toqito.state_props.common_quantum_overlap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/concurrence/index.html">toqito.state_props.concurrence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/entanglement_of_formation/index.html">toqito.state_props.entanglement_of_formation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/has_symmetric_extension/index.html">toqito.state_props.has_symmetric_extension</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/in_separable_ball/index.html">toqito.state_props.in_separable_ball</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_abs_ppt/index.html">toqito.state_props.is_abs_ppt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_antidistinguishable/index.html">toqito.state_props.is_antidistinguishable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_distinguishable/index.html">toqito.state_props.is_distinguishable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_ensemble/index.html">toqito.state_props.is_ensemble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_mixed/index.html">toqito.state_props.is_mixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_mutually_orthogonal/index.html">toqito.state_props.is_mutually_orthogonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_mutually_unbiased_basis/index.html">toqito.state_props.is_mutually_unbiased_basis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_npt/index.html">toqito.state_props.is_npt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_ppt/index.html">toqito.state_props.is_ppt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_product/index.html">toqito.state_props.is_product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_pure/index.html">toqito.state_props.is_pure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_separable/index.html">toqito.state_props.is_separable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_sic_povm/index.html">toqito.state_props.is_sic_povm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/is_unextendible_product_basis/index.html">toqito.state_props.is_unextendible_product_basis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/l1_norm_coherence/index.html">toqito.state_props.l1_norm_coherence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/learnability/index.html">toqito.state_props.learnability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/log_negativity/index.html">toqito.state_props.log_negativity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/negativity/index.html">toqito.state_props.negativity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/purity/index.html">toqito.state_props.purity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/renyi_entropy/index.html">toqito.state_props.renyi_entropy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/schmidt_rank/index.html">toqito.state_props.schmidt_rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/sk_vec_norm/index.html">toqito.state_props.sk_vec_norm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/state_props/von_neumann_entropy/index.html">toqito.state_props.von_neumann_entropy</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../autoapi/toqito/states/index.html">toqito.states</a><input aria-label="Toggle navigation of toqito.states" class="toctree-checkbox" id="toctree-checkbox-47" name="toctree-checkbox-47" role="switch" type="checkbox"/><label for="toctree-checkbox-47"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/basis/index.html">toqito.states.basis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/bb84/index.html">toqito.states.bb84</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/bell/index.html">toqito.states.bell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/brauer/index.html">toqito.states.brauer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/breuer/index.html">toqito.states.breuer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/chessboard/index.html">toqito.states.chessboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/dicke/index.html">toqito.states.dicke</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/domino/index.html">toqito.states.domino</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/gen_bell/index.html">toqito.states.gen_bell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/ghz/index.html">toqito.states.ghz</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/gisin/index.html">toqito.states.gisin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/horodecki/index.html">toqito.states.horodecki</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/isotropic/index.html">toqito.states.isotropic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/max_entangled/index.html">toqito.states.max_entangled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/max_mixed/index.html">toqito.states.max_mixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/mutually_unbiased_basis/index.html">toqito.states.mutually_unbiased_basis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/pusey_barrett_rudolph/index.html">toqito.states.pusey_barrett_rudolph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/singlet/index.html">toqito.states.singlet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/tile/index.html">toqito.states.tile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/trine/index.html">toqito.states.trine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/w_state/index.html">toqito.states.w_state</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../autoapi/toqito/states/werner/index.html">toqito.states.werner</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/vprusso/toqito">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://pypi.org/project/toqito/">PyPI</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discord.com/channels/764231928676089909/1172282184833454090/">Discord Channel</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>Source code for toqito.channels.ldot_channel</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Local diagonal orthogonal twirl channel.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<div class="viewcode-block" id="ldot_channel">
+<a class="viewcode-back" href="../../../autoapi/toqito/channels/ldot_channel/index.html#toqito.channels.ldot_channel.ldot_channel">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ldot_channel</span><span class="p">(</span><span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">efficient</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply the local diagonal orthogonal twirl (LDOT) channel to a matrix.</span>
+
+<span class="sd">    The LDOT channel projects a matrix onto the subspace of local diagonal</span>
+<span class="sd">    orthogonal invariant (LDOI) matrices. It is defined as:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \Phi_O(A) = \frac{1}{2^n} \sum_{O \in \text{DO}(\mathcal{X})} (O \otimes O) A (O \otimes O)</span>
+
+<span class="sd">    where :math:`\text{DO}(\mathcal{X})` is the set of :math:`n \times n` diagonal matrices with</span>
+<span class="sd">    diagonal entries equal to :math:`\pm 1`.</span>
+
+<span class="sd">    The LDOT channel has the following properties:</span>
+
+<span class="sd">    - It is a quantum channel (completely positive and trace-preserving)</span>
+<span class="sd">    - It is self-adjoint: :math:`\Phi_O^* = \Phi_O`</span>
+<span class="sd">    - It preserves PPT and separability</span>
+<span class="sd">    - It is an orthogonal projection onto the LDOI subspace</span>
+
+<span class="sd">    The efficient implementation works directly in the computational basis, zeroing out the entries</span>
+<span class="sd">    that average to zero under the twirl. This keeps the complexity polynomial in :math:`n` instead</span>
+<span class="sd">    of the exponential :math:`O(2^n)` for the brute-force approach.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ==========</span>
+
+<span class="sd">    Apply LDOT channel to project an arbitrary matrix onto LDOI subspace:</span>
+
+<span class="sd">    .. jupyter-execute::</span>
+
+<span class="sd">        from toqito.channels import ldot_channel</span>
+<span class="sd">        import numpy as np</span>
+
+<span class="sd">        # Arbitrary 2-qubit matrix</span>
+<span class="sd">        mat = np.array([[1, 2, 3, 4],</span>
+<span class="sd">                        [5, 6, 7, 8],</span>
+<span class="sd">                        [9, 10, 11, 12],</span>
+<span class="sd">                        [13, 14, 15, 16]])</span>
+<span class="sd">        ldoi_projection = ldot_channel(mat)</span>
+<span class="sd">        print(ldoi_projection)</span>
+
+<span class="sd">    The LDOT channel is idempotent (applying it twice gives the same result):</span>
+
+<span class="sd">    .. jupyter-execute::</span>
+
+<span class="sd">        from toqito.channels import ldot_channel</span>
+<span class="sd">        import numpy as np</span>
+
+<span class="sd">        mat = np.random.rand(4, 4)</span>
+<span class="sd">        once = ldot_channel(mat)</span>
+<span class="sd">        twice = ldot_channel(once)</span>
+<span class="sd">        np.allclose(once, twice)</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ==========</span>
+<span class="sd">    .. footbibliography::</span>
+
+<span class="sd">    :param mat: A square matrix of dimension :math:`n^2 \times n^2` representing a bipartite</span>
+<span class="sd">                operator on :math:`\mathcal{X} \otimes \mathcal{Y}` where</span>
+<span class="sd">                :math:`\mathcal{X} = \mathcal{Y} = \mathbb{C}^n`.</span>
+<span class="sd">    :param efficient: If True, use the efficient O(n²) standard basis implementation. If False,</span>
+<span class="sd">                      use the brute-force O(2ⁿ) implementation (useful for verification).</span>
+<span class="sd">    :return: The LDOI projection of the input matrix.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input matrix must be square.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">efficient</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_ldot_channel_standard_basis</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_ldot_channel_brute_force</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_ldot_channel_standard_basis</span><span class="p">(</span><span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Efficient implementation by zeroing forbidden entries in the computational basis.&quot;&quot;&quot;</span>
+    <span class="n">dim_sq</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dim_sq</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">!=</span> <span class="n">dim_sq</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input dimension must be a perfect square.&quot;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">+</span> <span class="n">j</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+                    <span class="n">col</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">+</span> <span class="n">target</span>
+                    <span class="k">if</span> <span class="p">(</span>
+                        <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span>
+                        <span class="ow">or</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span>
+                        <span class="ow">or</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">target</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
+                    <span class="p">):</span>
+                        <span class="n">result</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_ldot_channel_brute_force</span><span class="p">(</span><span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Brute-force O(2ⁿ) implementation by averaging over all diagonal ±1 matrices.</span>
+
+<span class="sd">    This implementation is provided for verification purposes and to match the mathematical</span>
+<span class="sd">    definition exactly. For practical use, the efficient implementation should be preferred.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="c1"># Generate all possible diagonal ±1 matrices</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">dim</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">diag_entries</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="n">dim</span><span class="p">):</span>
+        <span class="n">diag_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">diag_entries</span><span class="p">)</span>
+        <span class="n">conjugation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">diag_mat</span><span class="p">,</span> <span class="n">diag_mat</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">conjugation</span> <span class="o">@</span> <span class="n">mat</span> <span class="o">@</span> <span class="n">conjugation</span>
+
+    <span class="k">return</span> <span class="n">result</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">dim</span><span class="p">)</span>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2020 - 2026, |toqito&gt; contributors
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            <div class="last-updated">
+              Last updated on Feb 05, 2026</div>
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=cb7bf70b"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    </body>
+</html>

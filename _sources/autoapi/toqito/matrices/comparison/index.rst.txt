@@ -1,0 +1,52 @@
+toqito.matrices.comparison
+==========================
+
+.. py:module:: toqito.matrices.comparison
+
+.. autoapi-nested-parse::
+
+   Computes comparison matrix.
+
+
+
+
+
+Module Contents
+---------------
+
+.. py:function:: comparison(mat)
+
+   Compute comparison matrix of a given square matrix.
+
+   This function computes the comparison matrix :math:`M(A)` for a square matrix :math:`A` as defined in
+   :footcite:`WikiComparisonMatrix`. For each entry, the diagonal entries are given by the absolute value of the
+   original diagonal entries of :math:`A`, while the off-diagonal entries are given by minus the absolute value of the
+   corresponding entries. In other words,
+
+   .. math::
+       m_{ij} =
+       \begin{cases}
+       |a_{ij}|, & \text{if } i = j, \\
+       -|a_{ij}|, & \text{if } i \neq j.
+       \end{cases}
+
+   .. rubric:: Examples
+
+   .. jupyter-execute::
+
+       import numpy as np
+       from toqito.matrices import comparison
+       A = np.array([[2, -1],
+                   [3, 4]])
+       print(comparison(A))
+
+   .. rubric:: References
+
+   .. footbibliography::
+
+   :param mat: The input square matrix.
+   :raises ValueError: If the input matrix is not square.
+   :return: The comparison matrix of the input matrix.
+
+
+

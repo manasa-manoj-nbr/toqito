@@ -1,0 +1,43 @@
+toqito.states
+=============
+
+.. py:module:: toqito.states
+
+.. autoapi-nested-parse::
+
+   Quantum States is the set of modules that numerically implements the well known quantum states listed below.
+
+   They are one of the three fundamental objects that `toqito` provides, the others being `channels` and `measurements`.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/toqito/states/basis/index
+   /autoapi/toqito/states/bb84/index
+   /autoapi/toqito/states/bell/index
+   /autoapi/toqito/states/brauer/index
+   /autoapi/toqito/states/breuer/index
+   /autoapi/toqito/states/chessboard/index
+   /autoapi/toqito/states/dicke/index
+   /autoapi/toqito/states/domino/index
+   /autoapi/toqito/states/gen_bell/index
+   /autoapi/toqito/states/ghz/index
+   /autoapi/toqito/states/gisin/index
+   /autoapi/toqito/states/horodecki/index
+   /autoapi/toqito/states/isotropic/index
+   /autoapi/toqito/states/max_entangled/index
+   /autoapi/toqito/states/max_mixed/index
+   /autoapi/toqito/states/mutually_unbiased_basis/index
+   /autoapi/toqito/states/pusey_barrett_rudolph/index
+   /autoapi/toqito/states/singlet/index
+   /autoapi/toqito/states/tile/index
+   /autoapi/toqito/states/trine/index
+   /autoapi/toqito/states/w_state/index
+   /autoapi/toqito/states/werner/index
+
+

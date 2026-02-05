@@ -1,0 +1,24 @@
+toqito.helper.np_array_as_expr
+==============================
+
+.. py:module:: toqito.helper.np_array_as_expr
+
+.. autoapi-nested-parse::
+
+   Converts a np.array object to cvxpy expression object.
+
+
+
+
+
+Module Contents
+---------------
+
+.. py:function:: np_array_as_expr(np_arr)
+
+   Convert numpy array into a cvxpy expression.
+
+   :param np_arr: The numpy array to be converted.
+   :return: The cvxpy expression of the numpy array.
+
+

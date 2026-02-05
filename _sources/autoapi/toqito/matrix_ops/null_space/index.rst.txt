@@ -1,0 +1,48 @@
+toqito.matrix_ops.null_space
+============================
+
+.. py:module:: toqito.matrix_ops.null_space
+
+.. autoapi-nested-parse::
+
+   Compute an orthonormal basis for the null space of a matrix.
+
+
+
+
+
+Module Contents
+---------------
+
+.. py:function:: null_space(mat, tol = 1e-08)
+
+   Return an orthonormal basis for the kernel of ``mat`` :footcite:`WikiNullSpace`.
+
+   The routine employs the singular value decomposition so that the columns of the
+   returned matrix span the null space and are orthonormal with respect to the
+   standard inner product.
+
+   .. rubric:: Examples
+
+   Consider the matrix
+
+   .. math::
+
+       A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}.
+
+   Its null space is spanned by the vectors :math:`(1,-1,0)` and :math:`(0,0,1)`.
+
+   .. jupyter-execute::
+
+       import numpy as np
+       from toqito.matrix_ops import null_space
+
+       A = np.array([[1, 1, 0], [0, 0, 0]], dtype=float)
+       null_basis = null_space(A)
+       null_basis
+
+   :param mat: Matrix whose null space is sought.
+   :param tol: Numerical tolerance that distinguishes zero singular values.
+   :return: A matrix whose columns form an orthonormal basis for the null space.
+
+

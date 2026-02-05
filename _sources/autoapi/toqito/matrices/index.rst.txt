@@ -1,0 +1,31 @@
+toqito.matrices
+===============
+
+.. py:module:: toqito.matrices
+
+.. autoapi-nested-parse::
+
+   Matrices is a set of modules that are used to implement commonly used matrices.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/toqito/matrices/cnot/index
+   /autoapi/toqito/matrices/comparison/index
+   /autoapi/toqito/matrices/cyclic_permutation_matrix/index
+   /autoapi/toqito/matrices/fourier/index
+   /autoapi/toqito/matrices/gell_mann/index
+   /autoapi/toqito/matrices/gen_gell_mann/index
+   /autoapi/toqito/matrices/gen_pauli/index
+   /autoapi/toqito/matrices/gen_pauli_x/index
+   /autoapi/toqito/matrices/gen_pauli_z/index
+   /autoapi/toqito/matrices/hadamard/index
+   /autoapi/toqito/matrices/pauli/index
+   /autoapi/toqito/matrices/standard_basis/index
+
+

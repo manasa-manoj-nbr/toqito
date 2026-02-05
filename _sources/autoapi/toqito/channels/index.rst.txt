@@ -1,0 +1,29 @@
+toqito.channels
+===============
+
+.. py:module:: toqito.channels
+
+.. autoapi-nested-parse::
+
+   Channels is a module used to generate a number of widely-studied quantum channels.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/toqito/channels/amplitude_damping/index
+   /autoapi/toqito/channels/bitflip/index
+   /autoapi/toqito/channels/choi/index
+   /autoapi/toqito/channels/dephasing/index
+   /autoapi/toqito/channels/depolarizing/index
+   /autoapi/toqito/channels/ldot_channel/index
+   /autoapi/toqito/channels/pauli_channel/index
+   /autoapi/toqito/channels/phase_damping/index
+   /autoapi/toqito/channels/realignment/index
+   /autoapi/toqito/channels/reduction/index
+
+

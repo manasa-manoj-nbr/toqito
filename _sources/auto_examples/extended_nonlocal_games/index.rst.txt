@@ -1,0 +1,122 @@
+
+
+.. _sphx_glr_auto_examples_extended_nonlocal_games:
+
+Extended Nonlocal Games
+-----------------------
+
+- :doc:`/auto_examples/extended_nonlocal_games/enlg_introduction`
+- :doc:`/auto_examples/extended_nonlocal_games/enlg_mub`
+- :doc:`/auto_examples/extended_nonlocal_games/enlg_bb84`
+- :doc:`/auto_examples/extended_nonlocal_games/enlg_chsh`
+- :doc:`/auto_examples/extended_nonlocal_games/bit_commitment`
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will define the concept of an extended nonlocal game. Extended nonlocal games are a more general abstraction of nonlocal games wherein the referee, who previously only provided questions and answers to the players, now share a state with the players and is able to perform a measurement on that shared state.">
+
+.. only:: html
+
+  .. image:: /auto_examples/extended_nonlocal_games/images/thumb/sphx_glr_enlg_introduction_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/extended_nonlocal_games/enlg_introduction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Extended nonlocal games</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this tutorial, we will model a quantum bit commitment protocol as an extended nonlocal game where the &quot;player&quot; Alice attempts to cheat. Instead of calculating a cooperative winning probability, we will quantify Alice&#x27;s maximum cheating probability. This allows us to provide a concrete illustration of the failure of the binding property, a key aspect of the famous Mayers-Lo-Chau (MLC) no-go theorem Mayers_1997_Unconditionally,Lo_1997_Why.">
+
+.. only:: html
+
+  .. image:: /auto_examples/extended_nonlocal_games/images/thumb/sphx_glr_bit_commitment_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/extended_nonlocal_games/bit_commitment`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Modeling Bit Commitment Binding Failure</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In the previous tutorials on sphx_glr_auto_examples_extended_nonlocal_games_enlg_bb84.py and sphx_glr_auto_examples_extended_nonlocal_games_enlg_chsh.py, we saw examples where the standard quantum and unentangled values were equal (\omega(G) = \omega^(G)). Here, we will construct an extended nonlocal game where the standard quantum value is strictly higher* than the unentangled value, demonstrating a true quantum advantage.">
+
+.. only:: html
+
+  .. image:: /auto_examples/extended_nonlocal_games/images/thumb/sphx_glr_enlg_mub_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/extended_nonlocal_games/enlg_mub`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">An extended nonlocal game with quantum advantage</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Following our analysis of the BB84 game, let us now define another important extended nonlocal game, G_{CHSH}. This game is defined by a winning condition reminiscent of the standard CHSH nonlocal game.">
+
+.. only:: html
+
+  .. image:: /auto_examples/extended_nonlocal_games/images/thumb/sphx_glr_enlg_chsh_thumb.png
+    :alt:
+
+  :doc:`/auto_examples/extended_nonlocal_games/enlg_chsh`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The CHSH extended nonlocal game</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In our sphx_glr_auto_examples_extended_nonlocal_games_enlg_introduction.py tutorial, we introduced the framework for extended nonlocal games. Now, we will construct our first concrete example, the BB84 extended nonlocal game.">
+
+.. only:: html
+
+  .. image:: /auto_examples/extended_nonlocal_games/images/thumb/sphx_glr_enlg_bb84_thumb.svg
+    :alt:
+
+  :doc:`/auto_examples/extended_nonlocal_games/enlg_bb84`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The BB84 extended nonlocal game</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/extended_nonlocal_games/enlg_introduction
+   /auto_examples/extended_nonlocal_games/bit_commitment
+   /auto_examples/extended_nonlocal_games/enlg_mub
+   /auto_examples/extended_nonlocal_games/enlg_chsh
+   /auto_examples/extended_nonlocal_games/enlg_bb84
+
