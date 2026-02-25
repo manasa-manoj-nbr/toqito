@@ -9286,8 +9286,8 @@ are matrices with entries:</p>
 <a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="c1"># Ensure rho_R_referee is a valid quantum state</span>
 <a id="__codelineno-0-281" name="__codelineno-0-281"></a>    <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span>
 <a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="n">cvxpy</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">rho_R_referee</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="n">rho_R_referee</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="n">moment_matrix_R</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="n">moment_matrix_R</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="c1"># rho_R_referee &gt;&gt; 0 holds since it is a minor of moment_matrix_R</span>
 <a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="p">]</span>
 <a id="__codelineno-0-286" name="__codelineno-0-286"></a>
 <a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="c1"># Store relations for (S_i^dagger S_j) -&gt; block_index in moment_matrix_R</span>
