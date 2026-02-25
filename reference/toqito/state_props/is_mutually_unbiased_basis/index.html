@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -7598,34 +7598,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" is_mutually_unbiased_basis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" is_mutually_unbiased_basis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,64 +8938,105 @@
 
     <div class="doc doc-contents ">
 
-        <p>Check if list of vectors constitute a mutually unbiased basis :footcite:<code>WikiMUB</code>.</p>
+        <p>Check if list of vectors constitute a mutually unbiased basis [^WikiMUB].</p>
 <p>We say that two orthonormal bases</p>
-<p>.. math::
+<div class="arithmatex">\[
     \begin{equation}
-        \mathcal{B}_0 = \left{u_a: a \in \Sigma \right} \subset \mathbb{C}^{\Sigma}
+        \mathcal{B}_0 = \left\{u_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}
         \quad \text{and} \quad
-        \mathcal{B}_1 = \left{v_a: a \in \Sigma \right} \subset \mathbb{C}^{\Sigma}
-    \end{equation}</p>
+        \mathcal{B}_1 = \left\{v_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}
+    \end{equation}
+\]</div>
 <p>are <em>mutually unbiased</em> if and only if
-:math:<code>\left|\langle u_a, v_b \rangle\right| = 1/\sqrt{\Sigma}</code> for all :math:<code>a, b \in \Sigma</code>.</p>
-<p>For :math:<code>n \in \mathbb{N}</code>, a set of orthonormal bases :math:<code>\left\{
-\mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}</code> are mutually unbiased bases if and only if
-every basis is mutually unbiased with every other basis in the set, i.e. :math:<code>\mathcal{B}_x</code>
-is mutually unbiased with :math:<code>\mathcal{B}_x^{\prime}</code> for all :math:<code>x \not= x^{\prime}</code> with
-:math:<code>x, x^{\prime} \in \Sigma</code>.</p>
-<h3 id="toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--examples">Examples<a class="headerlink" href="#toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--examples" title="Permanent link">&para;</a></h3>
-<p>MUB of dimension :math:<code>2</code>.</p>
-<p>For :math:<code>d=2</code>, the following constitutes a mutually unbiased basis:</p>
-<p>.. math::
+<span class="arithmatex">\(\left|\langle u_a, v_b \rangle\right| = 1/\sqrt{\Sigma}\)</span> for all <span class="arithmatex">\(a, b \in \Sigma\)</span>.</p>
+<p>For <span class="arithmatex">\(n \in \mathbb{N}\)</span>, a set of orthonormal bases <span class="arithmatex">\(\left\{
+\mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}\)</span> are mutually unbiased bases if and only if
+every basis is mutually unbiased with every other basis in the set, i.e. <span class="arithmatex">\(\mathcal{B}_x\)</span>
+is mutually unbiased with <span class="arithmatex">\(\mathcal{B}_x^{\prime}\)</span> for all <span class="arithmatex">\(x \not= x^{\prime}\)</span> with
+<span class="arithmatex">\(x, x^{\prime} \in \Sigma\)</span>.</p>
+<p>Examples:</p>
+<p>MUB of dimension <span class="arithmatex">\(2\)</span>.</p>
+<p>For <span class="arithmatex">\(d=2\)</span>, the following constitutes a mutually unbiased basis:</p>
+<div class="arithmatex">\[
     \begin{equation}
         \begin{aligned}
-            M_0 &amp;= \left{ |0 \rangle, |1 \rangle \right}, \
-            M_1 &amp;= \left{ \frac{|0 \rangle + |1 \rangle}{\sqrt{2}},
-            \frac{|0 \rangle - |1 \rangle}{\sqrt{2}} \right}, \
-            M_2 &amp;= \left{ \frac{|0 \rangle i|1 \rangle}{\sqrt{2}},
-            \frac{|0 \rangle - i|1 \rangle}{\sqrt{2}} \right}. \
+            M_0 &amp;= \left\{ |0 \rangle, |1 \rangle \right\}, \\
+            M_1 &amp;= \left\{ \frac{|0 \rangle + |1 \rangle}{\sqrt{2}},
+            \frac{|0 \rangle - |1 \rangle}{\sqrt{2}} \right\}, \\
+            M_2 &amp;= \left\{ \frac{|0 \rangle i|1 \rangle}{\sqrt{2}},
+            \frac{|0 \rangle - i|1 \rangle}{\sqrt{2}} \right\}. \\
         \end{aligned}
-    \end{equation}</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>import numpy as np
-from toqito.states import basis
-from toqito.state_props import is_mutually_unbiased_basis
-e_0, e_1 = basis(2, 0), basis(2, 1)
-mub_1 = [e_0, e_1]
-mub_2 = [1 / np.sqrt(2) * (e_0 + e_1), 1 / np.sqrt(2) * (e_0 - e_1)]
-mub_3 = [1 / np.sqrt(2) * (e_0 + 1j * e_1), 1 / np.sqrt(2) * (e_0 - 1j * e_1)]
-nested_mubs = [mub_1, mub_2, mub_3]
-mubs = sum(nested_mubs, [])
-is_mutually_unbiased_basis(mubs)
+    \end{equation}
+\]</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">basis</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_mutually_unbiased_basis</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">mub_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span><span class="p">]</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">mub_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">+</span> <span class="n">e_1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">-</span> <span class="n">e_1</span><span class="p">)]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">mub_3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">e_1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">e_1</span><span class="p">)]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">nested_mubs</span> <span class="o">=</span> <span class="p">[</span><span class="n">mub_1</span><span class="p">,</span> <span class="n">mub_2</span><span class="p">,</span> <span class="n">mub_3</span><span class="p">]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">mubs</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nested_mubs</span><span class="p">,</span> <span class="p">[])</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_mutually_unbiased_basis</span><span class="p">(</span><span class="n">mubs</span><span class="p">))</span>
 </code></pre></div>
-<p>Non-MUB of dimension :math:<code>2</code>.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>import numpy as np
-from toqito.states import basis
-from toqito.state_props import is_mutually_unbiased_basis
-e_0, e_1 = basis(2, 0), basis(2, 1)
-mub_1 = [e_0, e_1]
-mub_2 = [1 / np.sqrt(2) * (e_0 + e_1), e_1]
-mub_3 = [1 / np.sqrt(2) * (e_0 + 1j * e_1), e_0]
-mubs = [mub_1, mub_2, mub_3]
-is_mutually_unbiased_basis(mubs)
+<p>True</p>
+<p>Non-MUB of dimension <span class="arithmatex">\(2\)</span>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">basis</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_mutually_unbiased_basis</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">mub_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span><span class="p">]</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">mub_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">+</span> <span class="n">e_1</span><span class="p">),</span> <span class="n">e_1</span><span class="p">]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">mub_3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">e_1</span><span class="p">),</span> <span class="n">e_0</span><span class="p">]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">mubs</span> <span class="o">=</span> <span class="p">[</span><span class="n">mub_1</span><span class="p">,</span> <span class="n">mub_2</span><span class="p">,</span> <span class="n">mub_3</span><span class="p">]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_mutually_unbiased_basis</span><span class="p">(</span><span class="n">mubs</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--references">References<a class="headerlink" href="#toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: If at least two vectors are not provided.
-:param vectors: The list of vectors to check.
-:return: :code:<code>True</code> if :code:<code>vec_list</code> constitutes a mutually unbiased basis, and
-         :code:<code>False</code> otherwise.</p>
+<p>False</p>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If at least two vectors are not provided.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>vectors</code></b>
+              (<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span> | <span title="list">list</span>[<span title="float">float</span> | <span title="typing.Any">Any</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>The list of vectors to check.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="bool">bool</span></code>
+          –
+          <div class="doc-md-description">
+            <p><code>True</code> if <code>vec_list</code> constitutes a mutually unbiased basis, and <code>False</code> otherwise.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--fn:WikiMUB">
+<p>Wikipedia. <em>Mutually unbiased bases</em>. <a href="https://en.wikipedia.org/wiki/Mutually_unbiased_bases">link</a>.&#160;<a class="footnote-backref" href="#toqito.state_props.is_mutually_unbiased_basis.is_mutually_unbiased_basis--fnref:WikiMUB" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9152,37 +9137,35 @@ is_mutually_unbiased_basis(mubs)
 <span class="normal"><a href="#__codelineno-0-101">101</a></span>
 <span class="normal"><a href="#__codelineno-0-102">102</a></span>
 <span class="normal"><a href="#__codelineno-0-103">103</a></span>
-<span class="normal"><a href="#__codelineno-0-104">104</a></span>
-<span class="normal"><a href="#__codelineno-0-105">105</a></span>
-<span class="normal"><a href="#__codelineno-0-106">106</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_mutually_unbiased_basis</span><span class="p">(</span><span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check if list of vectors constitute a mutually unbiased basis :footcite:`WikiMUB`.</span>
+<span class="normal"><a href="#__codelineno-0-104">104</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_mutually_unbiased_basis</span><span class="p">(</span><span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check if list of vectors constitute a mutually unbiased basis [@WikiMUB].</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    We say that two orthonormal bases</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">        \begin{equation}</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">            \mathcal{B}_0 = \left\{u_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">            \quad \text{and} \quad</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">            \mathcal{B}_1 = \left\{v_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        \end{equation}</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    are *mutually unbiased* if and only if</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    :math:`\left|\langle u_a, v_b \rangle\right| = 1/\sqrt{\Sigma}` for all :math:`a, b \in \Sigma`.</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    For :math:`n \in \mathbb{N}`, a set of orthonormal bases :math:`\left\{</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    \mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}` are mutually unbiased bases if and only if</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    every basis is mutually unbiased with every other basis in the set, i.e. :math:`\mathcal{B}_x`</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    is mutually unbiased with :math:`\mathcal{B}_x^{\prime}` for all :math:`x \not= x^{\prime}` with</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    :math:`x, x^{\prime} \in \Sigma`.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    ==========</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    are *mutually unbiased* if and only if</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    \(\left|\langle u_a, v_b \rangle\right| = 1/\sqrt{\Sigma}\) for all \(a, b \in \Sigma\).</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    For \(n \in \mathbb{N}\), a set of orthonormal bases \(\left\{</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    \mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}\) are mutually unbiased bases if and only if</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    every basis is mutually unbiased with every other basis in the set, i.e. \(\mathcal{B}_x\)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    is mutually unbiased with \(\mathcal{B}_x^{\prime}\) for all \(x \not= x^{\prime}\) with</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    \(x, x^{\prime} \in \Sigma\).</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    MUB of dimension :math:`2`.</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    MUB of dimension \(2\).</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    For :math:`d=2`, the following constitutes a mutually unbiased basis:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    For \(d=2\), the following constitutes a mutually unbiased basis:</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        \begin{equation}</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">            \begin{aligned}</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">                M_0 &amp;= \left\{ |0 \rangle, |1 \rangle \right\}, \\</span>
@@ -9192,67 +9175,65 @@ is_mutually_unbiased_basis(mubs)
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">                \frac{|0 \rangle - i|1 \rangle}{\sqrt{2}} \right\}. \\</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">            \end{aligned}</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        \end{equation}</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        import numpy as np</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        from toqito.states import basis</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        from toqito.state_props import is_mutually_unbiased_basis</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        e_0, e_1 = basis(2, 0), basis(2, 1)</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        mub_1 = [e_0, e_1]</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        mub_2 = [1 / np.sqrt(2) * (e_0 + e_1), 1 / np.sqrt(2) * (e_0 - e_1)]</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        mub_3 = [1 / np.sqrt(2) * (e_0 + 1j * e_1), 1 / np.sqrt(2) * (e_0 - 1j * e_1)]</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        nested_mubs = [mub_1, mub_2, mub_3]</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        mubs = sum(nested_mubs, [])</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">        is_mutually_unbiased_basis(mubs)</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    Non-MUB of dimension :math:`2`.</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        import numpy as np</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        from toqito.states import basis</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        from toqito.state_props import is_mutually_unbiased_basis</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        e_0, e_1 = basis(2, 0), basis(2, 1)</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        mub_1 = [e_0, e_1]</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        mub_2 = [1 / np.sqrt(2) * (e_0 + e_1), e_1]</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        mub_3 = [1 / np.sqrt(2) * (e_0 + 1j * e_1), e_0]</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        mubs = [mub_1, mub_2, mub_3]</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        is_mutually_unbiased_basis(mubs)</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    References</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    .. footbibliography::</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    from toqito.states import basis</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    from toqito.state_props import is_mutually_unbiased_basis</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    e_0, e_1 = basis(2, 0), basis(2, 1)</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    mub_1 = [e_0, e_1]</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    mub_2 = [1 / np.sqrt(2) * (e_0 + e_1), 1 / np.sqrt(2) * (e_0 - e_1)]</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    mub_3 = [1 / np.sqrt(2) * (e_0 + 1j * e_1), 1 / np.sqrt(2) * (e_0 - 1j * e_1)]</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    nested_mubs = [mub_1, mub_2, mub_3]</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    mubs = sum(nested_mubs, [])</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    print(is_mutually_unbiased_basis(mubs))</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    Non-MUB of dimension \(2\).</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    from toqito.states import basis</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    from toqito.state_props import is_mutually_unbiased_basis</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    e_0, e_1 = basis(2, 0), basis(2, 1)</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    mub_1 = [e_0, e_1]</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    mub_2 = [1 / np.sqrt(2) * (e_0 + e_1), e_1]</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    mub_3 = [1 / np.sqrt(2) * (e_0 + 1j * e_1), e_0]</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    mubs = [mub_1, mub_2, mub_3]</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    print(is_mutually_unbiased_basis(mubs))</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        ValueError: If at least two vectors are not provided.</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        vectors: The list of vectors to check.</span>
 <a id="__codelineno-0-80" name="__codelineno-0-80"></a>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    :raises ValueError: If at least two vectors are not provided.</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    :param vectors: The list of vectors to check.</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">    :return: :code:`True` if :code:`vec_list` constitutes a mutually unbiased basis, and</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">             :code:`False` otherwise.</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">num_vectors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="n">dim_full</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="n">dim</span> <span class="o">=</span> <span class="n">dim_full</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="c1"># We expect the number of vectors to be a multiple of the dimension.</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="k">if</span> <span class="n">num_vectors</span> <span class="o">%</span> <span class="n">dim</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">        `True` if `vec_list` constitutes a mutually unbiased basis, and `False` otherwise.</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="n">num_vectors</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="n">dim_full</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">dim</span> <span class="o">=</span> <span class="n">dim_full</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1"># We expect the number of vectors to be a multiple of the dimension.</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="k">if</span> <span class="n">num_vectors</span> <span class="o">%</span> <span class="n">dim</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="n">num_bases</span> <span class="o">=</span> <span class="n">num_vectors</span> <span class="o">//</span> <span class="n">dim</span>
 <a id="__codelineno-0-94" name="__codelineno-0-94"></a>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="n">num_bases</span> <span class="o">=</span> <span class="n">num_vectors</span> <span class="o">//</span> <span class="n">dim</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>    <span class="c1"># Check the inner product between vectors from different bases.</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_bases</span><span class="p">):</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_bases</span><span class="p">):</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>                <span class="k">for</span> <span class="n">litem</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>                    <span class="c1"># Compute inner product between vectors from different bases.</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>                    <span class="n">inner_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">vectors</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">+</span> <span class="n">k</span><span class="p">],</span> <span class="n">vectors</span><span class="p">[</span><span class="n">j</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">+</span> <span class="n">litem</span><span class="p">]))</span> <span class="o">**</span> <span class="mi">2</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">inner_product</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span><span class="p">):</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>                        <span class="k">return</span> <span class="kc">False</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="c1"># Check the inner product between vectors from different bases.</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_bases</span><span class="p">):</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_bases</span><span class="p">):</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>                <span class="k">for</span> <span class="n">litem</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>                    <span class="c1"># Compute inner product between vectors from different bases.</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>                    <span class="n">inner_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">vectors</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">+</span> <span class="n">k</span><span class="p">],</span> <span class="n">vectors</span><span class="p">[</span><span class="n">j</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">+</span> <span class="n">litem</span><span class="p">]))</span> <span class="o">**</span> <span class="mi">2</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">inner_product</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span><span class="p">):</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>                        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

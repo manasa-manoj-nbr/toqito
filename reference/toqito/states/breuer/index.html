@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8300,34 +8300,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" breuer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.breuer.breuer--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.breuer.breuer--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" breuer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.breuer.breuer--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.breuer.breuer--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8995,24 +8939,74 @@
 
     <div class="doc doc-contents ">
 
-        <p>Produce a Breuer state :footcite:<code>Breuer_2006_Optimal</code>.</p>
-<p>Gives a Breuer bound entangled state for two qudits of local dimension :code:<code>dim</code>, with the
-:code:<code>lam</code> parameter describing the weight of the singlet component as described in
-:footcite:<code>Breuer_2006_Optimal</code>.</p>
+        <p>Produce a Breuer state [^Breuer_2006_Optimal].</p>
+<p>Gives a Breuer bound entangled state for two qudits of local dimension <code>dim</code>, with the
+<code>lam</code> parameter describing the weight of the singlet component as described in
+[^Breuer_2006_Optimal].</p>
 <p>This function was adapted from the QETLAB package.</p>
-<h3 id="toqito.states.breuer.breuer--examples">Examples<a class="headerlink" href="#toqito.states.breuer.breuer--examples" title="Permanent link">&para;</a></h3>
-<p>We can generate a Breuer state of dimension :math:<code>4</code> with weight :math:<code>0.1</code>. For any weight above :math:<code>0</code>, the
+<p>Examples:</p>
+<p>We can generate a Breuer state of dimension <span class="arithmatex">\(4\)</span> with weight <span class="arithmatex">\(0.1\)</span>. For any weight above <span class="arithmatex">\(0\)</span>, the
 state will be bound entangled, that is, it will satisfy the PPT criterion, but it will be entangled.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import breuer
-breuer(2, 0.1)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">breuer</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">breuer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.states.breuer.breuer--references">References<a class="headerlink" href="#toqito.states.breuer.breuer--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: Dimension must be greater than or equal to 1.
-:param dim: Dimension of the Breuer state.
-:param lam: The weight of the singlet component.
-:return: Breuer state of dimension :code:<code>dim</code> with weight :code:<code>lam</code>.</p>
+<p>[[0.3 0.  0.  0. ]
+ [0.  0.2 0.1 0. ]
+ [0.  0.1 0.2 0. ]
+ [0.  0.  0.  0.3]]</p>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>Dimension must be greater than or equal to 1.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Dimension of the Breuer state.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>lam</code></b>
+              (<code><span title="float">float</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The weight of the singlet component.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>Breuer state of dimension <code>dim</code> with weight <code>lam</code>.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.breuer.breuer--fn:Breuer_2006_Optimal">
+<p>Breuer, Heinz-Peter. <em>Optimal Entanglement Criterion for Mixed Quantum States</em>. <strong>Physical Review Letters</strong>. vol. 97(8). (2006). <a href="https://doi.org/10.1103/physrevlett.97.080501">doi:10.1103/physrevlett.97.080501</a>.&#160;<a class="footnote-backref" href="#toqito.states.breuer.breuer--fnref:Breuer_2006_Optimal" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9054,48 +9048,44 @@ breuer(2, 0.1)
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
 <span class="normal"><a href="#__codelineno-0-47">47</a></span>
 <span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">breuer</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">lam</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a Breuer state :footcite:`Breuer_2006_Optimal`.</span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">breuer</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">lam</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a Breuer state [@Breuer_2006_Optimal].</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    Gives a Breuer bound entangled state for two qudits of local dimension :code:`dim`, with the</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    :code:`lam` parameter describing the weight of the singlet component as described in</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    :footcite:`Breuer_2006_Optimal`.</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    Gives a Breuer bound entangled state for two qudits of local dimension `dim`, with the</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    `lam` parameter describing the weight of the singlet component as described in</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    [@Breuer_2006_Optimal].</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    This function was adapted from the QETLAB package.</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    We can generate a Breuer state of dimension :math:`4` with weight :math:`0.1`. For any weight above :math:`0`, the</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    state will be bound entangled, that is, it will satisfy the PPT criterion, but it will be entangled.</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        from toqito.states import breuer</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        breuer(2, 0.1)</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    References</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    We can generate a Breuer state of dimension \(4\) with weight \(0.1\). For any weight above \(0\), the</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    state will be bound entangled, that is, it will satisfy the PPT criterion, but it will be entangled.</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    from toqito.states import breuer</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    print(breuer(2, 0.1))</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        ValueError: Dimension must be greater than or equal to 1.</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        dim: Dimension of the Breuer state.</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        lam: The weight of the singlet component.</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    :raises ValueError: Dimension must be greater than or equal to 1.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    :param dim: Dimension of the Breuer state.</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    :param lam: The weight of the singlet component.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    :return: Breuer state of dimension :code:`dim` with weight :code:`lam`.</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">dim</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> must be an even positive integer.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">v_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">)))</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="n">max_entangled</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">dim</span><span class="p">),</span> <span class="n">v_mat</span><span class="p">),</span> <span class="n">max_entangled</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="k">return</span> <span class="n">lam</span> <span class="o">*</span> <span class="p">(</span><span class="n">psi</span> <span class="o">*</span> <span class="n">psi</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">lam</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">symmetric_projection</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">dim</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        Breuer state of dimension `dim` with weight `lam`.</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">dim</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> must be an even positive integer.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">v_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">)))</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="n">max_entangled</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">dim</span><span class="p">),</span> <span class="n">v_mat</span><span class="p">),</span> <span class="n">max_entangled</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="k">return</span> <span class="n">lam</span> <span class="o">*</span> <span class="p">(</span><span class="n">psi</span> <span class="o">*</span> <span class="n">psi</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">lam</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">symmetric_projection</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">dim</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -7402,34 +7402,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" in_separable_ball">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.in_separable_ball.in_separable_ball--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.in_separable_ball.in_separable_ball--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" in_separable_ball">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.in_separable_ball.in_separable_ball--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.in_separable_ball.in_separable_ball--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,47 +8938,74 @@
 
     <div class="doc doc-contents ">
 
-        <p>Check whether an operator is contained in ball of separability :footcite:<code>Gurvits_2002_Largest</code>.</p>
-<p>Determines whether :code:<code>mat</code> is contained within the ball of separable operators centered
+        <p>Check whether an operator is contained in ball of separability [^Gurvits_2002_Largest].</p>
+<p>Determines whether <code>mat</code> is contained within the ball of separable operators centered
 at the identity matrix (i.e. the maximally-mixed state). The size of this ball was derived in
-:footcite:<code>Gurvits_2002_Largest</code>.</p>
+[^Gurvits_2002_Largest].</p>
 <p>This function can be used as a method for separability testing of states in certain scenarios.</p>
 <p>This function is adapted from QETLAB.</p>
-<h3 id="toqito.state_props.in_separable_ball.in_separable_ball--examples">Examples<a class="headerlink" href="#toqito.state_props.in_separable_ball.in_separable_ball--examples" title="Permanent link">&para;</a></h3>
-<p>The only states acting on :math:<code>\mathbb{C}^m \otimes \mathbb{C}^n</code> in the
+<p>Examples:</p>
+<p>The only states acting on <span class="arithmatex">\(\mathbb{C}^m \otimes \mathbb{C}^n\)</span> in the
 separable ball that do not have full rank are those with exactly 1 zero
-eigenvalue, and the :math:<code>mn - 1</code> non-zero eigenvalues equal to each
+eigenvalue, and the <span class="arithmatex">\(mn - 1\)</span> non-zero eigenvalues equal to each
 other.</p>
 <p>The following is an example of generating a random density matrix with eigenvalues
-:code:<code>[1, 1, 1, 0]/3</code>. This example yields a matrix that is contained within the separable
+<code>[1, 1, 1, 0]/3</code>. This example yields a matrix that is contained within the separable
 ball.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.rand import random_unitary
-from toqito.state_props import in_separable_ball
-import numpy as np
-U = random_unitary(4)
-lam = np.array([1, 1, 1, 0]) / 3
-rho = U @ np.diag(lam) @ U.conj().T
-in_separable_ball(rho)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.rand</span><span class="w"> </span><span class="kn">import</span> <span class="n">random_unitary</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">in_separable_ball</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">U</span> <span class="o">=</span> <span class="n">random_unitary</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">lam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">rho</span> <span class="o">=</span> <span class="n">U</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span> <span class="o">@</span> <span class="n">U</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">in_separable_ball</span><span class="p">(</span><span class="n">rho</span><span class="p">))</span>
 </code></pre></div>
+<p>True</p>
 <p>The following is an example of generating a random density matrix with eigenvalues
-:code:<code>[1.01, 1, 0.99, 0]/3</code>. This example yields a matrix that is not contained within the
+<code>[1.01, 1, 0.99, 0]/3</code>. This example yields a matrix that is not contained within the
 separable ball.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.rand import random_unitary
-from toqito.state_props import in_separable_ball
-import numpy as np
-U = random_unitary(4)
-lam = np.array([1.01, 1, 0.99, 0]) / 3
-rho = U @ np.diag(lam) @ U.conj().T
-in_separable_ball(rho)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.rand</span><span class="w"> </span><span class="kn">import</span> <span class="n">random_unitary</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">in_separable_ball</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">U</span> <span class="o">=</span> <span class="n">random_unitary</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">lam</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.01</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">3</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">rho</span> <span class="o">=</span> <span class="n">U</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span> <span class="o">@</span> <span class="n">U</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">in_separable_ball</span><span class="p">(</span><span class="n">rho</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.state_props.in_separable_ball.in_separable_ball--references">References<a class="headerlink" href="#toqito.state_props.in_separable_ball.in_separable_ball--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param mat: A positive semidefinite matrix or a vector of the eigenvalues of a positive
-            semidefinite matrix.
-:return: :code:<code>True</code> if the matrix :code:<code>mat</code> is contained within the separable ball, and
-        :code:<code>False</code> otherwise.</p>
+<p>False</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>mat</code></b>
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>A positive semidefinite matrix or a vector of the eigenvalues of a positive semidefinite matrix.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="bool">bool</span> | <span title="numpy.bool_">bool_</span></code>
+          –
+          <div class="doc-md-description">
+            <p><code>True</code> if the matrix <code>mat</code> is contained within the separable ball, and <code>False</code> otherwise.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_props.in_separable_ball.in_separable_ball--fn:Gurvits_2002_Largest">
+<p>Gurvits, Leonid and Barnum, Howard. <em>Largest separable balls around the maximally mixed bipartite quantum state</em>. <strong>Physical Review A</strong>. vol. 66(6). (2002). <a href="https://doi.org/10.1103/physreva.66.062311">doi:10.1103/physreva.66.062311</a>.&#160;<a class="footnote-backref" href="#toqito.state_props.in_separable_ball.in_separable_ball--fnref:Gurvits_2002_Largest" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9111,91 +9082,79 @@ in_separable_ball(rho)
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
 <span class="normal"><a href="#__codelineno-0-76">76</a></span>
 <span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span>
-<span class="normal"><a href="#__codelineno-0-80">80</a></span>
-<span class="normal"><a href="#__codelineno-0-81">81</a></span>
-<span class="normal"><a href="#__codelineno-0-82">82</a></span>
-<span class="normal"><a href="#__codelineno-0-83">83</a></span>
-<span class="normal"><a href="#__codelineno-0-84">84</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">in_separable_ball</span><span class="p">(</span><span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check whether an operator is contained in ball of separability :footcite:`Gurvits_2002_Largest`.</span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">in_separable_ball</span><span class="p">(</span><span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check whether an operator is contained in ball of separability [@Gurvits_2002_Largest].</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    Determines whether :code:`mat` is contained within the ball of separable operators centered</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    Determines whether `mat` is contained within the ball of separable operators centered</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="sd">    at the identity matrix (i.e. the maximally-mixed state). The size of this ball was derived in</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    :footcite:`Gurvits_2002_Largest`.</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    [@Gurvits_2002_Largest].</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    This function can be used as a method for separability testing of states in certain scenarios.</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    This function is adapted from QETLAB.</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    The only states acting on :math:`\mathbb{C}^m \otimes \mathbb{C}^n` in the</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    separable ball that do not have full rank are those with exactly 1 zero</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    eigenvalue, and the :math:`mn - 1` non-zero eigenvalues equal to each</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    other.</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    The following is an example of generating a random density matrix with eigenvalues</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    :code:`[1, 1, 1, 0]/3`. This example yields a matrix that is contained within the separable</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    ball.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        from toqito.rand import random_unitary</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        from toqito.state_props import in_separable_ball</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        import numpy as np</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        U = random_unitary(4)</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        lam = np.array([1, 1, 1, 0]) / 3</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        rho = U @ np.diag(lam) @ U.conj().T</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        in_separable_ball(rho)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    The following is an example of generating a random density matrix with eigenvalues</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    :code:`[1.01, 1, 0.99, 0]/3`. This example yields a matrix that is not contained within the</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    separable ball.</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        from toqito.rand import random_unitary</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        from toqito.state_props import in_separable_ball</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        import numpy as np</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        U = random_unitary(4)</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        lam = np.array([1.01, 1, 0.99, 0]) / 3</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        rho = U @ np.diag(lam) @ U.conj().T</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        in_separable_ball(rho)</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    References</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    The only states acting on \(\mathbb{C}^m \otimes \mathbb{C}^n\) in the</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    separable ball that do not have full rank are those with exactly 1 zero</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    eigenvalue, and the \(mn - 1\) non-zero eigenvalues equal to each</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    other.</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    The following is an example of generating a random density matrix with eigenvalues</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    `[1, 1, 1, 0]/3`. This example yields a matrix that is contained within the separable</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    ball.</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    from toqito.rand import random_unitary</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    from toqito.state_props import in_separable_ball</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    U = random_unitary(4)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    lam = np.array([1, 1, 1, 0]) / 3</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    rho = U @ np.diag(lam) @ U.conj().T</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    print(in_separable_ball(rho))</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    The following is an example of generating a random density matrix with eigenvalues</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    `[1.01, 1, 0.99, 0]/3`. This example yields a matrix that is not contained within the</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    separable ball.</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    from toqito.rand import random_unitary</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    from toqito.state_props import in_separable_ball</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    U = random_unitary(4)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    lam = np.array([1.01, 1, 0.99, 0]) / 3</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    rho = U @ np.diag(lam) @ U.conj().T</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    print(in_separable_ball(rho))</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        mat: A positive semidefinite matrix or a vector of the eigenvalues of a positive semidefinite matrix.</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        `True` if the matrix `mat` is contained within the separable ball, and `False` otherwise.</span>
 <a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    :param mat: A positive semidefinite matrix or a vector of the eigenvalues of a positive</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">                semidefinite matrix.</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    :return: :code:`True` if the matrix :code:`mat` is contained within the separable ball, and</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">            :code:`False` otherwise.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">mat_dims</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="n">max_dim</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mat_dims</span><span class="p">)</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="c1"># If the matrix is a vector, turn it into a matrix. We could instead turn every matrix into a</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="c1"># vector of eigenvalues, but that would make the computation take O(n^3) time instead of the</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="c1"># current method which is O(n^2).</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="c1"># Case: Vector of eigenvalues.</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat_dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">min</span><span class="p">(</span><span class="n">mat_dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="n">mat_dims</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="n">max_dim</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mat_dims</span><span class="p">)</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="c1"># If the matrix is a vector, turn it into a matrix. We could instead turn every matrix into a</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="c1"># vector of eigenvalues, but that would make the computation take O(n^3) time instead of the</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="c1"># current method which is O(n^2).</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="c1"># Case: Vector of eigenvalues.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat_dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">min</span><span class="p">(</span><span class="n">mat_dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="c1"># If the matrix has trace equal to 0 or less, it cannot be in the separable ball.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="c1"># If the matrix has trace equal to 0 or less, it cannot be in the separable ball.</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="k">return</span> <span class="kc">False</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="c1"># The following check relies on the fact that we scaled the matrix so that trace(mat) = 1.</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="c1"># The following condition is then exactly the condition mentioned in :footcite:`Gurvits_2002_Largest`.</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mat</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="s2">&quot;fro&quot;</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">max_dim</span><span class="p">),</span> <span class="s2">&quot;fro&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="c1"># The following check relies on the fact that we scaled the matrix so that trace(mat) = 1.</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="c1"># The following condition is then exactly the condition mentioned in [@Gurvits_2002_Largest].</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mat</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="s2">&quot;fro&quot;</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">max_dim</span><span class="p">),</span> <span class="s2">&quot;fro&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

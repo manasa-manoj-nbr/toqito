@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -7570,34 +7570,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" is_mutually_orthogonal">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" is_mutually_orthogonal">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,43 +8938,83 @@
 
     <div class="doc doc-contents ">
 
-        <p>Check if list of vectors are mutually orthogonal :footcite:<code>WikiOrthog</code>.</p>
+        <p>Check if list of vectors are mutually orthogonal [^WikiOrthog].</p>
 <p>We say that two bases</p>
-<p>.. math::
+<div class="arithmatex">\[
     \begin{equation}
-        \mathcal{B}_0 = \left{u_a: a \in \Sigma \right} \subset \mathbb{C}^{\Sigma}
+        \mathcal{B}_0 = \left\{u_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}
         \quad \text{and} \quad
-        \mathcal{B}_1 = \left{v_a: a \in \Sigma \right} \subset \mathbb{C}^{\Sigma}
-    \end{equation}</p>
+        \mathcal{B}_1 = \left\{v_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}
+    \end{equation}
+\]</div>
 <p>are <em>mutually orthogonal</em> if and only if
-:math:<code>\left|\langle u_a, v_b \rangle\right| = 0</code> for all :math:<code>a, b \in \Sigma</code>.</p>
-<p>For :math:<code>n \in \mathbb{N}</code>, a set of bases :math:<code>\left\{
-\mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}</code> are mutually orthogonal if and only if
-every basis is orthogonal with every other basis in the set, i.e. :math:<code>\mathcal{B}_x</code>
-is orthogonal with :math:<code>\mathcal{B}_x^{\prime}</code> for all :math:<code>x \not= x^{\prime}</code> with
-:math:<code>x, x^{\prime} \in \Sigma</code>.</p>
-<h3 id="toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--examples">Examples<a class="headerlink" href="#toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--examples" title="Permanent link">&para;</a></h3>
+<span class="arithmatex">\(\left|\langle u_a, v_b \rangle\right| = 0\)</span> for all <span class="arithmatex">\(a, b \in \Sigma\)</span>.</p>
+<p>For <span class="arithmatex">\(n \in \mathbb{N}\)</span>, a set of bases <span class="arithmatex">\(\left\{
+\mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}\)</span> are mutually orthogonal if and only if
+every basis is orthogonal with every other basis in the set, i.e. <span class="arithmatex">\(\mathcal{B}_x\)</span>
+is orthogonal with <span class="arithmatex">\(\mathcal{B}_x^{\prime}\)</span> for all <span class="arithmatex">\(x \not= x^{\prime}\)</span> with
+<span class="arithmatex">\(x, x^{\prime} \in \Sigma\)</span>.</p>
+<p>Examples:</p>
 <p>The Bell states constitute a set of mutually orthogonal vectors.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import bell
-from toqito.state_props import is_mutually_orthogonal
-states = [bell(0), bell(1), bell(2), bell(3)]
-is_mutually_orthogonal(states)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bell</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_mutually_orthogonal</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">bell</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">bell</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">bell</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">bell</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_mutually_orthogonal</span><span class="p">(</span><span class="n">states</span><span class="p">))</span>
 </code></pre></div>
+<p>True</p>
 <p>The following is an example of a list of vectors that are not mutually orthogonal.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>import numpy as np
-from toqito.states import bell
-from toqito.state_props import is_mutually_orthogonal
-states = [np.array([1, 0]), np.array([1, 1])]
-is_mutually_orthogonal(states)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bell</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_mutually_orthogonal</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])]</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_mutually_orthogonal</span><span class="p">(</span><span class="n">states</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--references">References<a class="headerlink" href="#toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: If at least two vectors are not provided.
-:param vec_list: The list of vectors to check.
-:return: :code:<code>True</code> if :code:<code>vec_list</code> are mutually orthogonal, and
-         :code:<code>False</code> otherwise.</p>
+<p>False</p>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If at least two vectors are not provided.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>vec_list</code></b>
+              (<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span> | <span title="list">list</span>[<span title="float">float</span> | <span title="typing.Any">Any</span>]]</code>)
+          –
+          <div class="doc-md-description">
+            <p>The list of vectors to check.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="bool">bool</span></code>
+          –
+          <div class="doc-md-description">
+            <p><code>True</code> if <code>vec_list</code> are mutually orthogonal, and <code>False</code> otherwise.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--fn:WikiOrthog">
+<p>Wikipedia. <em>Orthogonality</em>. <a href="https://en.wikipedia.org/wiki/Orthogonality">link</a>.&#160;<a class="footnote-backref" href="#toqito.state_props.is_mutually_orthogonal.is_mutually_orthogonal--fnref:WikiOrthog" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9103,79 +9087,75 @@ is_mutually_orthogonal(states)
 <span class="normal"><a href="#__codelineno-0-73">73</a></span>
 <span class="normal"><a href="#__codelineno-0-74">74</a></span>
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_mutually_orthogonal</span><span class="p">(</span><span class="n">vec_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check if list of vectors are mutually orthogonal :footcite:`WikiOrthog`.</span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_mutually_orthogonal</span><span class="p">(</span><span class="n">vec_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check if list of vectors are mutually orthogonal [@WikiOrthog].</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    We say that two bases</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">        \begin{equation}</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">            \mathcal{B}_0 = \left\{u_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">            \quad \text{and} \quad</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">            \mathcal{B}_1 = \left\{v_a: a \in \Sigma \right\} \subset \mathbb{C}^{\Sigma}</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        \end{equation}</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    are *mutually orthogonal* if and only if</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    :math:`\left|\langle u_a, v_b \rangle\right| = 0` for all :math:`a, b \in \Sigma`.</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    For :math:`n \in \mathbb{N}`, a set of bases :math:`\left\{</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    \mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}` are mutually orthogonal if and only if</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    every basis is orthogonal with every other basis in the set, i.e. :math:`\mathcal{B}_x`</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    is orthogonal with :math:`\mathcal{B}_x^{\prime}` for all :math:`x \not= x^{\prime}` with</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    :math:`x, x^{\prime} \in \Sigma`.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    ==========</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    are *mutually orthogonal* if and only if</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    \(\left|\langle u_a, v_b \rangle\right| = 0\) for all \(a, b \in \Sigma\).</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    For \(n \in \mathbb{N}\), a set of bases \(\left\{</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    \mathcal{B}_0, \ldots, \mathcal{B}_{n-1} \right\}\) are mutually orthogonal if and only if</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    every basis is orthogonal with every other basis in the set, i.e. \(\mathcal{B}_x\)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    is orthogonal with \(\mathcal{B}_x^{\prime}\) for all \(x \not= x^{\prime}\) with</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    \(x, x^{\prime} \in \Sigma\).</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    The Bell states constitute a set of mutually orthogonal vectors.</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        from toqito.states import bell</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        from toqito.state_props import is_mutually_orthogonal</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        states = [bell(0), bell(1), bell(2), bell(3)]</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        is_mutually_orthogonal(states)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    from toqito.states import bell</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    from toqito.state_props import is_mutually_orthogonal</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    states = [bell(0), bell(1), bell(2), bell(3)]</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    print(is_mutually_orthogonal(states))</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    The following is an example of a list of vectors that are not mutually orthogonal.</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        import numpy as np</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        from toqito.states import bell</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        from toqito.state_props import is_mutually_orthogonal</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        states = [np.array([1, 0]), np.array([1, 1])]</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        is_mutually_orthogonal(states)</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    from toqito.states import bell</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    from toqito.state_props import is_mutually_orthogonal</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    states = [np.array([1, 0]), np.array([1, 1])]</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    print(is_mutually_orthogonal(states))</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    References</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        ValueError: If at least two vectors are not provided.</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        vec_list: The list of vectors to check.</span>
 <a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    :raises ValueError: If at least two vectors are not provided.</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    :param vec_list: The list of vectors to check.</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    :return: :code:`True` if :code:`vec_list` are mutually orthogonal, and</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">             :code:`False` otherwise.</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec_list</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;There must be at least two vectors provided as input.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="c1"># Convert list of vectors to a 2D array (each vector is a column)</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span><span class="n">vec_list</span><span class="p">)</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="c1"># Compute the matrix of inner products</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="n">inner_product_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">mat</span><span class="p">)</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="c1"># The diagonal elements will be non-zero (norm of each vector)</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="c1"># Set the diagonal elements to zero for the comparison</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">inner_product_matrix</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="c1"># Check if all off-diagonal elements are close to zero</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">inner_product_matrix</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">        `True` if `vec_list` are mutually orthogonal, and `False` otherwise.</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec_list</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;There must be at least two vectors provided as input.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="c1"># Convert list of vectors to a 2D array (each vector is a column)</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span><span class="n">vec_list</span><span class="p">)</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="c1"># Compute the matrix of inner products</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="n">inner_product_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">(),</span> <span class="n">mat</span><span class="p">)</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="c1"># The diagonal elements will be non-zero (norm of each vector)</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="c1"># Set the diagonal elements to zero for the comparison</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">inner_product_matrix</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="c1"># Check if all off-diagonal elements are close to zero</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">inner_product_matrix</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8412,34 +8412,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" gen_bell">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gen_bell.gen_bell--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gen_bell.gen_bell--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" gen_bell">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gen_bell.gen_bell--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gen_bell.gen_bell--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8996,10 +8940,8 @@ Generalized Bell states are the basis of multidimensional bipartite states havin
 
     <div class="doc doc-contents ">
 
-        <p>Produce a generalized Bell state :footcite:<code>Sych_2009_AComplete</code>.</p>
+        <p>Produce a generalized Bell state [^Sych_2009_AComplete].</p>
 <p>Produces a generalized Bell state. Note that the standard Bell states can be recovered as:</p>
-<p>.. code-block:: python
-    :linenos:</p>
 <div class="highlight"><pre><span></span><code>bell(0) : gen_bell(0, 0, 2)
 
 bell(1) : gen_bell(0, 1, 2)
@@ -9008,40 +8950,85 @@ bell(2) : gen_bell(1, 0, 2)
 
 bell(3) : gen_bell(1, 1, 2)
 </code></pre></div>
-<h3 id="toqito.states.gen_bell.gen_bell--examples">Examples<a class="headerlink" href="#toqito.states.gen_bell.gen_bell--examples" title="Permanent link">&para;</a></h3>
-<p>For :math:<code>d = 2</code> and :math:<code>k_1 = k_2 = 0</code>, this generates the following matrix</p>
-<p>.. math::
+<p>Examples:</p>
+<p>For <span class="arithmatex">\(d = 2\)</span> and <span class="arithmatex">\(k_1 = k_2 = 0\)</span>, this generates the following matrix</p>
+<div class="arithmatex">\[
     G = \frac{1}{2} \begin{pmatrix}
-                    1 &amp; 0 &amp; 0 &amp; 1 \
-                    0 &amp; 0 &amp; 0 &amp; 0 \
-                    0 &amp; 0 &amp; 0 &amp; 0 \
+                    1 &amp; 0 &amp; 0 &amp; 1 \\
+                    0 &amp; 0 &amp; 0 &amp; 0 \\
+                    0 &amp; 0 &amp; 0 &amp; 0 \\
                     1 &amp; 0 &amp; 0 &amp; 1
-                \end{pmatrix}</p>
-<p>which is equivalent to :math:<code>|\phi_0 \rangle \langle \phi_0 |</code> where</p>
-<p>.. math::
-    |\phi_0\rangle = \frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right)</p>
-<p>is one of the four standard Bell states. This can be computed via :code:<code>|toqito⟩</code> as follows.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import gen_bell
-dim = 2
-k_1 = 0
-k_2 = 0
-gen_bell(k_1, k_2, dim)
+                \end{pmatrix}
+\]</div>
+<p>which is equivalent to <span class="arithmatex">\(|\phi_0 \rangle \langle \phi_0 |\)</span> where</p>
+<div class="arithmatex">\[
+    |\phi_0\rangle = \frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right)
+\]</div>
+<p>is one of the four standard Bell states. This can be computed via <code>|toqito⟩</code> as follows.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">gen_bell</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">dim</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">k_1</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">k_2</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">gen_bell</span><span class="p">(</span><span class="n">k_1</span><span class="p">,</span> <span class="n">k_2</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
 </code></pre></div>
+<p>[[0.5+0.j 0. +0.j 0. +0.j 0.5+0.j]
+ [0. +0.j 0. +0.j 0. +0.j 0. +0.j]
+ [0. +0.j 0. +0.j 0. +0.j 0. +0.j]
+ [0.5+0.j 0. +0.j 0. +0.j 0.5+0.j]]</p>
 <p>It is possible for us to consider higher dimensional Bell states. For instance, we can consider
-the :math:<code>3</code>-dimensional Bell state for :math:<code>k_1 = k_2 = 0</code> as follows.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import gen_bell
-dim = 3
-k_1 = 0
-k_2 = 0
-gen_bell(k_1, k_2, dim)
+the <span class="arithmatex">\(3\)</span>-dimensional Bell state for <span class="arithmatex">\(k_1 = k_2 = 0\)</span> as follows.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">gen_bell</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">dim</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">k_1</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">k_2</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">gen_bell</span><span class="p">(</span><span class="n">k_1</span><span class="p">,</span> <span class="n">k_2</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.states.gen_bell.gen_bell--references">References<a class="headerlink" href="#toqito.states.gen_bell.gen_bell--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param k_1: An integer 0 &lt;= k_1 &lt;= n.
-:param k_2: An integer 0 &lt;= k_2 &lt;= n.
-:param dim: The dimension of the generalized Bell state.</p>
+<p>[[0.33333333+0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.33333333+0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.33333333+0.j]
+ [0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j]
+ [0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j]
+ [0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j]
+ [0.33333333+0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.33333333+0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.33333333+0.j]
+ [0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j]
+ [0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j]
+ [0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.        +0.j]
+ [0.33333333+0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.33333333+0.j 0.        +0.j 0.        +0.j 0.        +0.j 0.33333333+0.j]]</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>k_1</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>An integer 0 &lt;= k_1 &lt;= n.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>k_2</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>An integer 0 &lt;= k_2 &lt;= n.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The dimension of the generalized Bell state.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.gen_bell.gen_bell--fn:Sych_2009_AComplete">
+<p>Sych, Denis and Leuchs, Gerd. <em>A complete basis of generalized Bell states</em>. <strong>New Journal of Physics</strong>. vol. 11(1). (2009). <a href="https://doi.org/10.1088/1367-2630/11/1/013006">doi:10.1088/1367-2630/11/1/013006</a>.&#160;<a class="footnote-backref" href="#toqito.states.gen_bell.gen_bell--fnref:Sych_2009_AComplete" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9107,82 +9094,68 @@ gen_bell(k_1, k_2, dim)
 <span class="normal"><a href="#__codelineno-0-71">71</a></span>
 <span class="normal"><a href="#__codelineno-0-72">72</a></span>
 <span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span>
-<span class="normal"><a href="#__codelineno-0-80">80</a></span>
-<span class="normal"><a href="#__codelineno-0-81">81</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">gen_bell</span><span class="p">(</span><span class="n">k_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a generalized Bell state :footcite:`Sych_2009_AComplete`.</span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">gen_bell</span><span class="p">(</span><span class="n">k_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a generalized Bell state [@Sych_2009_AComplete].</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    Produces a generalized Bell state. Note that the standard Bell states can be recovered as:</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    .. code-block:: python</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        :linenos:</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        bell(0) : gen_bell(0, 0, 2)</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        bell(1) : gen_bell(0, 1, 2)</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        bell(2) : gen_bell(1, 0, 2)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        bell(0) : gen_bell(0, 0, 2)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        bell(1) : gen_bell(0, 1, 2)</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        bell(2) : gen_bell(1, 0, 2)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        bell(3) : gen_bell(1, 1, 2)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        bell(3) : gen_bell(1, 1, 2)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    For :math:`d = 2` and :math:`k_1 = k_2 = 0`, this generates the following matrix</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        G = \frac{1}{2} \begin{pmatrix}</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">                        1 &amp; 0 &amp; 0 &amp; 1 \\</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">                        0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">                        0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">                        1 &amp; 0 &amp; 0 &amp; 1</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">                    \end{pmatrix}</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    which is equivalent to :math:`|\phi_0 \rangle \langle \phi_0 |` where</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        |\phi_0\rangle = \frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    For \(d = 2\) and \(k_1 = k_2 = 0\), this generates the following matrix</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        G = \frac{1}{2} \begin{pmatrix}</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">                        1 &amp; 0 &amp; 0 &amp; 1 \\</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">                        0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">                        0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">                        1 &amp; 0 &amp; 0 &amp; 1</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">                    \end{pmatrix}</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    which is equivalent to \(|\phi_0 \rangle \langle \phi_0 |\) where</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        |\phi_0\rangle = \frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right)</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    is one of the four standard Bell states. This can be computed via `|toqito⟩` as follows.</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    is one of the four standard Bell states. This can be computed via :code:`|toqito⟩` as follows.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        from toqito.states import gen_bell</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        dim = 2</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        k_1 = 0</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        k_2 = 0</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        gen_bell(k_1, k_2, dim)</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    It is possible for us to consider higher dimensional Bell states. For instance, we can consider</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    the :math:`3`-dimensional Bell state for :math:`k_1 = k_2 = 0` as follows.</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">        from toqito.states import gen_bell</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        dim = 3</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        k_1 = 0</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        k_2 = 0</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        gen_bell(k_1, k_2, dim)</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    References</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    :param k_1: An integer 0 &lt;= k_1 &lt;= n.</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    :param k_2: An integer 0 &lt;= k_2 &lt;= n.</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">    :param dim: The dimension of the generalized Bell state.</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">gen_pauli_w</span> <span class="o">=</span> <span class="n">gen_pauli</span><span class="p">(</span><span class="n">k_1</span><span class="p">,</span> <span class="n">k_2</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">vec</span><span class="p">(</span><span class="n">gen_pauli_w</span><span class="p">)</span> <span class="o">@</span> <span class="n">vec</span><span class="p">(</span><span class="n">gen_pauli_w</span><span class="p">)</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    from toqito.states import gen_bell</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    dim = 2</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    k_1 = 0</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    k_2 = 0</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    print(gen_bell(k_1, k_2, dim))</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    It is possible for us to consider higher dimensional Bell states. For instance, we can consider</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    the \(3\)-dimensional Bell state for \(k_1 = k_2 = 0\) as follows.</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    from toqito.states import gen_bell</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    dim = 3</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    k_1 = 0</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    k_2 = 0</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    print(gen_bell(k_1, k_2, dim))</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        k_1: An integer 0 &lt;= k_1 &lt;= n.</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        k_2: An integer 0 &lt;= k_2 &lt;= n.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        dim: The dimension of the generalized Bell state.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="n">gen_pauli_w</span> <span class="o">=</span> <span class="n">gen_pauli</span><span class="p">(</span><span class="n">k_1</span><span class="p">,</span> <span class="n">k_2</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">vec</span><span class="p">(</span><span class="n">gen_pauli_w</span><span class="p">)</span> <span class="o">@</span> <span class="n">vec</span><span class="p">(</span><span class="n">gen_pauli_w</span><span class="p">)</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

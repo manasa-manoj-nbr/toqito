@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -5728,23 +5728,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" permutation_operator">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.perms.permutation_operator.permutation_operator--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8889,23 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" permutation_operator">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.perms.permutation_operator.permutation_operator--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8973,30 +8939,84 @@
     <div class="doc doc-contents ">
 
         <p>Produce a unitary operator that permutes subsystems.</p>
-<p>Generates a unitary operator that permutes the order of subsystems according to the permutation vector :code:<code>perm</code>,
-where the :math:<code>i^{th}</code> subsystem has dimension :code:<code>dim[i]</code>.</p>
-<p>If :code:<code>inv_perm</code> = True, it implements the inverse permutation of :code:<code>perm</code>. The permutation operator return
-is full is :code:<code>is_sparse</code> is :code:<code>False</code> and sparse if :code:<code>is_sparse</code> is :code:<code>True</code>.</p>
-<h3 id="toqito.perms.permutation_operator.permutation_operator--examples">Examples<a class="headerlink" href="#toqito.perms.permutation_operator.permutation_operator--examples" title="Permanent link">&para;</a></h3>
-<p>The permutation operator obtained with dimension :math:<code>d = 2</code> is equivalent to the standard swap operator on two
+<p>Generates a unitary operator that permutes the order of subsystems according to the permutation vector <code>perm</code>,
+where the <span class="arithmatex">\(i^{th}\)</span> subsystem has dimension <code>dim[i]</code>.</p>
+<p>If <code>inv_perm</code> = True, it implements the inverse permutation of <code>perm</code>. The permutation operator return
+is full is <code>is_sparse</code> is <code>False</code> and sparse if <code>is_sparse</code> is <code>True</code>.</p>
+<p>Examples:</p>
+<p>The permutation operator obtained with dimension <span class="arithmatex">\(d = 2\)</span> is equivalent to the standard swap operator on two
 qubits</p>
-<p>.. math::
+<div class="arithmatex">\[
     P_{2, [1, 0]} =
     \begin{pmatrix}
-        1 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 1 &amp; 0 \
-        0 &amp; 1 &amp; 0 &amp; 0 \
+        1 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 1 &amp; 0 \\
+        0 &amp; 1 &amp; 0 &amp; 0 \\
         0 &amp; 0 &amp; 0 &amp; 1
-    \end{pmatrix}</p>
-<p>Using :code:<code>|toqito⟩</code>, this can be achieved in the following manner.</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.perms import permutation_operator</p>
-<p>permutation_operator(2, [1, 0])</p>
-<p>:param dim: The dimensions of the subsystems to be permuted.
-:param perm: A permutation vector.
-:param inv_perm: Boolean dictating if :code:<code>perm</code> is inverse or not.
-:param is_sparse: Boolean indicating if return is sparse or not.
-:return: Permutation operator of dimension :code:<code>dim</code>.</p>
+    \end{pmatrix}
+\]</div>
+<p>Using <code>|toqito⟩</code>, this can be achieved in the following manner.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.perms</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_operator</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">permutation_operator</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</code></pre></div>
+<p>[[1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]]</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="list">list</span>[<span title="int">int</span>] | <span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The dimensions of the subsystems to be permuted.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>perm</code></b>
+              (<code><span title="list">list</span>[<span title="int">int</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>A permutation vector.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>inv_perm</code></b>
+              (<code><span title="bool">bool</span></code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Boolean dictating if <code>perm</code> is inverse or not.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>is_sparse</code></b>
+              (<code><span title="bool">bool</span></code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Boolean indicating if return is sparse or not.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>Permutation operator of dimension <code>dim</code>.</p>
+          </div>
+        </li>
+    </ul>
 
 
             <details class="mkdocstrings-source">
@@ -9056,7 +9076,11 @@ qubits</p>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
 <span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">permutation_operator</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">permutation_operator</span><span class="p">(</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">dim</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">perm</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">inv_perm</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -9064,54 +9088,58 @@ qubits</p>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a unitary operator that permutes subsystems.</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Generates a unitary operator that permutes the order of subsystems according to the permutation vector :code:`perm`,</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    where the :math:`i^{th}` subsystem has dimension :code:`dim[i]`.</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Generates a unitary operator that permutes the order of subsystems according to the permutation vector `perm`,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    where the \(i^{th}\) subsystem has dimension `dim[i]`.</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    If :code:`inv_perm` = True, it implements the inverse permutation of :code:`perm`. The permutation operator return</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    is full is :code:`is_sparse` is :code:`False` and sparse if :code:`is_sparse` is :code:`True`.</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    If `inv_perm` = True, it implements the inverse permutation of `perm`. The permutation operator return</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    is full is `is_sparse` is `False` and sparse if `is_sparse` is `True`.</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    The permutation operator obtained with dimension :math:`d = 2` is equivalent to the standard swap operator on two</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    qubits</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        P_{2, [1, 0]} =</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        \begin{pmatrix}</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">            1 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">            0 &amp; 0 &amp; 1 &amp; 0 \\</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">            0 &amp; 1 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 1</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        \end{pmatrix}</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    The permutation operator obtained with dimension \(d = 2\) is equivalent to the standard swap operator on two</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    qubits</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        P_{2, [1, 0]} =</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        \begin{pmatrix}</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">            1 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">            0 &amp; 0 &amp; 1 &amp; 0 \\</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">            0 &amp; 1 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 1</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        \end{pmatrix}</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    \]</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Using :code:`|toqito⟩`, this can be achieved in the following manner.</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Using `|toqito⟩`, this can be achieved in the following manner.</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">     from toqito.perms import permutation_operator</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">     permutation_operator(2, [1, 0])</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    from toqito.perms import permutation_operator</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    print(permutation_operator(2, [1, 0]))</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    :param dim: The dimensions of the subsystems to be permuted.</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    :param perm: A permutation vector.</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    :param inv_perm: Boolean dictating if :code:`perm` is inverse or not.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    :param is_sparse: Boolean indicating if return is sparse or not.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    :return: Permutation operator of dimension :code:`dim`.</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="c1"># Allow the user to enter a single number for `dim`.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">perm</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">dim</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">)))</span> <span class="k">if</span> <span class="n">is_sparse</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">)))</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="c1"># Swap the rows of the identity matrix appropriately.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">return</span> <span class="n">permute_systems</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">perm</span><span class="p">,</span> <span class="n">dim_arr</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">inv_perm</span><span class="p">)</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        dim: The dimensions of the subsystems to be permuted.</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        perm: A permutation vector.</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        inv_perm: Boolean dictating if `perm` is inverse or not.</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        is_sparse: Boolean indicating if return is sparse or not.</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        Permutation operator of dimension `dim`.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="c1"># Allow the user to enter a single number for `dim`.</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">perm</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="n">dim_arr</span> <span class="o">=</span> <span class="n">dim</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">mat</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">)))</span> <span class="k">if</span> <span class="n">is_sparse</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim_arr</span><span class="p">)))</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="c1"># Swap the rows of the identity matrix appropriately.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="k">return</span> <span class="n">permute_systems</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">perm</span><span class="p">,</span> <span class="n">dim_arr</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">inv_perm</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

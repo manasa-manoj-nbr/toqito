@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -6068,34 +6068,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" random_ginibre">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_ginibre.random_ginibre--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_ginibre.random_ginibre--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" random_ginibre">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_ginibre.random_ginibre--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_ginibre.random_ginibre--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,26 +8938,80 @@
 
     <div class="doc doc-contents ">
 
-        <p>Generate a Ginibre random matrix :footcite:<code>WikiCircLaw</code>.</p>
-<p>Generates a random :code:<code>dim_n</code>-by-:code:<code>dim_m</code> Ginibre matrix.</p>
+        <p>Generate a Ginibre random matrix [^WikiCircLaw].</p>
+<p>Generates a random <code>dim_n</code>-by-<code>dim_m</code> Ginibre matrix.</p>
 <p>A <em>Ginibre random matrix</em> is a matrix with independent and identically distributed complex standard Gaussian
 entries.</p>
-<p>Ginibre random matrices are used in the construction of Wishart-random POVMs :footcite:<code>Heinosaari_2020_Random</code>.</p>
-<h3 id="toqito.rand.random_ginibre.random_ginibre--examples">Examples<a class="headerlink" href="#toqito.rand.random_ginibre.random_ginibre--examples" title="Permanent link">&para;</a></h3>
-<p>Generate a random :math:<code>2</code>-by-:math:<code>2</code> Ginibre random matrix.</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.rand import random_ginibre</p>
-<p>random_ginibre(2, 2)</p>
+<p>Ginibre random matrices are used in the construction of Wishart-random POVMs [^Heinosaari_2020_Random].</p>
+<p>Examples:</p>
+<p>Generate a random <span class="arithmatex">\(2\)</span>-by-<span class="arithmatex">\(2\)</span> Ginibre random matrix.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.rand</span><span class="w"> </span><span class="kn">import</span> <span class="n">random_ginibre</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">random_ginibre</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p>[[-0.14774623-0.30803489j  0.30706055+1.25241746j]
+ [ 0.14709577-0.05466465j -0.66741345+0.97445068j]]</p>
 <p>It is also possible to pass a seed to this function for reproducibility.</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.rand import random_ginibre</p>
-<p>random_ginibre(2, 2, seed=42)</p>
-<h3 id="toqito.rand.random_ginibre.random_ginibre--references">References<a class="headerlink" href="#toqito.rand.random_ginibre.random_ginibre--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param dim_n: The number of rows of the Ginibre random matrix.
-:param dim_m: The number of columns of the Ginibre random matrix.
-:param seed: A seed used to instantiate numpy's random number generator.
-:return: A :code:<code>dim_n</code>-by-:code:<code>dim_m</code> Ginibre random matrix.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.rand</span><span class="w"> </span><span class="kn">import</span> <span class="n">random_ginibre</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">random_ginibre</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+</code></pre></div>
+<p>[[ 0.21546751-1.37959021j -0.73537981-0.92077996j]
+ [ 0.53064913+0.09039682j  0.66507969-0.22361728j]]</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim_n</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The number of rows of the Ginibre random matrix.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>dim_m</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The number of columns of the Ginibre random matrix.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>seed</code></b>
+              (<code><span title="int">int</span> | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>A seed used to instantiate numpy's random number generator.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>A <code>dim_n</code>-by-<code>dim_m</code> Ginibre random matrix.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.rand.random_ginibre.random_ginibre--fn:WikiCircLaw">
+<p>Wikipedia. <em>Circular law</em>. <a href="https://en.wikipedia.org/wiki/Circular_law">link</a>.&#160;<a class="footnote-backref" href="#toqito.rand.random_ginibre.random_ginibre--fnref:WikiCircLaw" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="toqito.rand.random_ginibre.random_ginibre--fn:Heinosaari_2020_Random">
+<p>Heinosaari, Teiko and Jivulescu, Maria and Nechita, Ion. <em>Random positive operator valued measures</em>. <strong>Journal of Mathematical Physics</strong>. vol. 61(4). (2020). <a href="https://doi.org/10.1063/1.5131028">doi:10.1063/1.5131028</a>.&#160;<a class="footnote-backref" href="#toqito.rand.random_ginibre.random_ginibre--fnref:Heinosaari_2020_Random" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9056,55 +9054,45 @@ entries.</p>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">random_ginibre</span><span class="p">(</span><span class="n">dim_n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim_m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a Ginibre random matrix :footcite:`WikiCircLaw`.</span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">random_ginibre</span><span class="p">(</span><span class="n">dim_n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim_m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a Ginibre random matrix [@WikiCircLaw].</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    Generates a random :code:`dim_n`-by-:code:`dim_m` Ginibre matrix.</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    Generates a random `dim_n`-by-`dim_m` Ginibre matrix.</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    A *Ginibre random matrix* is a matrix with independent and identically distributed complex standard Gaussian</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    entries.</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    Ginibre random matrices are used in the construction of Wishart-random POVMs :footcite:`Heinosaari_2020_Random`.</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    Ginibre random matrices are used in the construction of Wishart-random POVMs [@Heinosaari_2020_Random].</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Generate a random :math:`2`-by-:math:`2` Ginibre random matrix.</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    .. jupyter-execute::</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    Generate a random \(2\)-by-\(2\) Ginibre random matrix.</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    from toqito.rand import random_ginibre</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">     from toqito.rand import random_ginibre</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">     random_ginibre(2, 2)</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    It is also possible to pass a seed to this function for reproducibility.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    .. jupyter-execute::</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    print(random_ginibre(2, 2))</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    It is also possible to pass a seed to this function for reproducibility.</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    from toqito.rand import random_ginibre</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">     from toqito.rand import random_ginibre</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">     random_ginibre(2, 2, seed=42)</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    References</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    print(random_ginibre(2, 2, seed=42))</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        dim_n: The number of rows of the Ginibre random matrix.</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        dim_m: The number of columns of the Ginibre random matrix.</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        seed: A seed used to instantiate numpy&#39;s random number generator.</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        A `dim_n`-by-`dim_m` Ginibre random matrix.</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    :param dim_n: The number of rows of the Ginibre random matrix.</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    :param dim_m: The number of columns of the Ginibre random matrix.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    :param seed: A seed used to instantiate numpy&#39;s random number generator.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    :return: A :code:`dim_n`-by-:code:`dim_m` Ginibre random matrix.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">dim_n</span><span class="p">,</span> <span class="n">dim_m</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">gen</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">dim_n</span><span class="p">,</span> <span class="n">dim_m</span><span class="p">)))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">dim_n</span><span class="p">,</span> <span class="n">dim_m</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">gen</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">((</span><span class="n">dim_n</span><span class="p">,</span> <span class="n">dim_m</span><span class="p">)))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -7654,34 +7654,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" is_ppt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_ppt.is_ppt--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_ppt.is_ppt--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" is_ppt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_ppt.is_ppt--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.is_ppt.is_ppt--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,59 +8938,114 @@
 
     <div class="doc doc-contents ">
 
-        <p>Determine whether or not a matrix has positive partial transpose :footcite:<code>WikiPeresHorodecki</code>.</p>
-<p>Yields either :code:<code>True</code> or :code:<code>False</code>, indicating that :code:<code>mat</code> does or does not have
-positive partial transpose (within numerical error). The variable :code:<code>mat</code> is assumed to act
+        <p>Determine whether or not a matrix has positive partial transpose [^WikiPeresHorodecki].</p>
+<p>Yields either <code>True</code> or <code>False</code>, indicating that <code>mat</code> does or does not have
+positive partial transpose (within numerical error). The variable <code>mat</code> is assumed to act
 on bipartite space.</p>
-<p>For shared systems of :math:<code>2 \otimes 2</code> or :math:<code>2 \otimes 3</code>, the PPT criterion serves as a
+<p>For shared systems of <span class="arithmatex">\(2 \otimes 2\)</span> or <span class="arithmatex">\(2 \otimes 3\)</span>, the PPT criterion serves as a
 method to determine whether a given state is entangled or separable. Therefore, for systems of
-this size, the return value :code:<code>True</code> would indicate that the state is separable and a value
-of :code:<code>False</code> would indicate the state is entangled.</p>
-<h3 id="toqito.state_props.is_ppt.is_ppt--examples">Examples<a class="headerlink" href="#toqito.state_props.is_ppt.is_ppt--examples" title="Permanent link">&para;</a></h3>
+this size, the return value <code>True</code> would indicate that the state is separable and a value
+of <code>False</code> would indicate the state is entangled.</p>
+<p>Examples:</p>
 <p>Consider the following matrix</p>
-<p>.. math::
+<div class="arithmatex">\[
     X =
     \begin{pmatrix}
-        1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \
-    \end{pmatrix}.</p>
+        1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+    \end{pmatrix}.
+\]</div>
 <p>This matrix trivially satisfies the PPT criterion as can be seen using the
-:code:<code>|toqito⟩</code> package.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.state_props import is_ppt
-import numpy as np
-mat = np.identity(9)
-is_ppt(mat)
+<code>|toqito⟩</code> package.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_ppt</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_ppt</span><span class="p">(</span><span class="n">mat</span><span class="p">))</span>
 </code></pre></div>
+<p>True</p>
 <p>Consider the following Bell state:</p>
-<p>.. math::
-    u = \frac{1}{\sqrt{2}}\left( |01 \rangle + |10 \rangle \right).</p>
-<p>For the density matrix :math:<code>\rho = u u^*</code>, as this is an entangled state
-of dimension :math:<code>2</code>, it will violate the PPT criterion, which can be seen
-using the :code:<code>|toqito⟩</code> package.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import bell
-from toqito.state_props import is_ppt
-rho = bell(2) @ bell(2).conj().T
-is_ppt(rho)
+<div class="arithmatex">\[
+    u = \frac{1}{\sqrt{2}}\left( |01 \rangle + |10 \rangle \right).
+\]</div>
+<p>For the density matrix <span class="arithmatex">\(\rho = u u^*\)</span>, as this is an entangled state
+of dimension <span class="arithmatex">\(2\)</span>, it will violate the PPT criterion, which can be seen
+using the <code>|toqito⟩</code> package.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bell</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_ppt</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">rho</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">@</span> <span class="n">bell</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_ppt</span><span class="p">(</span><span class="n">rho</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.state_props.is_ppt.is_ppt--references">References<a class="headerlink" href="#toqito.state_props.is_ppt.is_ppt--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param mat: A square matrix.
-:param sys: Scalar or vector indicating which subsystems the transpose
-            should be applied on.
-:param dim: The dimension is a vector containing the dimensions of the
-            subsystems on which :code:<code>mat</code> acts.
-:param tol: Tolerance with which to check whether <code>mat</code> is PPT.
-:return: Returns :code:<code>True</code> if :code:<code>mat</code> is PPT and :code:<code>False</code> if
-         not.</p>
+<p>False</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>mat</code></b>
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>A square matrix.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>sys</code></b>
+              (<code><span title="int">int</span></code>, default:
+                  <code>2</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Scalar or vector indicating which subsystems the transpose should be applied on.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span> | <span title="list">list</span>[<span title="int">int</span>] | <span title="numpy.ndarray">ndarray</span> | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>The dimension is a vector containing the dimensions of the subsystems on which <code>mat</code> acts.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>tol</code></b>
+              (<code><span title="float">float</span> | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Tolerance with which to check whether <code>mat</code> is PPT.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="bool">bool</span></code>
+          –
+          <div class="doc-md-description">
+            <p>Returns <code>True</code> if <code>mat</code> is PPT and <code>False</code> if not.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_props.is_ppt.is_ppt--fn:WikiPeresHorodecki">
+<p>Wikipedia. <em>Peres-Horodecki criterion</em>. <a href="https://en.wikipedia.org/wiki/Peres%E2%80%93Horodecki_criterion">link</a>.&#160;<a class="footnote-backref" href="#toqito.state_props.is_ppt.is_ppt--fnref:WikiPeresHorodecki" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9133,101 +9132,89 @@ is_ppt(rho)
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
 <span class="normal"><a href="#__codelineno-0-89">89</a></span>
 <span class="normal"><a href="#__codelineno-0-90">90</a></span>
-<span class="normal"><a href="#__codelineno-0-91">91</a></span>
-<span class="normal"><a href="#__codelineno-0-92">92</a></span>
-<span class="normal"><a href="#__codelineno-0-93">93</a></span>
-<span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span>
-<span class="normal"><a href="#__codelineno-0-96">96</a></span>
-<span class="normal"><a href="#__codelineno-0-97">97</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_ppt</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-91">91</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_ppt</span><span class="p">(</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sys</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Determine whether or not a matrix has positive partial transpose :footcite:`WikiPeresHorodecki`.</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Determine whether or not a matrix has positive partial transpose [@WikiPeresHorodecki].</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    Yields either :code:`True` or :code:`False`, indicating that :code:`mat` does or does not have</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    positive partial transpose (within numerical error). The variable :code:`mat` is assumed to act</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    Yields either `True` or `False`, indicating that `mat` does or does not have</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    positive partial transpose (within numerical error). The variable `mat` is assumed to act</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    on bipartite space.</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    For shared systems of :math:`2 \otimes 2` or :math:`2 \otimes 3`, the PPT criterion serves as a</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    For shared systems of \(2 \otimes 2\) or \(2 \otimes 3\), the PPT criterion serves as a</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    method to determine whether a given state is entangled or separable. Therefore, for systems of</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    this size, the return value :code:`True` would indicate that the state is separable and a value</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    of :code:`False` would indicate the state is entangled.</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    this size, the return value `True` would indicate that the state is separable and a value</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    of `False` would indicate the state is entangled.</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Consider the following matrix</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        X =</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        \begin{pmatrix}</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">            1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">            0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">            0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        \end{pmatrix}.</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Consider the following matrix</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        X =</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        \begin{pmatrix}</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">            1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">            0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">            0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        \end{pmatrix}.</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    \]</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    This matrix trivially satisfies the PPT criterion as can be seen using the</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    :code:`|toqito⟩` package.</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    `|toqito⟩` package.</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        from toqito.state_props import is_ppt</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        import numpy as np</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        mat = np.identity(9)</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        is_ppt(mat)</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    from toqito.state_props import is_ppt</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    mat = np.identity(9)</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    print(is_ppt(mat))</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Consider the following Bell state:</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        u = \frac{1}{\sqrt{2}}\left( |01 \rangle + |10 \rangle \right).</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    For the density matrix :math:`\rho = u u^*`, as this is an entangled state</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    of dimension :math:`2`, it will violate the PPT criterion, which can be seen</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    using the :code:`|toqito⟩` package.</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">        from toqito.states import bell</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        from toqito.state_props import is_ppt</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        rho = bell(2) @ bell(2).conj().T</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        is_ppt(rho)</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    For the density matrix \(\rho = u u^*\), as this is an entangled state</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    of dimension \(2\), it will violate the PPT criterion, which can be seen</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    using the `|toqito⟩` package.</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    from toqito.states import bell</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    from toqito.state_props import is_ppt</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    rho = bell(2) @ bell(2).conj().T</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    print(is_ppt(rho))</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    References</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        mat: A square matrix.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        sys: Scalar or vector indicating which subsystems the transpose should be applied on.</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        dim: The dimension is a vector containing the dimensions of the subsystems on which `mat` acts.</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        tol: Tolerance with which to check whether `mat` is PPT.</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    :param mat: A square matrix.</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    :param sys: Scalar or vector indicating which subsystems the transpose</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">                should be applied on.</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    :param dim: The dimension is a vector containing the dimensions of the</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">                subsystems on which :code:`mat` acts.</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">    :param tol: Tolerance with which to check whether `mat` is PPT.</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    :return: Returns :code:`True` if :code:`mat` is PPT and :code:`False` if</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">             not.</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        Returns `True` if `mat` is PPT and `False` if not.</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="n">sqrt_rho_dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">sqrt_rho_dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">(</span><span class="n">sqrt_rho_dims</span><span class="p">)</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">sqrt_rho_dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="n">sqrt_rho_dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">(</span><span class="n">sqrt_rho_dims</span><span class="p">)</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>            <span class="p">[</span><span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>            <span class="p">[</span><span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="p">]</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="k">if</span> <span class="n">tol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="n">tol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>    <span class="k">return</span> <span class="n">is_positive_semidefinite</span><span class="p">(</span><span class="n">partial_transpose</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="p">[</span><span class="n">sys</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">),</span> <span class="n">tol</span><span class="p">)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>            <span class="p">[</span><span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>            <span class="p">[</span><span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sqrt_rho_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="p">]</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="k">if</span> <span class="n">tol</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="n">tol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="k">return</span> <span class="n">is_positive_semidefinite</span><span class="p">(</span><span class="n">partial_transpose</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="p">[</span><span class="n">sys</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">),</span> <span class="n">tol</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

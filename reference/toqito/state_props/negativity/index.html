@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -7906,45 +7906,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" negativity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.negativity.negativity--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.negativity.negativity--see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.negativity.negativity--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8911,45 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" negativity">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.negativity.negativity--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.negativity.negativity--see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.negativity.negativity--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -9016,30 +8938,82 @@
 
     <div class="doc doc-contents ">
 
-        <p>Compute the negativity of a bipartite quantum state :footcite:<code>WikiNeg</code>.</p>
-<p>The negativity of a subsystem can be defined in terms of a density matrix :math:<code>\rho</code>:</p>
-<p>.. math::
-    \mathcal{N}(\rho) \equiv \frac{||\rho^{\Gamma_A}||_1-1}{2}.</p>
-<p>Calculate the negativity of the quantum state :math:<code>\rho</code>, assuming that the two subsystems on
-which :math:<code>\rho</code> acts are of equal dimension (if the local dimensions are unequal, specify
-them in the optional :code:<code>dim</code> argument). The negativity of :math:<code>\rho</code> is the sum of the
-absolute value of the negative eigenvalues of the partial transpose of :math:<code>\rho</code>.</p>
-<h3 id="toqito.state_props.negativity.negativity--examples">Examples<a class="headerlink" href="#toqito.state_props.negativity.negativity--examples" title="Permanent link">&para;</a></h3>
+        <p>Compute the negativity of a bipartite quantum state [^WikiNeg].</p>
+<p>The negativity of a subsystem can be defined in terms of a density matrix <span class="arithmatex">\(\rho\)</span>:</p>
+<div class="arithmatex">\[
+    \mathcal{N}(\rho) \equiv \frac{||\rho^{\Gamma_A}||_1-1}{2}.
+\]</div>
+<p>Calculate the negativity of the quantum state <span class="arithmatex">\(\rho\)</span>, assuming that the two subsystems on
+which <span class="arithmatex">\(\rho\)</span> acts are of equal dimension (if the local dimensions are unequal, specify
+them in the optional <code>dim</code> argument). The negativity of <span class="arithmatex">\(\rho\)</span> is the sum of the
+absolute value of the negative eigenvalues of the partial transpose of <span class="arithmatex">\(\rho\)</span>.</p>
+<p>Examples:</p>
 <p>Example of the negativity of density matrix of Bell state.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import bell
-from toqito.state_props import negativity
-rho = bell(0) @ bell(0).conj().T
-negativity(rho)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bell</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">negativity</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">rho</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">@</span> <span class="n">bell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">negativity</span><span class="p">(</span><span class="n">rho</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.state_props.negativity.negativity--see-also">See Also<a class="headerlink" href="#toqito.state_props.negativity.negativity--see-also" title="Permanent link">&para;</a></h3>
-<p><img alt="🇵🇾" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f1f5-1f1fe.svg" title=":py:" />func:<code>~toqito.state_props.log_negativity.log_negativity</code></p>
-<h3 id="toqito.state_props.negativity.negativity--references">References<a class="headerlink" href="#toqito.state_props.negativity.negativity--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: If dimension of matrix is invalid.
-:param rho: A density matrix of a pure state vector.
-:param dim: The default has both subsystems of equal dimension.
-:return: A value between 0 and 1 that corresponds to the negativity of :math:<code>\rho</code>.</p>
+<p>0.4999999999999998</p>
+<div class="admonition see also">
+<p class="admonition-title">See</p>
+<p><a class="autorefs autorefs-internal" title="            log_negativity" href="../log_negativity/#toqito.state_props.log_negativity.log_negativity">log_negativity()</a></p>
+</div>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If dimension of matrix is invalid.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>rho</code></b>
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>A density matrix of a pure state vector.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="list">list</span>[<span title="int">int</span>] | <span title="int">int</span> | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>The default has both subsystems of equal dimension.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="float">float</span> | <span title="numpy.floating">floating</span></code>
+          –
+          <div class="doc-md-description">
+            <p>A value between 0 and 1 that corresponds to the negativity of <span class="arithmatex">\(\rho\)</span>.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_props.negativity.negativity--fn:WikiNeg">
+<p>Wikipedia. <em>Negativity</em>. <a href="https://en.wikipedia.org/wiki/Negativity_(quantum_mechanics)">link</a>.&#160;<a class="footnote-backref" href="#toqito.state_props.negativity.negativity--fnref:WikiNeg" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9114,81 +9088,77 @@ negativity(rho)
 <span class="normal"><a href="#__codelineno-0-76">76</a></span>
 <span class="normal"><a href="#__codelineno-0-77">77</a></span>
 <span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span>
-<span class="normal"><a href="#__codelineno-0-80">80</a></span>
-<span class="normal"><a href="#__codelineno-0-81">81</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">negativity</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">:</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the negativity of a bipartite quantum state :footcite:`WikiNeg`.</span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">negativity</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the negativity of a bipartite quantum state [@WikiNeg].</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    The negativity of a subsystem can be defined in terms of a density matrix :math:`\rho`:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    The negativity of a subsystem can be defined in terms of a density matrix \(\rho\):</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">        \mathcal{N}(\rho) \equiv \frac{||\rho^{\Gamma_A}||_1-1}{2}.</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Calculate the negativity of the quantum state :math:`\rho`, assuming that the two subsystems on</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    which :math:`\rho` acts are of equal dimension (if the local dimensions are unequal, specify</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    them in the optional :code:`dim` argument). The negativity of :math:`\rho` is the sum of the</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    absolute value of the negative eigenvalues of the partial transpose of :math:`\rho`.</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    ==========</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    Calculate the negativity of the quantum state \(\rho\), assuming that the two subsystems on</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    which \(\rho\) acts are of equal dimension (if the local dimensions are unequal, specify</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    them in the optional `dim` argument). The negativity of \(\rho\) is the sum of the</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    absolute value of the negative eigenvalues of the partial transpose of \(\rho\).</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Example of the negativity of density matrix of Bell state.</span>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        from toqito.states import bell</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        from toqito.state_props import negativity</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        rho = bell(0) @ bell(0).conj().T</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        negativity(rho)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    from toqito.states import bell</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    from toqito.state_props import negativity</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    rho = bell(0) @ bell(0).conj().T</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    print(negativity(rho))</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    See Also</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    :py:func:`~toqito.state_props.log_negativity.log_negativity`</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    References</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    !!!See Also</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        [log_negativity()][toqito.state_props.log_negativity.log_negativity]</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        ValueError: If dimension of matrix is invalid.</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        rho: A density matrix of a pure state vector.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        dim: The default has both subsystems of equal dimension.</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    :raises ValueError: If dimension of matrix is invalid.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    :param rho: A density matrix of a pure state vector.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    :param dim: The default has both subsystems of equal dimension.</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    :return: A value between 0 and 1 that corresponds to the negativity of :math:`\rho`.</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="c1"># Allow the user to input either a pure state vector or a density matrix.</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="n">rho</span> <span class="o">=</span> <span class="n">to_density_matrix</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">rho_dims</span> <span class="o">=</span> <span class="n">rho</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">round_dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_dims</span><span class="p">))</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">round_dim</span><span class="p">])</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span><span class="o">.</span><span class="n">T</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="c1"># Allow the user to enter a single number for dim.</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">,</span> <span class="n">rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">dim</span><span class="p">])</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>                <span class="s2">&quot;InvalidDim: If `dim` is a scalar, `rho` must be &quot;</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>                <span class="s2">&quot;square and `dim` must evenly divide `len(rho)`. &quot;</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>                <span class="s2">&quot;Please provide the `dim` array containing the &quot;</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>                <span class="s2">&quot;dimensions of the subsystems.&quot;</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>            <span class="p">)</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">!=</span> <span class="n">rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>            <span class="s2">&quot;InvalidDim: Please provide local dimensions in the argument `dim` that match the size of `rho`.&quot;</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="p">)</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        A value between 0 and 1 that corresponds to the negativity of \(\rho\).</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="c1"># Allow the user to input either a pure state vector or a density matrix.</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">rho</span> <span class="o">=</span> <span class="n">to_density_matrix</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">rho_dims</span> <span class="o">=</span> <span class="n">rho</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="n">round_dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rho_dims</span><span class="p">))</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">round_dim</span><span class="p">])</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="c1"># Allow the user to enter a single number for dim.</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">,</span> <span class="n">rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">dim</span><span class="p">])</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>                <span class="s2">&quot;InvalidDim: If `dim` is a scalar, `rho` must be &quot;</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>                <span class="s2">&quot;square and `dim` must evenly divide `len(rho)`. &quot;</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>                <span class="s2">&quot;Please provide the `dim` array containing the &quot;</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>                <span class="s2">&quot;dimensions of the subsystems.&quot;</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>            <span class="p">)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">!=</span> <span class="n">rho_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>            <span class="s2">&quot;InvalidDim: Please provide local dimensions in the argument `dim` that match the size of `rho`.&quot;</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="p">)</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">dim</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dim</span><span class="p">]</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">dim</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">dim</span><span class="p">]</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="c1"># Compute the negativity.</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">partial_transpose</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">),</span> <span class="nb">ord</span><span class="o">=</span><span class="s2">&quot;nuc&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="c1"># Compute the negativity.</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">partial_transpose</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">),</span> <span class="nb">ord</span><span class="o">=</span><span class="s2">&quot;nuc&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8776,34 +8776,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" werner">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.werner.werner--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.werner.werner--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" werner">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.werner.werner--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.werner.werner--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8995,38 +8939,102 @@
 
     <div class="doc doc-contents ">
 
-        <p>Produce a Werner state :footcite:<code>Werner_1989_QuantumStates</code>.</p>
+        <p>Produce a Werner state [^Werner_1989_QuantumStates].</p>
 <p>A Werner state is a state of the following form</p>
-<p>.. math::</p>
-<div class="highlight"><pre><span></span><code>\begin{equation}
-    \rho_{\alpha} = \frac{1}{d^2 - d\alpha} \left(\mathbb{I} \otimes
-    \mathbb{I} - \alpha S \right) \in \mathbb{C}^d \otimes \mathbb{C}^d.
-\end{equation}
-</code></pre></div>
-<p>Yields a Werner state with parameter :code:<code>alpha</code> acting on :code:<code>(dim * dim)</code>- dimensional space. More
-specifically, :math:<code>\rho</code> is the density operator defined by :math:<code>(\mathbb{I} -</code>alpha<code>S)</code> (normalized to have
-trace 1), where :math:<code>\mathbb{I}</code> is the density operator and :math:<code>S</code> is the operator that swaps two copies of
-:code:<code>dim</code>-dimensional space (see swap and swap_operator for example).</p>
-<p>If :code:<code>alpha</code> is a vector with :math:<code>p!-1</code> entries, for some integer :math:<code>p &gt; 1</code>, then a multipartite Werner
+<div class="arithmatex">\[
+    \begin{equation}
+        \rho_{\alpha} = \frac{1}{d^2 - d\alpha} \left(\mathbb{I} \otimes
+        \mathbb{I} - \alpha S \right) \in \mathbb{C}^d \otimes \mathbb{C}^d.
+    \end{equation}
+\]</div>
+<p>Yields a Werner state with parameter <code>alpha</code> acting on <code>(dim * dim)</code>- dimensional space. More
+specifically, <span class="arithmatex">\(\rho\)</span> is the density operator defined by <span class="arithmatex">\((\mathbb{I} - \)</span>alpha<code>S)</code> (normalized to have
+trace 1), where <span class="arithmatex">\(\mathbb{I}\)</span> is the density operator and <span class="arithmatex">\(S\)</span> is the operator that swaps two copies of
+<code>dim</code>-dimensional space (see swap and swap_operator for example).</p>
+<p>If <code>alpha</code> is a vector with <span class="arithmatex">\(p!-1\)</span> entries, for some integer <span class="arithmatex">\(p &gt; 1\)</span>, then a multipartite Werner
 state is returned. This multipartite Werner state is the normalization of I - <code>alpha(1)*P(2)</code> - ... -
 <code>alpha(p!-1)*P(p!)</code>, where P(i) is the operator that permutes p subsystems according to the i-th permutation when
 they are written in lexicographical order (for example, the lexicographical ordering when p = 3 is: <code>[1, 2, 3], [1,
 3, 2], [2, 1,3], [2, 3, 1], [3, 1, 2], [3, 2, 1],</code> so P(4) in this case equals permutation_operator(dim, [2, 3, 1]).</p>
-<h3 id="toqito.states.werner.werner--examples">Examples<a class="headerlink" href="#toqito.states.werner.werner--examples" title="Permanent link">&para;</a></h3>
-<p>Computing the qutrit Werner state with :math:<code>\alpha = 1/2</code> can be done in :code:<code>|toqito⟩</code> as</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.states import werner
-  werner(3, 1 / 2)</p>
-<p>We may also compute multipartite Werner states in :code:<code>|toqito⟩</code> as well.</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.states import werner
-  werner(2, [0.01, 0.02, 0.03, 0.04, 0.05])</p>
-<h3 id="toqito.states.werner.werner--references">References<a class="headerlink" href="#toqito.states.werner.werner--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: Alpha vector does not have the correct length.
-:param dim: The dimension of the Werner state.
-:param alpha: Parameter to specify Werner state.
-:return: A Werner state of dimension :code:<code>dim</code>.</p>
+<p>Examples:</p>
+<p>Computing the qutrit Werner state with <span class="arithmatex">\(\alpha = 1/2\)</span> can be done in <code>|toqito⟩</code> as</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">werner</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">werner</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p>[[ 0.06666667  0.          0.          0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.13333333  0.         -0.06666667  0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.13333333  0.          0.          0.         -0.06666667  0.          0.        ]
+ [ 0.         -0.06666667  0.          0.13333333  0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.06666667  0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.13333333  0.         -0.06666667  0.        ]
+ [ 0.          0.         -0.06666667  0.          0.          0.          0.13333333  0.          0.        ]
+ [ 0.          0.          0.          0.          0.         -0.06666667  0.          0.13333333  0.        ]
+ [ 0.          0.          0.          0.          0.          0.          0.          0.          0.06666667]]</p>
+<p>We may also compute multipartite Werner states in <code>|toqito⟩</code> as well.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">werner</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">werner</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]))</span>
+</code></pre></div>
+<p>[[ 0.11286089  0.          0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.12729659 -0.00787402  0.         -0.00656168  0.          0.          0.        ]
+ [ 0.         -0.00918635  0.1312336   0.         -0.00918635  0.          0.          0.        ]
+ [ 0.          0.          0.          0.12860892  0.         -0.01049869 -0.00524934  0.        ]
+ [ 0.         -0.00524934 -0.01049869  0.          0.12860892  0.          0.          0.        ]
+ [ 0.          0.          0.         -0.00918635  0.          0.1312336  -0.00918635  0.        ]
+ [ 0.          0.          0.         -0.00656168  0.         -0.00787402  0.12729659  0.        ]
+ [ 0.          0.          0.          0.          0.          0.          0.          0.11286089]]</p>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>Alpha vector does not have the correct length.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The dimension of the Werner state.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>alpha</code></b>
+              (<code><span title="float">float</span> | <span title="list">list</span>[<span title="float">float</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>Parameter to specify Werner state.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>A Werner state of dimension <code>dim</code>.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.werner.werner--fn:Werner_1989_QuantumStates">
+<p>Werner, Reinhard. <em>Quantum states with Einstein-Podolsky-Rosen correlations admitting a hidden-variable model</em>. <strong>Phys. Rev. A</strong>. vol. 40. (1989). <a href="https://doi.org/10.1103/PhysRevA.40.4277">doi:10.1103/PhysRevA.40.4277</a>.&#160;<a class="footnote-backref" href="#toqito.states.werner.werner--fnref:Werner_1989_QuantumStates" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9111,91 +9119,87 @@ they are written in lexicographical order (for example, the lexicographical orde
 <span class="normal"><a href="#__codelineno-0-90">90</a></span>
 <span class="normal"><a href="#__codelineno-0-91">91</a></span>
 <span class="normal"><a href="#__codelineno-0-92">92</a></span>
-<span class="normal"><a href="#__codelineno-0-93">93</a></span>
-<span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">werner</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a Werner state :footcite:`Werner_1989_QuantumStates`.</span>
+<span class="normal"><a href="#__codelineno-0-93">93</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">werner</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a Werner state [@Werner_1989_QuantumStates].</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    A Werner state is a state of the following form</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        \begin{equation}</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">            \rho_{\alpha} = \frac{1}{d^2 - d\alpha} \left(\mathbb{I} \otimes</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">            \mathbb{I} - \alpha S \right) \in \mathbb{C}^d \otimes \mathbb{C}^d.</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        \end{equation}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        \begin{equation}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">            \rho_{\alpha} = \frac{1}{d^2 - d\alpha} \left(\mathbb{I} \otimes</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">            \mathbb{I} - \alpha S \right) \in \mathbb{C}^d \otimes \mathbb{C}^d.</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        \end{equation}</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    \]</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Yields a Werner state with parameter :code:`alpha` acting on :code:`(dim * dim)`- dimensional space. More</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    specifically, :math:`\rho` is the density operator defined by :math:`(\mathbb{I} - `alpha` S)` (normalized to have</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    trace 1), where :math:`\mathbb{I}` is the density operator and :math:`S` is the operator that swaps two copies of</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    :code:`dim`-dimensional space (see swap and swap_operator for example).</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Yields a Werner state with parameter `alpha` acting on `(dim * dim)`- dimensional space. More</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    specifically, \(\rho\) is the density operator defined by \((\mathbb{I} - \)alpha` S)` (normalized to have</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    trace 1), where \(\mathbb{I}\) is the density operator and \(S\) is the operator that swaps two copies of</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    `dim`-dimensional space (see swap and swap_operator for example).</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    If :code:`alpha` is a vector with :math:`p!-1` entries, for some integer :math:`p &gt; 1`, then a multipartite Werner</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    If `alpha` is a vector with \(p!-1\) entries, for some integer \(p &gt; 1\), then a multipartite Werner</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    state is returned. This multipartite Werner state is the normalization of I - `alpha(1)*P(2)` - ... -</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    `alpha(p!-1)*P(p!)`, where P(i) is the operator that permutes p subsystems according to the i-th permutation when</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    they are written in lexicographical order (for example, the lexicographical ordering when p = 3 is: `[1, 2, 3], [1,</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    3, 2], [2, 1,3], [2, 3, 1], [3, 1, 2], [3, 2, 1],` so P(4) in this case equals permutation_operator(dim, [2, 3, 1]).</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Computing the qutrit Werner state with :math:`\alpha = 1/2` can be done in :code:`|toqito⟩` as</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">      from toqito.states import werner</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">      werner(3, 1 / 2)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Computing the qutrit Werner state with \(\alpha = 1/2\) can be done in `|toqito⟩` as</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    from toqito.states import werner</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    print(werner(3, 1 / 2))</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    We may also compute multipartite Werner states in :code:`|toqito⟩` as well.</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">      from toqito.states import werner</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">      werner(2, [0.01, 0.02, 0.03, 0.04, 0.05])</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    References</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    We may also compute multipartite Werner states in `|toqito⟩` as well.</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    from toqito.states import werner</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    print(werner(2, [0.01, 0.02, 0.03, 0.04, 0.05]))</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        ValueError: Alpha vector does not have the correct length.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        dim: The dimension of the Werner state.</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">        alpha: Parameter to specify Werner state.</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    :raises ValueError: Alpha vector does not have the correct length.</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    :param dim: The dimension of the Werner state.</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    :param alpha: Parameter to specify Werner state.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    :return: A Werner state of dimension :code:`dim`.</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="c1"># Multipartite Werner state.</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">n_fac</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="c1"># Compute the number of parties from `len(alpha)`.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="n">n_var</span> <span class="o">=</span> <span class="n">n_fac</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="c1"># We won&#39;t actually go all the way to `n_fac`.</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_fac</span><span class="p">):</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>            <span class="n">n_var</span> <span class="o">=</span> <span class="n">n_var</span> <span class="o">//</span> <span class="n">i</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>            <span class="k">if</span> <span class="n">n_var</span> <span class="o">==</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>                <span class="k">break</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>            <span class="k">if</span> <span class="n">n_var</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;InvalidAlpha: The `alpha` vector must contain p!-1 entries for some integer p &gt; 1.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="c1"># Done error checking and computing the number of parties</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>        <span class="c1"># -- now compute the Werner state.</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="n">perms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_var</span><span class="p">)))</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">sorted_perms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">perms</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">dim</span><span class="o">**</span><span class="n">n_var</span><span class="p">)</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_fac</span><span class="p">):</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>            <span class="n">rho</span> <span class="o">-=</span> <span class="n">alpha</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">sorted_perms</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="n">rho</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="k">return</span> <span class="n">rho</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="c1"># Bipartite Werner state (executed only if alpha is a float).</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="n">n_fac</span> <span class="o">=</span> <span class="mi">2</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">dim</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">swap_operator</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">dim</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">))</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Alpha must be either a float or a list of floats.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        A Werner state of dimension `dim`.</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="c1"># Multipartite Werner state.</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">n_fac</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="c1"># Compute the number of parties from `len(alpha)`.</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">n_var</span> <span class="o">=</span> <span class="n">n_fac</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="c1"># We won&#39;t actually go all the way to `n_fac`.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_fac</span><span class="p">):</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>            <span class="n">n_var</span> <span class="o">=</span> <span class="n">n_var</span> <span class="o">//</span> <span class="n">i</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>            <span class="k">if</span> <span class="n">n_var</span> <span class="o">==</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>                <span class="k">break</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>            <span class="k">if</span> <span class="n">n_var</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;InvalidAlpha: The `alpha` vector must contain p!-1 entries for some integer p &gt; 1.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="c1"># Done error checking and computing the number of parties</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="c1"># -- now compute the Werner state.</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="n">perms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_var</span><span class="p">)))</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>        <span class="n">sorted_perms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">perms</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">dim</span><span class="o">**</span><span class="n">n_var</span><span class="p">)</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_fac</span><span class="p">):</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>            <span class="n">rho</span> <span class="o">-=</span> <span class="n">alpha</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">sorted_perms</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="n">rho</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="k">return</span> <span class="n">rho</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="c1"># Bipartite Werner state (executed only if alpha is a float).</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="n">n_fac</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">dim</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">swap_operator</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">dim</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">))</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Alpha must be either a float or a list of floats.&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

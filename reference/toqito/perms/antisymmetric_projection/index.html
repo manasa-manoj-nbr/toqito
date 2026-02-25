@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -5644,34 +5644,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" antisymmetric_projection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.perms.antisymmetric_projection.antisymmetric_projection--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.perms.antisymmetric_projection.antisymmetric_projection--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" antisymmetric_projection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.perms.antisymmetric_projection.antisymmetric_projection--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.perms.antisymmetric_projection.antisymmetric_projection--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,48 +8938,109 @@
 
     <div class="doc doc-contents ">
 
-        <p>Produce the projection onto the antisymmetric subspace :footcite:<code>WikiAsymmOp</code>.</p>
-<p>Produces the orthogonal projection onto the anti-symmetric subspace of :code:<code>p_param</code> copies of
-:code:<code>dim</code>-dimensional space. If :code:<code>partial = True</code>, then the antisymmetric projection (PA) isn't the
+        <p>Produce the projection onto the antisymmetric subspace [^WikiAsymmOp].</p>
+<p>Produces the orthogonal projection onto the anti-symmetric subspace of <code>p_param</code> copies of
+<code>dim</code>-dimensional space. If <code>partial = True</code>, then the antisymmetric projection (PA) isn't the
 orthogonal projection itself, but rather a matrix whose columns form an orthonormal basis for the symmetric subspace
 (and hence the PA * PA' is the orthogonal projection onto the symmetric subspace.)</p>
-<h3 id="toqito.perms.antisymmetric_projection.antisymmetric_projection--examples">Examples<a class="headerlink" href="#toqito.perms.antisymmetric_projection.antisymmetric_projection--examples" title="Permanent link">&para;</a></h3>
-<p>The :math:<code>2</code>-dimensional antisymmetric projection with :math:<code>p=1</code> is given as
-:math:<code>2</code>-by-:math:<code>2</code> identity matrix</p>
-<p>.. math::
+<p>Examples:</p>
+<p>The <span class="arithmatex">\(2\)</span>-dimensional antisymmetric projection with <span class="arithmatex">\(p=1\)</span> is given as
+<span class="arithmatex">\(2\)</span>-by-<span class="arithmatex">\(2\)</span> identity matrix</p>
+<div class="arithmatex">\[
     A_{2,1} =
     \begin{pmatrix}
-        1 &amp; 0 \
+        1 &amp; 0 \\
         0 &amp; 1
-    \end{pmatrix}.</p>
-<p>Using :code:<code>|toqito⟩</code>, we can see this gives the proper result.</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.perms import antisymmetric_projection</p>
-<p>antisymmetric_projection(2, 1)</p>
-<p>When the :math:<code>p</code> value is greater than the dimension of the antisymmetric projection, this just gives the matrix
-consisting of all zero entries. For instance, when :math:<code>d = 2</code> and :math:<code>p = 3</code> we have that</p>
-<p>.. math::
+    \end{pmatrix}.
+\]</div>
+<p>Using <code>|toqito⟩</code>, we can see this gives the proper result.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.perms</span><span class="w"> </span><span class="kn">import</span> <span class="n">antisymmetric_projection</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">antisymmetric_projection</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<p>[[1. 0.]
+ [0. 1.]]</p>
+<p>When the <span class="arithmatex">\(p\)</span> value is greater than the dimension of the antisymmetric projection, this just gives the matrix
+consisting of all zero entries. For instance, when <span class="arithmatex">\(d = 2\)</span> and <span class="arithmatex">\(p = 3\)</span> we have that</p>
+<div class="arithmatex">\[
     A_{2, 3} =
     \begin{pmatrix}
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
-        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
         0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
-    \end{pmatrix}.</p>
-<p>Using :code:<code>|toqito⟩</code> we can see this gives the proper result.</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.perms import antisymmetric_projection</p>
-<p>antisymmetric_projection(2, 3)</p>
-<h3 id="toqito.perms.antisymmetric_projection.antisymmetric_projection--references">References<a class="headerlink" href="#toqito.perms.antisymmetric_projection.antisymmetric_projection--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param dim: The dimension of the local systems.
-:param p_param: Default value of 2.
-:param partial: Default value of 0.
-:return: Projection onto the antisymmetric subspace.</p>
+    \end{pmatrix}.
+\]</div>
+<p>Using <code>|toqito⟩</code> we can see this gives the proper result.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.perms</span><span class="w"> </span><span class="kn">import</span> <span class="n">antisymmetric_projection</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">antisymmetric_projection</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<p>[[0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 0. 0.]]</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The dimension of the local systems.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>p_param</code></b>
+              (<code><span title="int">int</span></code>, default:
+                  <code>2</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Default value of 2.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>partial</code></b>
+              (<code><span title="bool">bool</span></code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Default value of 0.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>Projection onto the antisymmetric subspace.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.perms.antisymmetric_projection.antisymmetric_projection--fn:WikiAsymmOp">
+<p>Wikipedia. <em>Anti-symmetric operator</em>. <a href="https://en.wikipedia.org/wiki/Anti-symmetric_operator">link</a>.&#160;<a class="footnote-backref" href="#toqito.perms.antisymmetric_projection.antisymmetric_projection--fnref:WikiAsymmOp" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9121,41 +9126,39 @@ consisting of all zero entries. For instance, when :math:<code>d = 2</code> and 
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
 <span class="normal"><a href="#__codelineno-0-89">89</a></span>
 <span class="normal"><a href="#__codelineno-0-90">90</a></span>
-<span class="normal"><a href="#__codelineno-0-91">91</a></span>
-<span class="normal"><a href="#__codelineno-0-92">92</a></span>
-<span class="normal"><a href="#__codelineno-0-93">93</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">antisymmetric_projection</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">p_param</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">partial</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce the projection onto the antisymmetric subspace :footcite:`WikiAsymmOp`.</span>
+<span class="normal"><a href="#__codelineno-0-91">91</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">antisymmetric_projection</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">p_param</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">partial</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce the projection onto the antisymmetric subspace [@WikiAsymmOp].</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Produces the orthogonal projection onto the anti-symmetric subspace of :code:`p_param` copies of</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    :code:`dim`-dimensional space. If :code:`partial = True`, then the antisymmetric projection (PA) isn&#39;t the</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Produces the orthogonal projection onto the anti-symmetric subspace of `p_param` copies of</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    `dim`-dimensional space. If `partial = True`, then the antisymmetric projection (PA) isn&#39;t the</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    orthogonal projection itself, but rather a matrix whose columns form an orthonormal basis for the symmetric subspace</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    (and hence the PA * PA&#39; is the orthogonal projection onto the symmetric subspace.)</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    The :math:`2`-dimensional antisymmetric projection with :math:`p=1` is given as</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    :math:`2`-by-:math:`2` identity matrix</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        A_{2,1} =</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        \begin{pmatrix}</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">            1 &amp; 0 \\</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">            0 &amp; 1</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        \end{pmatrix}.</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    The \(2\)-dimensional antisymmetric projection with \(p=1\) is given as</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    \(2\)-by-\(2\) identity matrix</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        A_{2,1} =</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        \begin{pmatrix}</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">            1 &amp; 0 \\</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">            0 &amp; 1</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        \end{pmatrix}.</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    \]</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    Using :code:`|toqito⟩`, we can see this gives the proper result.</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    Using `|toqito⟩`, we can see this gives the proper result.</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">     from toqito.perms import antisymmetric_projection</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">     antisymmetric_projection(2, 1)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    from toqito.perms import antisymmetric_projection</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    print(antisymmetric_projection(2, 1))</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    When the :math:`p` value is greater than the dimension of the antisymmetric projection, this just gives the matrix</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    consisting of all zero entries. For instance, when :math:`d = 2` and :math:`p = 3` we have that</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    When the \(p\) value is greater than the dimension of the antisymmetric projection, this just gives the matrix</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    consisting of all zero entries. For instance, when \(d = 2\) and \(p = 3\) we have that</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        A_{2, 3} =</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        \begin{pmatrix}</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
@@ -9167,46 +9170,44 @@ consisting of all zero entries. For instance, when :math:<code>d = 2</code> and 
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">            0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        \end{pmatrix}.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    Using :code:`|toqito⟩` we can see this gives the proper result.</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">     from toqito.perms import antisymmetric_projection</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    Using `|toqito⟩` we can see this gives the proper result.</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    from toqito.perms import antisymmetric_projection</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">     antisymmetric_projection(2, 3)</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    References</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    print(antisymmetric_projection(2, 3))</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        dim: The dimension of the local systems.</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        p_param: Default value of 2.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        partial: Default value of 0.</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    :param dim: The dimension of the local systems.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    :param p_param: Default value of 2.</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    :param partial: Default value of 0.</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    :return: Projection onto the antisymmetric subspace.</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="n">dimp</span> <span class="o">=</span> <span class="n">dim</span><span class="o">**</span><span class="n">p_param</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="k">if</span> <span class="n">p_param</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="c1"># The antisymmetric subspace is empty if `dim &lt; p`.</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="o">&lt;</span> <span class="n">p_param</span><span class="p">:</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">dimp</span><span class="p">,</span> <span class="n">dimp</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">partial</span><span class="p">)))</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="n">p_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">p_param</span><span class="p">))))</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="n">p_fac</span> <span class="o">=</span> <span class="n">p_list</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="n">anti_proj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">dimp</span><span class="p">,</span> <span class="n">dimp</span><span class="p">))</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p_fac</span><span class="p">):</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="n">anti_proj</span> <span class="o">+=</span> <span class="n">perm_sign</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:])</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">(</span><span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">p_param</span><span class="p">),</span> <span class="n">p_list</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:],</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="n">anti_proj</span> <span class="o">=</span> <span class="n">anti_proj</span> <span class="o">/</span> <span class="n">p_fac</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="k">if</span> <span class="n">partial</span><span class="p">:</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="n">anti_proj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">anti_proj</span><span class="p">))</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="k">return</span> <span class="n">anti_proj</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        Projection onto the antisymmetric subspace.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="n">dimp</span> <span class="o">=</span> <span class="n">dim</span><span class="o">**</span><span class="n">p_param</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">if</span> <span class="n">p_param</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="c1"># The antisymmetric subspace is empty if `dim &lt; p`.</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="o">&lt;</span> <span class="n">p_param</span><span class="p">:</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">dimp</span><span class="p">,</span> <span class="n">dimp</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">partial</span><span class="p">)))</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="n">p_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">p_param</span><span class="p">))))</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">p_fac</span> <span class="o">=</span> <span class="n">p_list</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="n">anti_proj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">dimp</span><span class="p">,</span> <span class="n">dimp</span><span class="p">))</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p_fac</span><span class="p">):</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="n">anti_proj</span> <span class="o">+=</span> <span class="n">perm_sign</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:])</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">(</span><span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">p_param</span><span class="p">),</span> <span class="n">p_list</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:],</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">anti_proj</span> <span class="o">=</span> <span class="n">anti_proj</span> <span class="o">/</span> <span class="n">p_fac</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="k">if</span> <span class="n">partial</span><span class="p">:</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="n">anti_proj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">anti_proj</span><span class="p">))</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="k">return</span> <span class="n">anti_proj</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

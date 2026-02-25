@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -7822,34 +7822,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" l1_norm_coherence">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.l1_norm_coherence.l1_norm_coherence--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.l1_norm_coherence.l1_norm_coherence--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" l1_norm_coherence">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.l1_norm_coherence.l1_norm_coherence--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_props.l1_norm_coherence.l1_norm_coherence--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,33 +8938,63 @@
 
     <div class="doc doc-contents ">
 
-        <p>Compute the l1-norm of coherence of a quantum state :footcite:<code>Rana_2017_Log</code>.</p>
-<p>The :math:<code>\ell_1</code>-norm of coherence of a quantum state :math:<code>\rho</code> is
+        <p>Compute the l1-norm of coherence of a quantum state [^Rana_2017_Log].</p>
+<p>The <span class="arithmatex">\(\ell_1\)</span>-norm of coherence of a quantum state <span class="arithmatex">\(\rho\)</span> is
 defined as</p>
-<p>.. math::
-    C_{\ell_1}(\rho) = \sum_{i \not= j} \left|\rho_{i,j}\right|,</p>
-<p>where :math:<code>\rho_{i,j}</code> is the :math:<code>(i,j)^{th}</code>-entry of :math:<code>\rho</code>
+<div class="arithmatex">\[
+    C_{\ell_1}(\rho) = \sum_{i \not= j} \left|\rho_{i,j}\right|,
+\]</div>
+<p>where <span class="arithmatex">\(\rho_{i,j}\)</span> is the <span class="arithmatex">\((i,j)^{th}\)</span>-entry of <span class="arithmatex">\(\rho\)</span>
 in the standard basis.</p>
-<p>The :math:<code>\ell_1</code>-norm of coherence is the sum of the absolute values of
+<p>The <span class="arithmatex">\(\ell_1\)</span>-norm of coherence is the sum of the absolute values of
 the sum of the absolute values of the off-diagonal entries of the density
-matrix :code:<code>rho</code> in the standard basis.</p>
+matrix <code>rho</code> in the standard basis.</p>
 <p>This function was adapted from QETLAB.</p>
-<h3 id="toqito.state_props.l1_norm_coherence.l1_norm_coherence--examples">Examples<a class="headerlink" href="#toqito.state_props.l1_norm_coherence.l1_norm_coherence--examples" title="Permanent link">&para;</a></h3>
-<p>The largest possible value of the :math:<code>\ell_1</code>-norm of coherence on
-:math:<code>d</code>-dimensional states is :math:<code>d-1</code>, and is attained exactly by
+<p>Examples:</p>
+<p>The largest possible value of the <span class="arithmatex">\(\ell_1\)</span>-norm of coherence on
+<span class="arithmatex">\(d\)</span>-dimensional states is <span class="arithmatex">\(d-1\)</span>, and is attained exactly by
 the "maximally coherent states": pure states whose entries all have the
 same absolute value.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.state_props import l1_norm_coherence
-import numpy as np
-# Maximally coherent state.
-v = np.ones((3,1))/np.sqrt(3)
-l1_norm_coherence(v)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_props</span><span class="w"> </span><span class="kn">import</span> <span class="n">l1_norm_coherence</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Maximally coherent state.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">l1_norm_coherence</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.state_props.l1_norm_coherence.l1_norm_coherence--references">References<a class="headerlink" href="#toqito.state_props.l1_norm_coherence.l1_norm_coherence--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param rho: A matrix or vector.
-:return: The l1-norm coherence of :code:<code>rho</code>.</p>
+<p>2.000000000000001</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>rho</code></b>
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>A matrix or vector.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="float">float</span></code>
+          –
+          <div class="doc-md-description">
+            <p>The l1-norm coherence of <code>rho</code>.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_props.l1_norm_coherence.l1_norm_coherence--fn:Rana_2017_Log">
+<p>Rana, Swapan and Parashar, Preeti and Winter, Andreas and Lewenstein, Maciej. <em>Logarithmic coherence: Operational interpretation of <span class="arithmatex">\({\ensuremath{ \ell}}_{1}\)</span>-norm coherence</em>. <strong>Phys. Rev. A</strong>. vol. 96. (2017). <a href="https://doi.org/10.1103/PhysRevA.96.052336">doi:10.1103/PhysRevA.96.052336</a>.&#160;<a class="footnote-backref" href="#toqito.state_props.l1_norm_coherence.l1_norm_coherence--fnref:Rana_2017_Log" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9067,55 +9041,49 @@ l1_norm_coherence(v)
 <span class="normal"><a href="#__codelineno-0-47">47</a></span>
 <span class="normal"><a href="#__codelineno-0-48">48</a></span>
 <span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">l1_norm_coherence</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the l1-norm of coherence of a quantum state :footcite:`Rana_2017_Log`.</span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">l1_norm_coherence</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the l1-norm of coherence of a quantum state [@Rana_2017_Log].</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    The :math:`\ell_1`-norm of coherence of a quantum state :math:`\rho` is</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    The \(\ell_1\)-norm of coherence of a quantum state \(\rho\) is</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    defined as</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">        C_{\ell_1}(\rho) = \sum_{i \not= j} \left|\rho_{i,j}\right|,</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    where :math:`\rho_{i,j}` is the :math:`(i,j)^{th}`-entry of :math:`\rho`</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    in the standard basis.</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    The :math:`\ell_1`-norm of coherence is the sum of the absolute values of</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    the sum of the absolute values of the off-diagonal entries of the density</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    matrix :code:`rho` in the standard basis.</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    This function was adapted from QETLAB.</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    ========</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    where \(\rho_{i,j}\) is the \((i,j)^{th}\)-entry of \(\rho\)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    in the standard basis.</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    The \(\ell_1\)-norm of coherence is the sum of the absolute values of</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    the sum of the absolute values of the off-diagonal entries of the density</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    matrix `rho` in the standard basis.</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    This function was adapted from QETLAB.</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    The largest possible value of the :math:`\ell_1`-norm of coherence on</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    :math:`d`-dimensional states is :math:`d-1`, and is attained exactly by</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    The largest possible value of the \(\ell_1\)-norm of coherence on</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    \(d\)-dimensional states is \(d-1\), and is attained exactly by</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    the &quot;maximally coherent states&quot;: pure states whose entries all have the</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    same absolute value.</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        from toqito.state_props import l1_norm_coherence</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        import numpy as np</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        # Maximally coherent state.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        v = np.ones((3,1))/np.sqrt(3)</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        l1_norm_coherence(v)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    from toqito.state_props import l1_norm_coherence</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    # Maximally coherent state.</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    v = np.ones((3,1))/np.sqrt(3)</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    print(l1_norm_coherence(v))</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    References</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        rho: A matrix or vector.</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        The l1-norm coherence of `rho`.</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    :param rho: A matrix or vector.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    :return: The l1-norm coherence of :code:`rho`.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">rho</span> <span class="o">=</span> <span class="n">to_density_matrix</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rho</span><span class="p">)))</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">rho</span> <span class="o">=</span> <span class="n">to_density_matrix</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rho</span><span class="p">)))</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8468,34 +8468,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" gisin">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gisin.gisin--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gisin.gisin--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" gisin">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gisin.gisin--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.gisin.gisin--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,39 +8938,90 @@
 
     <div class="doc doc-contents ">
 
-        <p>Produce a Gisin state :footcite:<code>Gisin_1996_Hidden</code>.</p>
-<p>Returns the Gisin state described in :footcite:<code>Gisin_1996_Hidden</code>. Specifically, the Gisin state can be defined as:</p>
-<p>.. math::
+        <p>Produce a Gisin state [^Gisin_1996_Hidden].</p>
+<p>Returns the Gisin state described in [^Gisin_1996_Hidden]. Specifically, the Gisin state can be defined as:</p>
+<div class="arithmatex">\[
     \begin{equation}
         \rho_{\lambda, \theta} = \lambda
                                 \begin{pmatrix}
-                                    0 &amp; 0 &amp; 0 &amp; 0 \
+                                    0 &amp; 0 &amp; 0 &amp; 0 \\
                                     0 &amp; \sin^2(\theta) &amp;
-                                    -\sin(\theta)\cos(\theta) &amp; 0 \
+                                    -\sin(\theta)\cos(\theta) &amp; 0 \\
                                     0 &amp; -\sin(\theta)\cos(\theta) &amp;
-                                    \cos^2(\theta) &amp; 0 \
+                                    \cos^2(\theta) &amp; 0 \\
                                     0 &amp; 0 &amp; 0 &amp; 0
                                 \end{pmatrix} +
                                 \frac{1 - \lambda}{2}
                                 \begin{pmatrix}
-                                    1 &amp; 0 &amp; 0 &amp; 0 \
-                                    0 &amp; 0 &amp; 0 &amp; 0 \
-                                    0 &amp; 0 &amp; 0 &amp; 0 \
+                                    1 &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; 0 &amp; 0 \\
+                                    0 &amp; 0 &amp; 0 &amp; 0 \\
                                     0 &amp; 0 &amp; 0 &amp; 1
                                 \end{pmatrix}.
-    \end{equation}</p>
-<h3 id="toqito.states.gisin.gisin--examples">Examples<a class="headerlink" href="#toqito.states.gisin.gisin--examples" title="Permanent link">&para;</a></h3>
-<p>The following code generates the Gisin state :math:<code>\rho_{0.5, 1}</code>.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import gisin
-gisin(0.5, 1)
+    \end{equation}
+\]</div>
+<p>Examples:</p>
+<p>The following code generates the Gisin state <span class="arithmatex">\(\rho_{0.5, 1}\)</span>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">gisin</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">gisin</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.states.gisin.gisin--references">References<a class="headerlink" href="#toqito.states.gisin.gisin--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: If :code:<code>lambda_var</code> is not a real number.
-:param lambda_var: A real parameter in [0, 1].
-:param theta: A real parameter.
-:return: Gisin state.</p>
+<p>[[ 0.25        0.          0.          0.        ]
+ [ 0.          0.35403671 -0.22732436  0.        ]
+ [ 0.         -0.22732436  0.14596329  0.        ]
+ [ 0.          0.          0.          0.25      ]]</p>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If <code>lambda_var</code> is not a real number.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>lambda_var</code></b>
+              (<code><span title="float">float</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>A real parameter in [0, 1].</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>theta</code></b>
+              (<code><span title="float">float</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>A real parameter.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>Gisin state.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.gisin.gisin--fn:Gisin_1996_Hidden">
+<p>Gisin, N.. <em>Hidden quantum nonlocality revealed by local filters</em>. <strong>Physics Letters A</strong>. vol. 210(3). (1996). <a href="https://doi.org/https://doi.org/10.1016/S0375-9601(96)80001-6">doi:https://doi.org/10.1016/S0375-9601(96)80001-6</a>.&#160;<a class="footnote-backref" href="#toqito.states.gisin.gisin--fnref:Gisin_1996_Hidden" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9091,13 +9086,12 @@ gisin(0.5, 1)
 <span class="normal"><a href="#__codelineno-0-63">63</a></span>
 <span class="normal"><a href="#__codelineno-0-64">64</a></span>
 <span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">gisin</span><span class="p">(</span><span class="n">lambda_var</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">theta</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a Gisin state :footcite:`Gisin_1996_Hidden`.</span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">gisin</span><span class="p">(</span><span class="n">lambda_var</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">theta</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce a Gisin state [@Gisin_1996_Hidden].</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    Returns the Gisin state described in :footcite:`Gisin_1996_Hidden`. Specifically, the Gisin state can be defined as:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    Returns the Gisin state described in [@Gisin_1996_Hidden]. Specifically, the Gisin state can be defined as:</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">        \begin{equation}</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">            \rho_{\lambda, \theta} = \lambda</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">                                    \begin{pmatrix}</span>
@@ -9116,44 +9110,43 @@ gisin(0.5, 1)
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">                                        0 &amp; 0 &amp; 0 &amp; 1</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">                                    \end{pmatrix}.</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        \end{equation}</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    ==========</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    The following code generates the Gisin state :math:`\rho_{0.5, 1}`.</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    The following code generates the Gisin state \(\rho_{0.5, 1}\).</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        from toqito.states import gisin</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        gisin(0.5, 1)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    from toqito.states import gisin</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    print(gisin(0.5, 1))</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    References</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    :raises ValueError: If :code:`lambda_var` is not a real number.</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    :param lambda_var: A real parameter in [0, 1].</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    :param theta: A real parameter.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    :return: Gisin state.</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">if</span> <span class="n">lambda_var</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">lambda_var</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;InvalidLambda: Variable lambda must be between 0 and 1.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="n">rho_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="p">[</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="p">]</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="p">)</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">rho_uu_dd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">return</span> <span class="n">lambda_var</span> <span class="o">*</span> <span class="n">rho_theta</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">lambda_var</span><span class="p">)</span> <span class="o">*</span> <span class="n">rho_uu_dd</span> <span class="o">/</span> <span class="mi">2</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        ValueError: If `lambda_var` is not a real number.</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        lambda_var: A real parameter in [0, 1].</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        theta: A real parameter.</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        Gisin state.</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="k">if</span> <span class="n">lambda_var</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">lambda_var</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;InvalidLambda: Variable lambda must be between 0 and 1.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">rho_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="p">[</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="p">]</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="p">)</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="n">rho_uu_dd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="k">return</span> <span class="n">lambda_var</span> <span class="o">*</span> <span class="n">rho_theta</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">lambda_var</span><span class="p">)</span> <span class="o">*</span> <span class="n">rho_uu_dd</span> <span class="o">/</span> <span class="mi">2</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

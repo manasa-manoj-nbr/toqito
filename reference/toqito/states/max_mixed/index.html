@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8580,34 +8580,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" max_mixed">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.max_mixed.max_mixed--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.max_mixed.max_mixed--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" max_mixed">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.max_mixed.max_mixed--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.max_mixed.max_mixed--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8995,45 +8939,91 @@
 
     <div class="doc doc-contents ">
 
-        <p>Produce the maximally mixed state :footcite:<code>Aaronson_2018_MaxMixed</code>.</p>
-<p>Produces the maximally mixed state on of :code:<code>dim</code> dimensions. The maximally mixed state is defined as</p>
-<p>.. math::
+        <p>Produce the maximally mixed state [^Aaronson_2018_MaxMixed].</p>
+<p>Produces the maximally mixed state on of <code>dim</code> dimensions. The maximally mixed state is defined as</p>
+<div class="arithmatex">\[
     \omega = \frac{1}{d} \begin{pmatrix}
-                    1 &amp; 0 &amp; \ldots &amp; 0 \
-                    0 &amp; 1 &amp; \ldots &amp; 0 \
-                    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+                    1 &amp; 0 &amp; \ldots &amp; 0 \\
+                    0 &amp; 1 &amp; \ldots &amp; 0 \\
+                    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
                     0 &amp; 0 &amp; \ldots &amp; 1
-                \end{pmatrix},</p>
+                \end{pmatrix},
+\]</div>
 <p>or equivalently, it is defined as</p>
-<p>.. math::
-    \omega = \frac{\mathbb{I}}{\text{dim}(\mathcal{X})}</p>
-<p>for some complex Euclidean space :math:<code>\mathcal{X}</code>. The maximally mixed state is sometimes also referred to as the
+<div class="arithmatex">\[
+    \omega = \frac{\mathbb{I}}{\text{dim}(\mathcal{X})}
+\]</div>
+<p>for some complex Euclidean space <span class="arithmatex">\(\mathcal{X}\)</span>. The maximally mixed state is sometimes also referred to as the
 tracial state.</p>
-<p>The maximally mixed state is returned as a sparse matrix if :code:<code>is_sparse = True</code> and is full if :code:<code>is_sparse
+<p>The maximally mixed state is returned as a sparse matrix if <code>is_sparse = True</code> and is full if <code>is_sparse
 = False</code>.</p>
-<h3 id="toqito.states.max_mixed.max_mixed--examples">Examples<a class="headerlink" href="#toqito.states.max_mixed.max_mixed--examples" title="Permanent link">&para;</a></h3>
-<p>Using :code:<code>|toqito⟩</code>, we can generate the :math:<code>2</code>-dimensional maximally mixed state</p>
-<p>.. math::
+<p>Examples:</p>
+<p>Using <code>|toqito⟩</code>, we can generate the <span class="arithmatex">\(2\)</span>-dimensional maximally mixed state</p>
+<div class="arithmatex">\[
     \omega_2 = \frac{1}{2}
     \begin{pmatrix}
-        1 &amp; 0 \
+        1 &amp; 0 \\
         0 &amp; 1
-    \end{pmatrix}</p>
+    \end{pmatrix}
+\]</div>
 <p>as follows.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import max_mixed
-max_mixed(2, is_sparse=False)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">max_mixed</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">max_mixed</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">is_sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
+<p>[[0.5 0. ]
+ [0.  0.5]]</p>
 <p>One may also generate a maximally mixed state returned as a sparse matrix</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import max_mixed
-max_mixed(2, is_sparse=True)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">max_mixed</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">max_mixed</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">is_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="toqito.states.max_mixed.max_mixed--references">References<a class="headerlink" href="#toqito.states.max_mixed.max_mixed--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param dim: Dimension of the entangled state.
-:param is_sparse: <code>True</code> if vector is sparse and <code>False</code> otherwise.
-:return: The maximally mixed state of dimension <code>dim</code>.</p>
+<p><DIAgonal sparse array of dtype 'float64'
+    with 2 stored elements (1 diagonals) and shape (2, 2)>
+  Coords    Values
+  (0, 0)    0.5
+  (1, 1)    0.5</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Dimension of the entangled state.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>is_sparse</code></b>
+              (<code><span title="bool">bool</span></code>, default:
+                  <code>False</code>
+)
+          –
+          <div class="doc-md-description">
+            <p><code>True</code> if vector is sparse and <code>False</code> otherwise.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span> | <span title="scipy.sparse.dia_array">dia_array</span></code>
+          –
+          <div class="doc-md-description">
+            <p>The maximally mixed state of dimension <code>dim</code>.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.max_mixed.max_mixed--fn:Aaronson_2018_MaxMixed">
+<p>Aaronson, Scott. <em>Lecture 6: Mixed States</em>. <a href="https://www.scottaaronson.com/qclec/6.pdf">link</a>.&#160;<a class="footnote-backref" href="#toqito.states.max_mixed.max_mixed--fnref:Aaronson_2018_MaxMixed" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9102,75 +9092,71 @@ max_mixed(2, is_sparse=True)
 <span class="normal"><a href="#__codelineno-0-71">71</a></span>
 <span class="normal"><a href="#__codelineno-0-72">72</a></span>
 <span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_mixed</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_sparse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">dia_array</span><span class="p">:</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce the maximally mixed state :footcite:`Aaronson_2018_MaxMixed`.</span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_mixed</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_sparse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">dia_array</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce the maximally mixed state [@Aaronson_2018_MaxMixed].</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Produces the maximally mixed state on of :code:`dim` dimensions. The maximally mixed state is defined as</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Produces the maximally mixed state on of `dim` dimensions. The maximally mixed state is defined as</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">        \omega = \frac{1}{d} \begin{pmatrix}</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">                        1 &amp; 0 &amp; \ldots &amp; 0 \\</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">                        0 &amp; 1 &amp; \ldots &amp; 0 \\</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">                        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">                        0 &amp; 0 &amp; \ldots &amp; 1</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">                    \end{pmatrix},</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    or equivalently, it is defined as</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        \omega = \frac{\mathbb{I}}{\text{dim}(\mathcal{X})}</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    for some complex Euclidean space :math:`\mathcal{X}`. The maximally mixed state is sometimes also referred to as the</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    tracial state.</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    The maximally mixed state is returned as a sparse matrix if :code:`is_sparse = True` and is full if :code:`is_sparse</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    = False`.</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Using :code:`|toqito⟩`, we can generate the :math:`2`-dimensional maximally mixed state</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        \omega_2 = \frac{1}{2}</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        \begin{pmatrix}</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">            1 &amp; 0 \\</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">            0 &amp; 1</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        \end{pmatrix}</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    as follows.</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    or equivalently, it is defined as</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        \omega = \frac{\mathbb{I}}{\text{dim}(\mathcal{X})}</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    for some complex Euclidean space \(\mathcal{X}\). The maximally mixed state is sometimes also referred to as the</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    tracial state.</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    The maximally mixed state is returned as a sparse matrix if `is_sparse = True` and is full if `is_sparse</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    = False`.</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Using `|toqito⟩`, we can generate the \(2\)-dimensional maximally mixed state</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        \omega_2 = \frac{1}{2}</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        \begin{pmatrix}</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">            1 &amp; 0 \\</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">            0 &amp; 1</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        \end{pmatrix}</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    \]</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    .. jupyter-execute::</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    as follows.</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        from toqito.states import max_mixed</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        max_mixed(2, is_sparse=False)</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    from toqito.states import max_mixed</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    print(max_mixed(2, is_sparse=False))</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    One may also generate a maximally mixed state returned as a sparse matrix</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    .. jupyter-execute::</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    One may also generate a maximally mixed state returned as a sparse matrix</span>
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">        from toqito.states import max_mixed</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">        max_mixed(2, is_sparse=True)</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    References</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    from toqito.states import max_mixed</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    print(max_mixed(2, is_sparse=True))</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        dim: Dimension of the entangled state.</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        is_sparse: `True` if vector is sparse and `False` otherwise.</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    :param dim: Dimension of the entangled state.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    :param is_sparse: `True` if vector is sparse and `False` otherwise.</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    :return: The maximally mixed state of dimension `dim`.</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">if</span> <span class="n">is_sparse</span><span class="p">:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">eye_array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        The maximally mixed state of dimension `dim`.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="k">if</span> <span class="n">is_sparse</span><span class="p">:</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">eye_array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -6012,34 +6012,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" random_circulant_gram_matrix">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" random_circulant_gram_matrix">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8999,37 +8943,89 @@
 previous row such that the elements in one row are relocated by 1 position (in a cyclic manner) compared
 to the previous row. The eigenvalues and eigenvectors of this matrix are derived from the Discrete
 Fourier Transform (DFT).</p>
-<p>For more information on circulant matrices, see :footcite:<code>WikiCirculantMat</code>. This function utilizes the
+<p>For more information on circulant matrices, see [^WikiCirculantMat]. This function utilizes the
 normalized DFT, a variation of DFT with normalized basis vectors.</p>
-<p>For additional information, see :footcite:<code>DSPNormDFT</code>.</p>
+<p>For additional information, see [^DSPNormDFT].</p>
 <p>The function creates a circulant matrix from a random diagonal matrix and the normalized DFT matrix.
 First, it generates a diagonal matrix with random non-negative entries. Next, it constructs the
 normalized DFT matrix. Finally, it computes the circulant matrix, which is real due to its origin
 from the DFT of a real diagonal matrix.</p>
-<h3 id="toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--examples">Examples<a class="headerlink" href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--examples" title="Permanent link">&para;</a></h3>
-<p>Generate a random circulant Gram matrix of dimension 4.</p>
-<p>.. jupyter-execute::</p>
-<p>import numpy as np
- from toqito.rand import random_circulant_gram_matrix</p>
-<p>circulant_matrix = random_circulant_gram_matrix(4)</p>
-<p>print(f"Shape of circulant matrix is {circulant_matrix.shape}")</p>
-<p>.. jupyter-execute::</p>
-<p>print(np.allclose(circulant_matrix, circulant_matrix.T))</p>
-<p>.. jupyter-execute::</p>
-<p>circulant_matrix</p>
+<p>Examples:
+Generate a random circulant Gram matrix of dimension 4.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.rand</span><span class="w"> </span><span class="kn">import</span> <span class="n">random_circulant_gram_matrix</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">circulant_matrix</span> <span class="o">=</span> <span class="n">random_circulant_gram_matrix</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of circulant matrix is </span><span class="si">{</span><span class="n">circulant_matrix</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Shape of circulant matrix is (4, 4)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">circulant_matrix</span><span class="p">,</span> <span class="n">circulant_matrix</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+</code></pre></div>
+<p>True</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">circulant_matrix</span><span class="p">)</span>
+</code></pre></div>
+<p>[[ 0.44135978 -0.03684189  0.05313836 -0.03684189]
+ [-0.03684189  0.44135978 -0.03684189  0.05313836]
+ [ 0.05313836 -0.03684189  0.44135978 -0.03684189]
+ [-0.03684189  0.05313836 -0.03684189  0.44135978]]</p>
 <p>It is also possible to pass a seed to this function for reproducibility.</p>
-<p>.. jupyter-execute::</p>
-<p>from toqito.rand import random_circulant_gram_matrix</p>
-<p>circulant_matrix = random_circulant_gram_matrix(4, seed=42)</p>
-<p>circulant_matrix</p>
-<h3 id="toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--references">References<a class="headerlink" href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param dim: int
-    The dimension of the circulant matrix to generate.
-:param seed: int | None
-    A seed used to instantiate numpy's random number generator.</p>
-<p>:return: numpy.ndarray
-    A <code>dim</code> x <code>dim</code> real, symmetric, circulant matrix.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.rand</span><span class="w"> </span><span class="kn">import</span> <span class="n">random_circulant_gram_matrix</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">circulant_matrix</span> <span class="o">=</span> <span class="n">random_circulant_gram_matrix</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">circulant_matrix</span><span class="p">)</span>
+</code></pre></div>
+<p>[[ 0.69220011 -0.02116047  0.12407687 -0.02116047]
+ [-0.02116047  0.69220011 -0.02116047  0.12407687]
+ [ 0.12407687 -0.02116047  0.69220011 -0.02116047]
+ [-0.02116047  0.12407687 -0.02116047  0.69220011]]</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>int The dimension of the circulant matrix to generate.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>seed</code></b>
+              (<code><span title="int">int</span> | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>int | None A seed used to instantiate numpy's random number generator.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>numpy.ndarray A <code>dim</code> x <code>dim</code> real, symmetric, circulant matrix.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--fn:WikiCirculantMat">
+<p>Wikipedia. <em>Circulant matrix</em>. <a href="https://en.wikipedia.org/wiki/Circulant_matrix">link</a>.&#160;<a class="footnote-backref" href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--fnref:WikiCirculantMat" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--fn:DSPNormDFT">
+<p>DSPRelated. <em>Normalized DFT</em>. <a href="https://www.dsprelated.com/freebooks/mdft/Normalized_DFT.html">link</a>.&#160;<a class="footnote-backref" href="#toqito.rand.random_circulant_gram_matrix.random_circulant_gram_matrix--fnref:DSPNormDFT" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9100,14 +9096,7 @@ from the DFT of a real diagonal matrix.</p>
 <span class="normal"><a href="#__codelineno-0-69">69</a></span>
 <span class="normal"><a href="#__codelineno-0-70">70</a></span>
 <span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span>
-<span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">random_circulant_gram_matrix</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">random_circulant_gram_matrix</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a random circulant Gram matrix of specified dimension.</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    A circulant matrix is a square matrix where the elements of each row are identical to the elements of the</span>
@@ -9115,72 +9104,65 @@ from the DFT of a real diagonal matrix.</p>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    to the previous row. The eigenvalues and eigenvectors of this matrix are derived from the Discrete</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    Fourier Transform (DFT).</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    For more information on circulant matrices, see :footcite:`WikiCirculantMat`. This function utilizes the</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    For more information on circulant matrices, see [@WikiCirculantMat]. This function utilizes the</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    normalized DFT, a variation of DFT with normalized basis vectors.</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    For additional information, see :footcite:`DSPNormDFT`.</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    For additional information, see [@DSPNormDFT].</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    The function creates a circulant matrix from a random diagonal matrix and the normalized DFT matrix.</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    First, it generates a diagonal matrix with random non-negative entries. Next, it constructs the</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    normalized DFT matrix. Finally, it computes the circulant matrix, which is real due to its origin</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    from the DFT of a real diagonal matrix.</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    =========</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Generate a random circulant Gram matrix of dimension 4.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">     import numpy as np</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">     from toqito.rand import random_circulant_gram_matrix</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Generate a random circulant Gram matrix of dimension 4.</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot; session=&quot;random_circulant_gram_matrix_example&quot;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    from toqito.rand import random_circulant_gram_matrix</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    circulant_matrix = random_circulant_gram_matrix(4)</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">     circulant_matrix = random_circulant_gram_matrix(4)</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">     print(f&quot;Shape of circulant matrix is {circulant_matrix.shape}&quot;)</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">     print(np.allclose(circulant_matrix, circulant_matrix.T))</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">     circulant_matrix</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    It is also possible to pass a seed to this function for reproducibility.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    .. jupyter-execute::</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    print(f&quot;Shape of circulant matrix is {circulant_matrix.shape}&quot;)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot; session=&quot;random_circulant_gram_matrix_example&quot;</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    print(np.allclose(circulant_matrix, circulant_matrix.T))</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot; session=&quot;random_circulant_gram_matrix_example&quot;</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    print(circulant_matrix)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    It is also possible to pass a seed to this function for reproducibility.</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    from toqito.rand import random_circulant_gram_matrix</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">     from toqito.rand import random_circulant_gram_matrix</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    circulant_matrix = random_circulant_gram_matrix(4, seed=42)</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">     circulant_matrix = random_circulant_gram_matrix(4, seed=42)</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">     circulant_matrix</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    print(circulant_matrix)</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    References</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    :param dim: int</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        The dimension of the circulant matrix to generate.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    :param seed: int | None</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        A seed used to instantiate numpy&#39;s random number generator.</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    :return: numpy.ndarray</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        A `dim` x `dim` real, symmetric, circulant matrix.</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="c1"># Step 1: Generate a random diagonal matrix with non-negative entries</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="n">diag_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="c1"># Step 2: Construct the normalized DFT matrix</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="n">dft_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="c1"># Step 3: Compute the circulant matrix. Since circ_mat is formed from the DFT of a real</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="c1"># diagonal matrix, it should be real</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">dft_mat</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">@</span> <span class="n">diag_mat</span> <span class="o">@</span> <span class="n">dft_mat</span><span class="p">)</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        dim: int The dimension of the circulant matrix to generate.</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        seed: int | None A seed used to instantiate numpy&#39;s random number generator.</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">        numpy.ndarray A `dim` x `dim` real, symmetric, circulant matrix.</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="n">gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="c1"># Step 1: Generate a random diagonal matrix with non-negative entries</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">diag_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="c1"># Step 2: Construct the normalized DFT matrix</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">dft_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="c1"># Step 3: Compute the circulant matrix. Since circ_mat is formed from the DFT of a real</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="c1"># diagonal matrix, it should be real</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">dft_mat</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">@</span> <span class="n">diag_mat</span> <span class="o">@</span> <span class="n">dft_mat</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

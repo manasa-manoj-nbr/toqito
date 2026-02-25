@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8608,34 +8608,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" mutually_unbiased_basis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" mutually_unbiased_basis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8996,29 +8940,48 @@ to the other bases, mutually unbiased basis states are orthonormal bases in the 
 
     <div class="doc doc-contents ">
 
-        <p>Generate list of MUBs for a given dimension :footcite:<code>WikiMUB</code>.</p>
+        <p>Generate list of MUBs for a given dimension [^WikiMUB].</p>
 <p>Note that this function only works if the dimension provided is prime or a power of a prime. Otherwise, we don't
 know how to generate general MUBs.</p>
-<h3 id="toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--examples">Examples<a class="headerlink" href="#toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--examples" title="Permanent link">&para;</a></h3>
+<p>Examples:</p>
 <p>For the case of dimension 2, the three mutually unbiased bases are provided by:</p>
-<p>.. math::
-    M_0 = \left{|0\rangle, |1\rangle \right}, \
-    M_1 = \left{\frac{|0\rangle + |1\rangle}{\sqrt{2}}, \frac{|0\rangle - |1\rangle}{\sqrt{2}}\right}
-    M_2 = \left{\frac{|0\rangle + i|1\rangle}{\sqrt{2}}, \frac{|0\rangle - i|1\rangle}{\sqrt{2}}\right}</p>
+<div class="arithmatex">\[
+    M_0 = \left\{|0\rangle, |1\rangle \right\}, \\
+    M_1 = \left\{\frac{|0\rangle + |1\rangle}{\sqrt{2}}, \frac{|0\rangle - |1\rangle}{\sqrt{2}}\right\}
+    M_2 = \left\{\frac{|0\rangle + i|1\rangle}{\sqrt{2}}, \frac{|0\rangle - i|1\rangle}{\sqrt{2}}\right\}
+\]</div>
 <p>The six vectors above are obtained accordingly:</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import mutually_unbiased_basis
-mubs = mutually_unbiased_basis(2)
-len(mubs)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">mutually_unbiased_basis</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">mubs</span> <span class="o">=</span> <span class="n">mutually_unbiased_basis</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mubs</span><span class="p">))</span>
 </code></pre></div>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>lst =[vec.shape for vec in mubs]
-lst
+<p>6</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">lst</span> <span class="o">=</span><span class="p">[</span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">vec</span> <span class="ow">in</span> <span class="n">mubs</span><span class="p">]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--references">References<a class="headerlink" href="#toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param dim: The dimension of the mutually unbiased bases to produce.
-:return: The set of mutually unbiased bases of dimension :code:<code>dim</code> (if known).</p>
+<p>[(2,), (2,), (2,), (2,), (2,), (2,)]</p>
+Args:
+    dim: The dimension of the mutually unbiased bases to produce.</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+          –
+          <div class="doc-md-description">
+            <p>The set of mutually unbiased bases of dimension <code>dim</code> (if known).</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--fn:WikiMUB">
+<p>Wikipedia. <em>Mutually unbiased bases</em>. <a href="https://en.wikipedia.org/wiki/Mutually_unbiased_bases">link</a>.&#160;<a class="footnote-backref" href="#toqito.states.mutually_unbiased_basis.mutually_unbiased_basis--fnref:WikiMUB" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9081,73 +9044,65 @@ lst
 <span class="normal"><a href="#__codelineno-0-68">68</a></span>
 <span class="normal"><a href="#__codelineno-0-69">69</a></span>
 <span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span>
-<span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">mutually_unbiased_basis</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate list of MUBs for a given dimension :footcite:`WikiMUB`.</span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">mutually_unbiased_basis</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate list of MUBs for a given dimension [@WikiMUB].</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    Note that this function only works if the dimension provided is prime or a power of a prime. Otherwise, we don&#39;t</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    know how to generate general MUBs.</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    ========</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    For the case of dimension 2, the three mutually unbiased bases are provided by:</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        M_0 = \left\{|0\rangle, |1\rangle \right\}, \\</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        M_1 = \left\{\frac{|0\rangle + |1\rangle}{\sqrt{2}}, \frac{|0\rangle - |1\rangle}{\sqrt{2}}\right\}</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        M_2 = \left\{\frac{|0\rangle + i|1\rangle}{\sqrt{2}}, \frac{|0\rangle - i|1\rangle}{\sqrt{2}}\right\}</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    For the case of dimension 2, the three mutually unbiased bases are provided by:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        M_0 = \left\{|0\rangle, |1\rangle \right\}, \\</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        M_1 = \left\{\frac{|0\rangle + |1\rangle}{\sqrt{2}}, \frac{|0\rangle - |1\rangle}{\sqrt{2}}\right\}</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        M_2 = \left\{\frac{|0\rangle + i|1\rangle}{\sqrt{2}}, \frac{|0\rangle - i|1\rangle}{\sqrt{2}}\right\}</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    \]</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    The six vectors above are obtained accordingly:</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        from toqito.states import mutually_unbiased_basis</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        mubs = mutually_unbiased_basis(2)</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        len(mubs)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot; session=&quot;mubs&quot;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    from toqito.states import mutually_unbiased_basis</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    mubs = mutually_unbiased_basis(2)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    print(len(mubs))</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        lst =[vec.shape for vec in mubs]</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        lst</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    References</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    .. footbibliography::</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot; session=&quot;mubs&quot;</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    lst =[vec.shape for vec in mubs]</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    print(lst)</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        dim: The dimension of the mutually unbiased bases to produce.</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        The set of mutually unbiased bases of dimension `dim` (if known).</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    :param dim: The dimension of the mutually unbiased bases to produce.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    :return: The set of mutually unbiased bases of dimension :code:`dim` (if known).</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="c1"># The first basis will always be the standard basis:</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">mats</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">)]</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="c1"># The first basis will always be the standard basis:</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">mats</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">dim</span><span class="p">)]</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="n">pauli_x</span> <span class="o">=</span> <span class="n">gen_pauli</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="k">if</span> <span class="n">isprime</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">pauli_z</span> <span class="o">=</span> <span class="n">gen_pauli</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">pauli_x</span> <span class="o">=</span> <span class="n">gen_pauli</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">if</span> <span class="n">isprime</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">pauli_z</span> <span class="o">=</span> <span class="n">gen_pauli</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>            <span class="n">_</span><span class="p">,</span> <span class="n">eigen_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">pauli_x</span> <span class="o">@</span> <span class="n">pauli_z</span> <span class="o">**</span> <span class="p">(</span><span class="n">j</span><span class="p">))</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>            <span class="n">mats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eigen_vec</span><span class="p">)</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">elif</span> <span class="n">_is_prime_power</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">isprime</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimension </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> is a prime power but not prime (more complicated no support at the moment).&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No general construction of MUBs is known for dimension: </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="n">mubs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">mats</span><span class="p">:</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrows</span><span class="p">):</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>            <span class="n">mub</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncols</span><span class="p">):</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>                <span class="n">mub</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">])</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>            <span class="n">mubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mub</span><span class="p">))</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">return</span> <span class="n">mubs</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>            <span class="n">_</span><span class="p">,</span> <span class="n">eigen_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">pauli_x</span> <span class="o">@</span> <span class="n">pauli_z</span> <span class="o">**</span> <span class="p">(</span><span class="n">j</span><span class="p">))</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>            <span class="n">mats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eigen_vec</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">elif</span> <span class="n">_is_prime_power</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">isprime</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimension </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> is a prime power but not prime (more complicated no support at the moment).&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No general construction of MUBs is known for dimension: </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="n">mubs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">mats</span><span class="p">:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nrows</span><span class="p">):</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>            <span class="n">mub</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ncols</span><span class="p">):</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>                <span class="n">mub</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="n">col</span><span class="p">][</span><span class="n">row</span><span class="p">])</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>            <span class="n">mubs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mub</span><span class="p">))</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">return</span> <span class="n">mubs</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

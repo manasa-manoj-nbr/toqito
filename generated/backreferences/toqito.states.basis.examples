@@ -33,7 +33,7 @@ Examples using ``toqito.states.basis``
 
 <div class="mkd-glr-thumbcontainer" tooltip="In our [Extended nonlocal games](../enlg_introduction) tutorial, we introduced the framework fo...">
     <!--div class="figure align-default" id="id1"-->
-        <img alt="The BB84 extended nonlocal game" src="extended_nonlocal_games/images/thumb/mkd_glr_enlg_bb84_thumb.png" />
+        <img alt="The BB84 extended nonlocal game" src="extended_nonlocal_games/images/thumb/mkd_glr_enlg_bb84_thumb.svg" />
         <p class="caption">
             <span class="caption-text">
                 <a class="reference internal" href="extended_nonlocal_games/enlg_bb84">
@@ -47,7 +47,7 @@ Examples using ``toqito.states.basis``
 
 <div class="mkd-glr-thumbcontainer" tooltip="Quantum state distinguishability">
     <!--div class="figure align-default" id="id1"-->
-        <img alt="Quantum state distinguishability" src="quantum_states/images/thumb/mkd_glr_state_distinguishability_thumb.png" />
+        <img alt="Quantum state distinguishability" src="quantum_states/images/thumb/mkd_glr_state_distinguishability_thumb.svg" />
         <p class="caption">
             <span class="caption-text">
                 <a class="reference internal" href="quantum_states/state_distinguishability">

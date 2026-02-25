@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8440,34 +8440,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" ghz">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.ghz.ghz--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.ghz.ghz--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" ghz">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.ghz.ghz--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.ghz.ghz--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8996,37 +8940,102 @@ part of quantum computing as it is commonly used in algorithms, protocols, error
 
     <div class="doc doc-contents ">
 
-        <p>Generate a (generalized) GHZ state :footcite:<code>Greenberger_2007_Going</code>.</p>
-<p>Returns a :code:<code>num_qubits</code>-partite GHZ state acting on :code:<code>dim</code> local dimensions, described
-in :footcite:<code>Greenberger_2007_Going</code>. For example, :code:<code>ghz(2, 3)</code> returns the standard 3-qubit GHZ state on
+        <p>Generate a (generalized) GHZ state [^Greenberger_2007_Going].</p>
+<p>Returns a <code>num_qubits</code>-partite GHZ state acting on <code>dim</code> local dimensions, described
+in [^Greenberger_2007_Going]. For example, <code>ghz(2, 3)</code> returns the standard 3-qubit GHZ state on
 qubits. The output of this function is a dense NumPy array.</p>
-<p>For a system of :code:<code>num_qubits</code> qubits (i.e., :code:<code>dim = 2</code>), the GHZ state can be written
+<p>For a system of <code>num_qubits</code> qubits (i.e., <code>dim = 2</code>), the GHZ state can be written
 as</p>
-<p>.. math::
+<div class="arithmatex">\[
     |GHZ \rangle = \frac{1}{\sqrt{n}} \left(|0\rangle^{\otimes n} +
-    |1 \rangle^{\otimes n} \right)).</p>
-<h3 id="toqito.states.ghz.ghz--examples">Examples<a class="headerlink" href="#toqito.states.ghz.ghz--examples" title="Permanent link">&para;</a></h3>
-<p>When :code:<code>dim = 2</code>, and :code:<code>num_qubits = 3</code> this produces the standard GHZ state</p>
-<p>.. math::
-    \frac{1}{\sqrt{2}} \left( |000 \rangle + |111 \rangle \right).</p>
-<p>Using :code:<code>|toqito⟩</code>, we can see that this yields the proper state.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import ghz
-ghz(2, 3)
+    |1 \rangle^{\otimes n} \right)).
+\]</div>
+<p>Examples:</p>
+<p>When <code>dim = 2</code>, and <code>num_qubits = 3</code> this produces the standard GHZ state</p>
+<div class="arithmatex">\[
+    \frac{1}{\sqrt{2}} \left( |000 \rangle + |111 \rangle \right).
+\]</div>
+<p>Using <code>|toqito⟩</code>, we can see that this yields the proper state.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">ghz</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">ghz</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </code></pre></div>
+<p>[[0.70710678]
+ [0.        ]
+ [0.        ]
+ [0.        ]
+ [0.        ]
+ [0.        ]
+ [0.        ]
+ [0.70710678]]</p>
 <p>As this function covers the generalized GHZ state, we can consider higher dimensions. For instance here is the GHZ
-state in :math:<code>\mathbb{C}^{4^{\otimes 7}}</code> as</p>
-<p>.. math::
+state in <span class="arithmatex">\(\mathbb{C}^{4^{\otimes 7}}\)</span> as</p>
+<div class="arithmatex">\[
     \frac{1}{\sqrt{30}} \left(|0000000 \rangle + 2|1111111 \rangle +
-    3|2222222 \rangle + 4|3333333\rangle \right).</p>
-<h3 id="toqito.states.ghz.ghz--references">References<a class="headerlink" href="#toqito.states.ghz.ghz--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: Number of qubits is not a positive integer.
-:param dim: The local dimension.
-:param num_qubits: The number of parties (qubits/qudits)
-:param coeff: (default <code>[1, 1, ..., 1])/sqrt(dim)</code>:
-              a 1-by-<code>dim</code> vector of coefficients.
-:returns: Numpy vector array as GHZ state.</p>
+    3|2222222 \rangle + 4|3333333\rangle \right).
+\]</div>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>Number of qubits is not a positive integer.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>dim</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The local dimension.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>num_qubits</code></b>
+              (<code><span title="int">int</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>The number of parties (qubits/qudits)</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>coeff</code></b>
+              (<code><span title="list">list</span>[<span title="int">int</span>] | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>(default <code>[1, 1, ..., 1])/sqrt(dim)</code>: a 1-by-<code>dim</code> vector of coefficients.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span></code>
+          –
+          <div class="doc-md-description">
+            <p>Numpy vector array as GHZ state.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.ghz.ghz--fn:Greenberger_2007_Going">
+<p>Greenberger, Daniel and Horne, Michael and Zeilinger, Anton. <em>Going Beyond Bell's Theorem</em>. (2007).&#160;<a class="footnote-backref" href="#toqito.states.ghz.ghz--fnref:Greenberger_2007_Going" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9107,53 +9116,53 @@ state in :math:<code>\mathbb{C}^{4^{\otimes 7}}</code> as</p>
 <span class="normal"><a href="#__codelineno-0-83">83</a></span>
 <span class="normal"><a href="#__codelineno-0-84">84</a></span>
 <span class="normal"><a href="#__codelineno-0-85">85</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">ghz</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_qubits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">coeff</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a (generalized) GHZ state :footcite:`Greenberger_2007_Going`.</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a (generalized) GHZ state [@Greenberger_2007_Going].</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Returns a :code:`num_qubits`-partite GHZ state acting on :code:`dim` local dimensions, described</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    in :footcite:`Greenberger_2007_Going`. For example, :code:`ghz(2, 3)` returns the standard 3-qubit GHZ state on</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Returns a `num_qubits`-partite GHZ state acting on `dim` local dimensions, described</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    in [@Greenberger_2007_Going]. For example, `ghz(2, 3)` returns the standard 3-qubit GHZ state on</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    qubits. The output of this function is a dense NumPy array.</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    For a system of :code:`num_qubits` qubits (i.e., :code:`dim = 2`), the GHZ state can be written</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    For a system of `num_qubits` qubits (i.e., `dim = 2`), the GHZ state can be written</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    as</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        |GHZ \rangle = \frac{1}{\sqrt{n}} \left(|0\rangle^{\otimes n} +</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        |1 \rangle^{\otimes n} \right)).</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    ==========</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    When :code:`dim = 2`, and :code:`num_qubits = 3` this produces the standard GHZ state</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    When `dim = 2`, and `num_qubits = 3` this produces the standard GHZ state</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        \frac{1}{\sqrt{2}} \left( |000 \rangle + |111 \rangle \right).</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    Using :code:`|toqito⟩`, we can see that this yields the proper state.</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        from toqito.states import ghz</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        ghz(2, 3)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    As this function covers the generalized GHZ state, we can consider higher dimensions. For instance here is the GHZ</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    state in :math:`\mathbb{C}^{4^{\otimes 7}}` as</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        \frac{1}{\sqrt{30}} \left(|0000000 \rangle + 2|1111111 \rangle +</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        3|2222222 \rangle + 4|3333333\rangle \right).</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    References</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Using `|toqito⟩`, we can see that this yields the proper state.</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    from toqito.states import ghz</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    print(ghz(2, 3))</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    As this function covers the generalized GHZ state, we can consider higher dimensions. For instance here is the GHZ</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    state in \(\mathbb{C}^{4^{\otimes 7}}\) as</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        \frac{1}{\sqrt{30}} \left(|0000000 \rangle + 2|1111111 \rangle +</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        3|2222222 \rangle + 4|3333333\rangle \right).</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        ValueError: Number of qubits is not a positive integer.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    :raises ValueError: Number of qubits is not a positive integer.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    :param dim: The local dimension.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    :param num_qubits: The number of parties (qubits/qudits)</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    :param coeff: (default `[1, 1, ..., 1])/sqrt(dim)`:</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">                  a 1-by-`dim` vector of coefficients.</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    :returns: Numpy vector array as GHZ state.</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        dim: The local dimension.</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        num_qubits: The number of parties (qubits/qudits)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        coeff: (default `[1, 1, ..., 1])/sqrt(dim)`: a 1-by-`dim` vector of coefficients.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        Numpy vector array as GHZ state.</span>
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    &quot;&quot;&quot;</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>

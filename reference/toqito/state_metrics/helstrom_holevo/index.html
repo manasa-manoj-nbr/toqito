@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -6468,34 +6468,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" helstrom_holevo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_metrics.helstrom_holevo.helstrom_holevo--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_metrics.helstrom_holevo.helstrom_holevo--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" helstrom_holevo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_metrics.helstrom_holevo.helstrom_holevo--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_metrics.helstrom_holevo.helstrom_holevo--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,42 +8938,96 @@
 
     <div class="doc doc-contents ">
 
-        <p>Compute the Helstrom-Holevo distance between density matrices :footcite:<code>WikiHolevo</code>.</p>
+        <p>Compute the Helstrom-Holevo distance between density matrices [^WikiHolevo].</p>
 <p>In general, the best success probability to discriminate two mixed states represented by
-:math:<code>\rho</code> and :math:<code>\sigma</code> is given by :footcite:<code>WikiHolevo</code>.</p>
-<p>.. math::
-     \frac{1}{2}+\frac{1}{2} \left(\frac{1}{2} \left|\rho - \sigma \right|_1\right).</p>
-<h3 id="toqito.state_metrics.helstrom_holevo.helstrom_holevo--examples">Examples<a class="headerlink" href="#toqito.state_metrics.helstrom_holevo.helstrom_holevo--examples" title="Permanent link">&para;</a></h3>
-<p>Consider the following Bell state</p>
-<p>.. math::
-    u = \frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right) \in \mathcal{X}.</p>
-<p>The corresponding density matrix of :math:<code>u</code> may be calculated by:</p>
-<p>.. math::
+<span class="arithmatex">\(\rho\)</span> and <span class="arithmatex">\(\sigma\)</span> is given by [^WikiHolevo].</p>
+<div class="arithmatex">\[
+    \frac{1}{2}+\frac{1}{2} \left(\frac{1}{2} \left|\rho - \sigma \right|_1\right).
+\]</div>
+<p>Examples:
+Consider the following Bell state</p>
+<div class="arithmatex">\[
+    u = \frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right) \in \mathcal{X}.
+\]</div>
+<p>The corresponding density matrix of <span class="arithmatex">\(u\)</span> may be calculated by:</p>
+<div class="arithmatex">\[
     \rho = u u^* = \begin{pmatrix}
-                     1 &amp; 0 &amp; 0 &amp; 1 \
-                     0 &amp; 0 &amp; 0 &amp; 0 \
-                     0 &amp; 0 &amp; 0 &amp; 0 \
+                     1 &amp; 0 &amp; 0 &amp; 1 \\
+                     0 &amp; 0 &amp; 0 &amp; 0 \\
+                     0 &amp; 0 &amp; 0 &amp; 0 \\
                      1 &amp; 0 &amp; 0 &amp; 1
-                   \end{pmatrix} \in \text{D}(\mathcal{X}).</p>
+                   \end{pmatrix} \in \text{D}(\mathcal{X}).
+\]</div>
 <p>Calculating the Helstrom-Holevo distance of states that are identical yield a value of
-:math:<code>1/2</code>. This can be verified in :code:<code>|toqito⟩</code> as follows.</p>
-<p>.. jupyter-execute::</p>
-<p>import numpy as np
- from toqito.states import basis
- from toqito.state_metrics import helstrom_holevo</p>
-<p>e_0, e_1 = basis(2, 0), basis(2, 1)
- e_00 = np.kron(e_0, e_0)
- e_11 = np.kron(e_1, e_1)</p>
-<p>u_vec = 1 / np.sqrt(2) * (e_00 + e_11)
- rho = u_vec @ u_vec.conj().T
- sigma = rho</p>
-<p>helstrom_holevo(rho, sigma)</p>
-<h3 id="toqito.state_metrics.helstrom_holevo.helstrom_holevo--references">References<a class="headerlink" href="#toqito.state_metrics.helstrom_holevo.helstrom_holevo--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:raises ValueError: If matrices are not density operators.
-:param rho: Density operator.
-:param sigma: Density operator.
-:return: The Helstrom-Holevo distance between :code:<code>rho</code> and :code:<code>sigma</code>.</p>
+<span class="arithmatex">\(1/2\)</span>. This can be verified in <code>|toqito⟩</code> as follows.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">basis</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">helstrom_holevo</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">basis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">e_00</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">e_0</span><span class="p">,</span> <span class="n">e_0</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">e_11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">e_1</span><span class="p">,</span> <span class="n">e_1</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">u_vec</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">e_00</span> <span class="o">+</span> <span class="n">e_11</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">rho</span> <span class="o">=</span> <span class="n">u_vec</span> <span class="o">@</span> <span class="n">u_vec</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">sigma</span> <span class="o">=</span> <span class="n">rho</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">helstrom_holevo</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
+</code></pre></div>
+<p>0.5</p>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="ValueError">ValueError</span></code>
+            –
+          <div class="doc-md-description">
+            <p>If matrices are not density operators.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>rho</code></b>
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Density operator.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>sigma</code></b>
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
+          –
+          <div class="doc-md-description">
+            <p>Density operator.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="float">float</span> | <span title="numpy.floating">floating</span></code>
+          –
+          <div class="doc-md-description">
+            <p>The Helstrom-Holevo distance between <code>rho</code> and <code>sigma</code>.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_metrics.helstrom_holevo.helstrom_holevo--fn:WikiHolevo">
+<p>Wikipedia. <em>Holevo\'s Theorem</em>. <a href="https://en.wikipedia.org/wiki/Holevo%27s_theorem">link</a>.&#160;<a class="footnote-backref" href="#toqito.state_metrics.helstrom_holevo.helstrom_holevo--fnref:WikiHolevo" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9092,65 +9090,69 @@
 <span class="normal"><a href="#__codelineno-0-63">63</a></span>
 <span class="normal"><a href="#__codelineno-0-64">64</a></span>
 <span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">helstrom_holevo</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the Helstrom-Holevo distance between density matrices :footcite:`WikiHolevo`.</span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">helstrom_holevo</span><span class="p">(</span><span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the Helstrom-Holevo distance between density matrices [@WikiHolevo].</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    In general, the best success probability to discriminate two mixed states represented by</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    :math:`\rho` and :math:`\sigma` is given by :footcite:`WikiHolevo`.</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    \(\rho\) and \(\sigma\) is given by [@WikiHolevo].</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">         \frac{1}{2}+\frac{1}{2} \left(\frac{1}{2} \left|\rho - \sigma \right|_1\right).</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    ==========</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">        \frac{1}{2}+\frac{1}{2} \left(\frac{1}{2} \left|\rho - \sigma \right|_1\right).</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Consider the following Bell state</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        u = \frac{1}{\sqrt{2}} \left( |00 \rangle + |11 \rangle \right) \in \mathcal{X}.</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    The corresponding density matrix of :math:`u` may be calculated by:</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        \rho = u u^* = \begin{pmatrix}</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">                         1 &amp; 0 &amp; 0 &amp; 1 \\</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">                         0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    The corresponding density matrix of \(u\) may be calculated by:</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        \rho = u u^* = \begin{pmatrix}</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">                         1 &amp; 0 &amp; 0 &amp; 1 \\</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">                         0 &amp; 0 &amp; 0 &amp; 0 \\</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">                         1 &amp; 0 &amp; 0 &amp; 1</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">                       \end{pmatrix} \in \text{D}(\mathcal{X}).</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Calculating the Helstrom-Holevo distance of states that are identical yield a value of</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    :math:`1/2`. This can be verified in :code:`|toqito⟩` as follows.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    .. jupyter-execute::</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">                         0 &amp; 0 &amp; 0 &amp; 0 \\</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">                         1 &amp; 0 &amp; 0 &amp; 1</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">                       \end{pmatrix} \in \text{D}(\mathcal{X}).</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Calculating the Helstrom-Holevo distance of states that are identical yield a value of</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    \(1/2\). This can be verified in `|toqito⟩` as follows.</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">     import numpy as np</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">     from toqito.states import basis</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">     from toqito.state_metrics import helstrom_holevo</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">     e_0, e_1 = basis(2, 0), basis(2, 1)</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">     e_00 = np.kron(e_0, e_0)</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">     e_11 = np.kron(e_1, e_1)</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">     u_vec = 1 / np.sqrt(2) * (e_00 + e_11)</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">     rho = u_vec @ u_vec.conj().T</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">     sigma = rho</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">     helstrom_holevo(rho, sigma)</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    References</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    from toqito.states import basis</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    from toqito.state_metrics import helstrom_holevo</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    e_0, e_1 = basis(2, 0), basis(2, 1)</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    e_00 = np.kron(e_0, e_0)</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    e_11 = np.kron(e_1, e_1)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    u_vec = 1 / np.sqrt(2) * (e_00 + e_11)</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    rho = u_vec @ u_vec.conj().T</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    sigma = rho</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    print(helstrom_holevo(rho, sigma))</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        ValueError: If matrices are not density operators.</span>
 <a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    :raises ValueError: If matrices are not density operators.</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    :param rho: Density operator.</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    :param sigma: Density operator.</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    :return: The Helstrom-Holevo distance between :code:`rho` and :code:`sigma`.</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_density</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">is_density</span><span class="p">(</span><span class="n">sigma</span><span class="p">):</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Helstrom-Holevo is only defined for density operators.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">trace_norm</span><span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">sigma</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">        rho: Density operator.</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">        sigma: Density operator.</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">        The Helstrom-Holevo distance between `rho` and `sigma`.</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_density</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">is_density</span><span class="p">(</span><span class="n">sigma</span><span class="p">):</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Helstrom-Holevo is only defined for density operators.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">trace_norm</span><span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">sigma</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

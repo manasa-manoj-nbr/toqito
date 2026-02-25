@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -8216,34 +8216,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" bb84">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.bb84.bb84--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.bb84.bb84--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" bb84">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.bb84.bb84--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.states.bb84.bb84--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8995,23 +8939,45 @@
 
     <div class="doc doc-contents ">
 
-        <p>Obtain the BB84 basis states :footcite:<code>WikiBB84</code>.</p>
+        <p>Obtain the BB84 basis states [^WikiBB84].</p>
 <p>The BB84 basis states are defined as</p>
-<p>.. math::
-    |0\rangle := \begin{pmatrix} 1 \ 0 \end{pmatrix}, \quad \
-    |1\rangle := \begin{pmatrix} 0 \ 1 \end{pmatrix}, \quad \
-    |+\rangle := \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \ 1 \end{pmatrix}, \quad \
-    |-\rangle := \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \ -1 \end{pmatrix}.</p>
-<h3 id="toqito.states.bb84.bb84--examples">Examples<a class="headerlink" href="#toqito.states.bb84.bb84--examples" title="Permanent link">&para;</a></h3>
-<p>The BB84 basis states can be obtained in :code:<code>|toqito⟩</code> as follows in the form of a list of
+<div class="arithmatex">\[
+    |0\rangle := \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \\
+    |1\rangle := \begin{pmatrix} 0 \\ 1 \end{pmatrix}, \quad \\
+    |+\rangle := \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad \\
+    |-\rangle := \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix}.
+\]</div>
+<p>Examples:
+The BB84 basis states can be obtained in <code>|toqito⟩</code> as follows in the form of a list of
 arrays.</p>
-<p>.. jupyter-execute::</p>
-<div class="highlight"><pre><span></span><code>from toqito.states import bb84
-bb84()
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bb84</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">bb84</span><span class="p">())</span>
 </code></pre></div>
-<h3 id="toqito.states.bb84.bb84--references">References<a class="headerlink" href="#toqito.states.bb84.bb84--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:return: The four BB84 basis states.</p>
+<p>[[array([[1.],
+       [0.]]), array([[0.],
+       [1.]])], [array([[0.70710678],
+       [0.70710678]]), array([[ 0.70710678],
+       [-0.70710678]])]]</p>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="list">list</span>[<span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]]</code>
+          –
+          <div class="doc-md-description">
+            <p>The four BB84 basis states.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.states.bb84.bb84--fn:WikiBB84">
+<p>Wikipedia. <em>BB84</em>. <a href="https://en.wikipedia.org/wiki/BB84">link</a>.&#160;<a class="footnote-backref" href="#toqito.states.bb84.bb84--fnref:WikiBB84" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9045,46 +9011,36 @@ bb84()
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
 <span class="normal"><a href="#__codelineno-0-38">38</a></span>
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">bb84</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Obtain the BB84 basis states :footcite:`WikiBB84`.</span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">bb84</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Obtain the BB84 basis states [@WikiBB84].</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    The BB84 basis states are defined as</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">        |0\rangle := \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \\</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        |1\rangle := \begin{pmatrix} 0 \\ 1 \end{pmatrix}, \quad \\</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        |+\rangle := \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad \\</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        |-\rangle := \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix}.</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    The BB84 basis states can be obtained in :code:`|toqito⟩` as follows in the form of a list of</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    The BB84 basis states can be obtained in `|toqito⟩` as follows in the form of a list of</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    arrays.</span>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        from toqito.states import bb84</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        bb84()</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    from toqito.states import bb84</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    print(bb84())</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    References</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    :return: The four BB84 basis states.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="c1"># Computational basis states |0&gt;, |1&gt;:</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span> <span class="o">=</span> <span class="n">standard_basis</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="c1"># Plus/minus basis |+&gt;, |-&gt;</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="n">e_p</span><span class="p">,</span> <span class="n">e_m</span> <span class="o">=</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">+</span> <span class="n">e_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">-</span> <span class="n">e_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="k">return</span> <span class="p">[[</span><span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span><span class="p">],</span> <span class="p">[</span><span class="n">e_p</span><span class="p">,</span> <span class="n">e_m</span><span class="p">]]</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        The four BB84 basis states.</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="c1"># Computational basis states |0&gt;, |1&gt;:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span> <span class="o">=</span> <span class="n">standard_basis</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="c1"># Plus/minus basis |+&gt;, |-&gt;</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="n">e_p</span><span class="p">,</span> <span class="n">e_m</span> <span class="o">=</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">+</span> <span class="n">e_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">e_0</span> <span class="o">-</span> <span class="n">e_1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="k">return</span> <span class="p">[[</span><span class="n">e_0</span><span class="p">,</span> <span class="n">e_1</span><span class="p">],</span> <span class="p">[</span><span class="n">e_p</span><span class="p">,</span> <span class="n">e_m</span><span class="p">]]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

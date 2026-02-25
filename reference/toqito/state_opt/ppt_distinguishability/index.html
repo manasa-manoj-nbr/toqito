@@ -1098,14 +1098,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Equiangular States and the Antidistinguishability Threshold
   
 
     
@@ -1126,14 +1126,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../generated/gallery/quantum_states/equiangular_threshold/" class="md-nav__link">
+      <a href="../../../../generated/gallery/quantum_states/classification/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Equiangular States and the Antidistinguishability Threshold
+    Quantum classification, factor width, $k$-incoherence
   
 
     
@@ -6994,34 +6994,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" ppt_distinguishability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8900,34 +8872,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label=" ppt_distinguishability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -8994,79 +8938,171 @@
 
     <div class="doc doc-contents ">
 
-        <p>Compute probability of optimally distinguishing a state via PPT measurements :footcite:<code>Cosentino_2013_PPT</code>.</p>
+        <p>Compute probability of optimally distinguishing a state via PPT measurements [^Cosentino_2013_PPT].</p>
 <p>Implements the semidefinite program (SDP) whose optimal value is equal to the maximum
 probability of perfectly distinguishing orthogonal maximally entangled states using any PPT
 measurement; a measurement whose operators are positive under partial transpose. This SDP was
-explicitly provided in :footcite:<code>Cosentino_2013_PPT</code>.</p>
-<p>One can specify the distinguishability method using the :code:<code>dist_method</code> argument.</p>
-<p>For :code:<code>dist_method = "min_error"</code>, this is the default method that yields the probability of
+explicitly provided in [^Cosentino_2013_PPT].</p>
+<p>One can specify the distinguishability method using the <code>dist_method</code> argument.</p>
+<p>For <code>dist_method = "min_error"</code>, this is the default method that yields the probability of
 distinguishing quantum states via PPT measurements that minimize the probability of error.</p>
-<p>For :code:<code>dist_method = "unambig"</code>, Alice and Bob never provide an incorrect answer,
+<p>For <code>dist_method = "unambig"</code>, Alice and Bob never provide an incorrect answer,
 although it is possible that their answer is inconclusive.</p>
 <p>For more background, see the <code>state_distinguishability</code> example in the
 quantum states gallery.</p>
-<p>.. note::
-    This function supports both pure states (vectors) and mixed states (density matrices).
-    The PPT constraints are applied to the measurement operators to restrict the class of
-    allowed measurements.</p>
-<h3 id="toqito.state_opt.ppt_distinguishability.ppt_distinguishability--examples">Examples<a class="headerlink" href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--examples" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function supports both pure states (vectors) and mixed states (density matrices).
+The PPT constraints are applied to the measurement operators to restrict the class of
+allowed measurements.</p>
+</div>
+<p>Examples:</p>
 <p>Consider the following Bell states:</p>
-<p>.. math::
+<div class="arithmatex">\[
     \begin{equation}
         \begin{aligned}
         |\psi_0 \rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}}, &amp;\quad
-        |\psi_1 \rangle = \frac{|01\rangle + |10\rangle}{\sqrt{2}}, \
+        |\psi_1 \rangle = \frac{|01\rangle + |10\rangle}{\sqrt{2}}, \\
         |\psi_2 \rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}}, &amp;\quad
         |\psi_3 \rangle = \frac{|00\rangle - |11\rangle}{\sqrt{2}}.
         \end{aligned}
-    \end{equation}</p>
-<p>It was illustrated in :footcite:<code>Yu_2012_Four</code> that for the following set of states</p>
-<p>.. math::
+    \end{equation}
+\]</div>
+<p>It was illustrated in [^Yu_2012_Four] that for the following set of states</p>
+<div class="arithmatex">\[
     \begin{equation}
         \begin{aligned}
         \rho_1^{(2)} &amp;= |\psi_0 \rangle | \psi_0 \rangle \langle \psi_0 | \langle \psi_0 |, \quad
-        \rho_2^{(2)} &amp;= |\psi_1 \rangle | \psi_3 \rangle \langle \psi_1 | \langle \psi_3 |, \
+        \rho_2^{(2)} &amp;= |\psi_1 \rangle | \psi_3 \rangle \langle \psi_1 | \langle \psi_3 |, \\
         \rho_3^{(2)} &amp;= |\psi_2 \rangle | \psi_3 \rangle \langle \psi_2 | \langle \psi_3 |, \quad
-        \rho_4^{(2)} &amp;= |\psi_3 \rangle | \psi_3 \rangle \langle \psi_3 | \langle \psi_3 |, \
+        \rho_4^{(2)} &amp;= |\psi_3 \rangle | \psi_3 \rangle \langle \psi_3 | \langle \psi_3 |, \\
         \end{aligned}
-    \end{equation}</p>
+    \end{equation}
+\]</div>
 <p>that the optimal probability of distinguishing via a PPT measurement should yield
-:math:<code>7/8 \approx 0.875</code> as was proved in :footcite:<code>Yu_2012_Four</code>.</p>
-<p>.. jupyter-execute::</p>
-<p>import numpy as np
- from toqito.states import bell
- from toqito.state_opt import ppt_distinguishability</p>
-<p># Bell vectors:
- psi_0 = bell(0)
- psi_1 = bell(2)
- psi_2 = bell(3)
- psi_3 = bell(1)</p>
-<p># YDY vectors from :footcite:<code>Yu_2012_Four</code>.
- x_1 = np.kron(psi_0, psi_0)
- x_2 = np.kron(psi_1, psi_3)
- x_3 = np.kron(psi_2, psi_3)
- x_4 = np.kron(psi_3, psi_3)</p>
-<p># YDY density matrices.
- rho_1 = x_1 @ x_1.conj().T
- rho_2 = x_2 @ x_2.conj().T
- rho_3 = x_3 @ x_3.conj().T
- rho_4 = x_4 @ x_4.conj().T</p>
-<p>states = [rho_1, rho_2, rho_3, rho_4]
- probs = [1 / 4, 1 / 4, 1 / 4, 1 / 4]</p>
-<p>opt_val, _ = ppt_distinguishability(vectors=states, probs=probs, dimensions=[2, 2, 2, 2], subsystems=[0, 2])</p>
-<p>print(f"Optimal value: {opt_val:.3f}")</p>
-<h3 id="toqito.state_opt.ppt_distinguishability.ppt_distinguishability--references">References<a class="headerlink" href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--references" title="Permanent link">&para;</a></h3>
-<p>.. footbibliography::</p>
-<p>:param vectors: A list of states provided as either matrices or vectors.
-:param probs: Respective list of probabilities each state is selected.
-:param subsystems: A list of integers that correspond to the complex Euclidean space dimensions.
-:param dimensions: A list of integers that correspond to the dimensions of the subsystems.
-:param strategy: The method of distinguishing states.
-:param solver: The SDP solver to use.
-:param primal_dual: Option for the optimization problem.
-:return: The optimal probability with which the states can be distinguished
-         via PPT measurements.</p>
+<span class="arithmatex">\(7/8 \approx 0.875\)</span> as was proved in [^Yu_2012_Four].</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">bell</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.state_opt</span><span class="w"> </span><span class="kn">import</span> <span class="n">ppt_distinguishability</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Bell vectors:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">psi_0</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">psi_1</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">psi_2</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">psi_3</span> <span class="o">=</span> <span class="n">bell</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># YDY vectors from [^Yu_2012_Four].</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_0</span><span class="p">,</span> <span class="n">psi_0</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_1</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">x_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_2</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">x_4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">psi_3</span><span class="p">,</span> <span class="n">psi_3</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># YDY density matrices.</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">rho_1</span> <span class="o">=</span> <span class="n">x_1</span> <span class="o">@</span> <span class="n">x_1</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">rho_2</span> <span class="o">=</span> <span class="n">x_2</span> <span class="o">@</span> <span class="n">x_2</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">rho_3</span> <span class="o">=</span> <span class="n">x_3</span> <span class="o">@</span> <span class="n">x_3</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">rho_4</span> <span class="o">=</span> <span class="n">x_4</span> <span class="o">@</span> <span class="n">x_4</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="n">rho_1</span><span class="p">,</span> <span class="n">rho_2</span><span class="p">,</span> <span class="n">rho_3</span><span class="p">,</span> <span class="n">rho_4</span><span class="p">]</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">opt_val</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ppt_distinguishability</span><span class="p">(</span><span class="n">vectors</span><span class="o">=</span><span class="n">states</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">subsystems</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal value: </span><span class="si">{</span><span class="n">opt_val</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Optimal value: 0.875</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+            <b><code>vectors</code></b>
+              (<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>A list of states provided as either matrices or vectors.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>probs</code></b>
+              (<code><span title="list">list</span>[<span title="float">float</span>] | None</code>, default:
+                  <code>None</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Respective list of probabilities each state is selected.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>subsystems</code></b>
+              (<code><span title="list">list</span>[<span title="int">int</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>A list of integers that correspond to the complex Euclidean space dimensions.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>dimensions</code></b>
+              (<code><span title="list">list</span>[<span title="int">int</span>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>A list of integers that correspond to the dimensions of the subsystems.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>strategy</code></b>
+              (<code><span title="str">str</span></code>, default:
+                  <code>&#39;min_error&#39;</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>The method of distinguishing states.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>solver</code></b>
+              (<code><span title="str">str</span></code>, default:
+                  <code>&#39;cvxopt&#39;</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>The SDP solver to use.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>primal_dual</code></b>
+              (<code><span title="str">str</span></code>, default:
+                  <code>&#39;dual&#39;</code>
+)
+          –
+          <div class="doc-md-description">
+            <p>Option for the optimization problem.</p>
+          </div>
+        </li>
+    </ul>
+
+
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><span title="float">float</span></code>
+          –
+          <div class="doc-md-description">
+            <p>The optimal probability with which the states can be distinguished via PPT measurements.</p>
+          </div>
+        </li>
+    </ul>
+        <div class="footnote">
+<hr />
+<ol>
+<li id="toqito.state_opt.ppt_distinguishability.ppt_distinguishability--fn:Cosentino_2013_PPT">
+<p>Cosentino, Alessandro. <em>Positive-partial-transpose-indistinguishable states via semidefinite programming</em>. <strong>Physical Review A</strong>. vol. 87(1). (2013). <a href="https://doi.org/10.1103/physreva.87.012321">doi:10.1103/physreva.87.012321</a>.&#160;<a class="footnote-backref" href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--fnref:Cosentino_2013_PPT" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="toqito.state_opt.ppt_distinguishability.ppt_distinguishability--fn:Yu_2012_Four">
+<p>Yu, Nengkun and Duan, Runyao and Ying, Mingsheng. <em>Four Locally Indistinguishable Ququad-Ququad Orthogonal Maximally Entangled States</em>. <strong>Physical Review Letters</strong>. vol. 109(2). (2012). <a href="https://doi.org/10.1103/physrevlett.109.020506">doi:10.1103/physrevlett.109.020506</a>.&#160;<a class="footnote-backref" href="#toqito.state_opt.ppt_distinguishability.ppt_distinguishability--fnref:Yu_2012_Four" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
             <details class="mkdocstrings-source">
@@ -9190,11 +9226,7 @@ quantum states gallery.</p>
 <span class="normal"><a href="#__codelineno-0-126">126</a></span>
 <span class="normal"><a href="#__codelineno-0-127">127</a></span>
 <span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span>
-<span class="normal"><a href="#__codelineno-0-130">130</a></span>
-<span class="normal"><a href="#__codelineno-0-131">131</a></span>
-<span class="normal"><a href="#__codelineno-0-132">132</a></span>
-<span class="normal"><a href="#__codelineno-0-133">133</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">ppt_distinguishability</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-129">129</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">ppt_distinguishability</span><span class="p">(</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">vectors</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">subsystems</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">dimensions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
@@ -9203,47 +9235,47 @@ quantum states gallery.</p>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">solver</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cvxopt&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">primal_dual</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;dual&quot;</span><span class="p">,</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute probability of optimally distinguishing a state via PPT measurements :footcite:`Cosentino_2013_PPT`.</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute probability of optimally distinguishing a state via PPT measurements [@Cosentino_2013_PPT].</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    Implements the semidefinite program (SDP) whose optimal value is equal to the maximum</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    probability of perfectly distinguishing orthogonal maximally entangled states using any PPT</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    measurement; a measurement whose operators are positive under partial transpose. This SDP was</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    explicitly provided in :footcite:`Cosentino_2013_PPT`.</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    explicitly provided in [@Cosentino_2013_PPT].</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    One can specify the distinguishability method using the :code:`dist_method` argument.</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    One can specify the distinguishability method using the `dist_method` argument.</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    For :code:`dist_method = &quot;min_error&quot;`, this is the default method that yields the probability of</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    For `dist_method = &quot;min_error&quot;`, this is the default method that yields the probability of</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    distinguishing quantum states via PPT measurements that minimize the probability of error.</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    For :code:`dist_method = &quot;unambig&quot;`, Alice and Bob never provide an incorrect answer,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    For `dist_method = &quot;unambig&quot;`, Alice and Bob never provide an incorrect answer,</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    although it is possible that their answer is inconclusive.</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    For more background, see the ``state_distinguishability`` example in the</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    quantum states gallery.</span>
 <a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    .. note::</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    !!! Note</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        This function supports both pure states (vectors) and mixed states (density matrices).</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        The PPT constraints are applied to the measurement operators to restrict the class of</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        allowed measurements.</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Examples</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Consider the following Bell states:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    .. math::</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        \begin{equation}</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">            \begin{aligned}</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">            |\psi_0 \rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}}, &amp;\quad</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">            |\psi_1 \rangle = \frac{|01\rangle + |10\rangle}{\sqrt{2}}, \\</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">            |\psi_2 \rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}}, &amp;\quad</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">            |\psi_3 \rangle = \frac{|00\rangle - |11\rangle}{\sqrt{2}}.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">            \end{aligned}</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        \end{equation}</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    Consider the following Bell states:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        \begin{equation}</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">            \begin{aligned}</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">            |\psi_0 \rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}}, &amp;\quad</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">            |\psi_1 \rangle = \frac{|01\rangle + |10\rangle}{\sqrt{2}}, \\</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">            |\psi_2 \rangle = \frac{|01\rangle - |10\rangle}{\sqrt{2}}, &amp;\quad</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">            |\psi_3 \rangle = \frac{|00\rangle - |11\rangle}{\sqrt{2}}.</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">            \end{aligned}</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        \end{equation}</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    \]</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    It was illustrated in :footcite:`Yu_2012_Four` that for the following set of states</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    It was illustrated in [@Yu_2012_Four] that for the following set of states</span>
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    .. math::</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    \[</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">        \begin{equation}</span>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">            \begin{aligned}</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">            \rho_1^{(2)} &amp;= |\psi_0 \rangle | \psi_0 \rangle \langle \psi_0 | \langle \psi_0 |, \quad</span>
@@ -9252,72 +9284,68 @@ quantum states gallery.</p>
 <a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">            \rho_4^{(2)} &amp;= |\psi_3 \rangle | \psi_3 \rangle \langle \psi_3 | \langle \psi_3 |, \\</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">            \end{aligned}</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        \end{equation}</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    that the optimal probability of distinguishing via a PPT measurement should yield</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    :math:`7/8 \approx 0.875` as was proved in :footcite:`Yu_2012_Four`.</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    .. jupyter-execute::</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">     import numpy as np</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">     from toqito.states import bell</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">     from toqito.state_opt import ppt_distinguishability</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    that the optimal probability of distinguishing via a PPT measurement should yield</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    \(7/8 \approx 0.875\) as was proved in [@Yu_2012_Four].</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    from toqito.states import bell</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    from toqito.state_opt import ppt_distinguishability</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">     # Bell vectors:</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">     psi_0 = bell(0)</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">     psi_1 = bell(2)</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">     psi_2 = bell(3)</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">     psi_3 = bell(1)</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    # Bell vectors:</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">    psi_0 = bell(0)</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">    psi_1 = bell(2)</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    psi_2 = bell(3)</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    psi_3 = bell(1)</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">     # YDY vectors from :footcite:`Yu_2012_Four`.</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">     x_1 = np.kron(psi_0, psi_0)</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">     x_2 = np.kron(psi_1, psi_3)</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">     x_3 = np.kron(psi_2, psi_3)</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">     x_4 = np.kron(psi_3, psi_3)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">    # YDY vectors from [@Yu_2012_Four].</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">    x_1 = np.kron(psi_0, psi_0)</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">    x_2 = np.kron(psi_1, psi_3)</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">    x_3 = np.kron(psi_2, psi_3)</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">    x_4 = np.kron(psi_3, psi_3)</span>
 <a id="__codelineno-0-89" name="__codelineno-0-89"></a>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">     # YDY density matrices.</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">     rho_1 = x_1 @ x_1.conj().T</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">     rho_2 = x_2 @ x_2.conj().T</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">     rho_3 = x_3 @ x_3.conj().T</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">     rho_4 = x_4 @ x_4.conj().T</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">    # YDY density matrices.</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    rho_1 = x_1 @ x_1.conj().T</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">    rho_2 = x_2 @ x_2.conj().T</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">    rho_3 = x_3 @ x_3.conj().T</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    rho_4 = x_4 @ x_4.conj().T</span>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">     states = [rho_1, rho_2, rho_3, rho_4]</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">     probs = [1 / 4, 1 / 4, 1 / 4, 1 / 4]</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    states = [rho_1, rho_2, rho_3, rho_4]</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">    probs = [1 / 4, 1 / 4, 1 / 4, 1 / 4]</span>
 <a id="__codelineno-0-98" name="__codelineno-0-98"></a>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">     opt_val, _ = ppt_distinguishability(vectors=states, probs=probs, dimensions=[2, 2, 2, 2], subsystems=[0, 2])</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">    opt_val, _ = ppt_distinguishability(vectors=states, probs=probs, dimensions=[2, 2, 2, 2], subsystems=[0, 2])</span>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">     print(f&quot;Optimal value: {opt_val:.3f}&quot;)</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">    References</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">    ==========</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">    .. footbibliography::</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">    :param vectors: A list of states provided as either matrices or vectors.</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">    :param probs: Respective list of probabilities each state is selected.</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">    :param subsystems: A list of integers that correspond to the complex Euclidean space dimensions.</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">    :param dimensions: A list of integers that correspond to the dimensions of the subsystems.</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    :param strategy: The method of distinguishing states.</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">    :param solver: The SDP solver to use.</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">    :param primal_dual: Option for the optimization problem.</span>
-<a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">    :return: The optimal probability with which the states can be distinguished</span>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">             via PPT measurements.</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">    print(f&quot;Optimal value: {opt_val:.3f}&quot;)</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">        vectors: A list of states provided as either matrices or vectors.</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">        probs: Respective list of probabilities each state is selected.</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">        subsystems: A list of integers that correspond to the complex Euclidean space dimensions.</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">        dimensions: A list of integers that correspond to the dimensions of the subsystems.</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">        strategy: The method of distinguishing states.</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        solver: The SDP solver to use.</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">        primal_dual: Option for the optimization problem.</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">        The optimal probability with which the states can be distinguished via PPT measurements.</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_same_dimension</span><span class="p">(</span><span class="n">vectors</span><span class="p">):</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vectors for state distinguishability must all have the same dimension.&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-118" name="__codelineno-0-118"></a>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">has_same_dimension</span><span class="p">(</span><span class="n">vectors</span><span class="p">):</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vectors for state distinguishability must all have the same dimension.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a>    <span class="c1"># Assumes a uniform probabilities distribution among the states if one is not explicitly provided.</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">if</span> <span class="n">probs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">probs</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="c1"># Assumes a uniform probabilities distribution among the states if one is not explicitly provided.</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">if</span> <span class="n">probs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">probs</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a>    <span class="k">if</span> <span class="n">primal_dual</span> <span class="o">==</span> <span class="s2">&quot;primal&quot;</span><span class="p">:</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="k">return</span> <span class="n">_min_error_primal</span><span class="p">(</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a>            <span class="n">vectors</span><span class="o">=</span><span class="n">vectors</span><span class="p">,</span> <span class="n">subsystems</span><span class="o">=</span><span class="n">subsystems</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a>        <span class="p">)</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a>    <span class="k">return</span> <span class="n">_min_error_dual</span><span class="p">(</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a>        <span class="n">vectors</span><span class="o">=</span><span class="n">vectors</span><span class="p">,</span> <span class="n">subsystems</span><span class="o">=</span><span class="n">subsystems</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="p">)</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="k">if</span> <span class="n">primal_dual</span> <span class="o">==</span> <span class="s2">&quot;primal&quot;</span><span class="p">:</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="k">return</span> <span class="n">_min_error_primal</span><span class="p">(</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a>            <span class="n">vectors</span><span class="o">=</span><span class="n">vectors</span><span class="p">,</span> <span class="n">subsystems</span><span class="o">=</span><span class="n">subsystems</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a>        <span class="p">)</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>    <span class="k">return</span> <span class="n">_min_error_dual</span><span class="p">(</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="n">vectors</span><span class="o">=</span><span class="n">vectors</span><span class="p">,</span> <span class="n">subsystems</span><span class="o">=</span><span class="n">subsystems</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">probs</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">solver</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
