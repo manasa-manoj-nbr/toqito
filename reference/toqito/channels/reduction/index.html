@@ -61,13 +61,13 @@
     
       <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../sg_gallery.css">
     
       <link rel="stylesheet" href="../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery.css">
-    
       <link rel="stylesheet" href="../../../../sg_gallery-binder.css">
+    
+      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -809,7 +809,7 @@
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Quantum classification, factor width, k-incoherence
   
 
     
@@ -8946,8 +8946,8 @@ Choi matrix of the map defined by:</p>
     R(X) = k * \text{Tr}(X) * \mathbb{I} - X,
 \]</div>
 <p>where <span class="arithmatex">\(\mathbb{I}\)</span> is the identity matrix. This map is <span class="arithmatex">\(k\)</span>-positive.</p>
-<p>Examples:</p>
-<p>Using <code>|toqito⟩</code>, we can generate the <span class="arithmatex">\(3\)</span>-dimensional (or standard) reduction map
+<p>Examples:
+Using <code>|toqito⟩</code>, we can generate the <span class="arithmatex">\(3\)</span>-dimensional (or standard) reduction map
 as follows.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.channels</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduction</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -8981,7 +8981,14 @@ as follows.</p>
 )
           –
           <div class="doc-md-description">
-            <p>If this positive integer is provided, the script will instead return the Choi matrix of the following linear map: Phi(X) := K * Tr(X)I - X.</p>
+            <p>If this positive integer is provided, the script will instead return the Choi matrix of the following</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+            <b><code>linear map</code></b>
+          –
+          <div class="doc-md-description">
+            <p>Phi(X) := K * Tr(X)I - X.</p>
           </div>
         </li>
     </ul>
@@ -9052,20 +9059,20 @@ as follows.</p>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    where \(\mathbb{I}\) is the identity matrix. This map is \(k\)-positive.</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Using `|toqito⟩`, we can generate the \(3\)-dimensional (or standard) reduction map</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    as follows.</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Using `|toqito⟩`, we can generate the \(3\)-dimensional (or standard) reduction map</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    as follows.</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    from toqito.channels import reduction</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    print(reduction(3))</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    ```</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        dim: A positive integer (the dimension of the reduction map).</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        k: If this positive integer is provided, the script will instead return the Choi matrix of the following linear map: Phi(X) := K * Tr(X)I - X.</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    from toqito.channels import reduction</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    print(reduction(3))</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        dim: A positive integer (the dimension of the reduction map).</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        k: If this positive integer is provided, the script will instead return the Choi matrix of the following</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        linear map: Phi(X) := K * Tr(X)I - X.</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        The reduction map.</span>

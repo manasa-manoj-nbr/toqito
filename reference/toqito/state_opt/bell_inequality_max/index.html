@@ -61,13 +61,13 @@
     
       <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../sg_gallery.css">
     
       <link rel="stylesheet" href="../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery.css">
-    
       <link rel="stylesheet" href="../../../../sg_gallery-binder.css">
+    
+      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -809,7 +809,7 @@
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Quantum classification, factor width, k-incoherence
   
 
     
@@ -8964,9 +8964,10 @@
 <p>Calculates the maximum value achievable for a given Bell inequality under classical, quantum,
 or no-signalling assumptions.</p>
 <p>The maximum classical and no-signalling values are computed exactly. The maximum quantum value
-is upper bounded using the NPA (Navascués-Pironio-Acín) hierarchy <code>Navascues_2008_AConvergent</code><sup><a id="cite-toqito-state_opt-bell_inequality_max-bell_inequality_max-1" href="#ref-toqito-state_opt-bell_inequality_max-bell_inequality_max-1">1</a></sup>.</p>
-<p>Examples:</p>
-<p>The CHSH inequality in Full Correlator (FC) notation.
+is upper bounded using the NPA (Navascués-Pironio-Acín) hierarchy
+<code>Navascues_2008_AConvergent</code><sup><a id="cite-toqito-state_opt-bell_inequality_max-bell_inequality_max-1" href="#ref-toqito-state_opt-bell_inequality_max-bell_inequality_max-1">1</a></sup>.</p>
+<p>Examples:
+The CHSH inequality in Full Correlator (FC) notation.
 The classical maximum is 2, the quantum maximum (Tsirelson's bound) is <span class="arithmatex">\(2\sqrt{2}\)</span>,
 and the no-signalling maximum is 4.</p>
 <div class="arithmatex">\[
@@ -9021,7 +9022,8 @@ Classical max = 1, No-signalling max = 2. Quantum value is between 1 and 2.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-            <b><code>`coefficients`</code></b>
+            <b><code>coefficients</code></b>
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
           –
           <div class="doc-md-description">
             <p>A matrix or tensor specifying the Bell inequality coefficients in either
@@ -9029,7 +9031,8 @@ Classical max = 1, No-signalling max = 2. Quantum value is between 1 and 2.</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-            <b><code>`desc`</code></b>
+            <b><code>desc</code></b>
+              (<code><span title="list">list</span>[<span title="int">int</span>]</code>)
           –
           <div class="doc-md-description">
             <p>A list [<span class="arithmatex">\(oa\)</span>, <span class="arithmatex">\(ob\)</span>, <span class="arithmatex">\(ma\)</span>, <span class="arithmatex">\(mb\)</span>]
@@ -9038,14 +9041,18 @@ Classical max = 1, No-signalling max = 2. Quantum value is between 1 and 2.</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-            <b><code>`notation`</code></b>
+            <b><code>notation</code></b>
+              (<code><span title="str">str</span></code>)
           –
           <div class="doc-md-description">
             <p>A string ('fp', 'fc', or 'cg') indicating the notation of the <code>coefficients</code>.</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-            <b><code>`mtype`</code></b>
+            <b><code>mtype</code></b>
+              (<code><span title="str">str</span></code>, default:
+                  <code>&#39;classical&#39;</code>
+)
           –
           <div class="doc-md-description">
             <p>The type of theory to maximize over ('classical', 'quantum', or 'nosignal').
@@ -9053,7 +9060,10 @@ Classical max = 1, No-signalling max = 2. Quantum value is between 1 and 2.</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-            <b><code>`k`</code></b>
+            <b><code>k</code></b>
+              (<code><span title="int">int</span> | <span title="str">str</span></code>, default:
+                  <code>1</code>
+)
           –
           <div class="doc-md-description">
             <p>The level of the NPA hierarchy to use if <code>mtype='quantum'</code>. Can be an integer (e.g., 1, 2)
@@ -9063,7 +9073,10 @@ Classical max = 1, No-signalling max = 2. Quantum value is between 1 and 2.</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-            <b><code>`tol`</code></b>
+            <b><code>tol</code></b>
+              (<code><span title="float">float</span></code>, default:
+                  <code>1e-08</code>
+)
           –
           <div class="doc-md-description">
             <p>Tolerance for numerical comparisons and solver precision. Defaults to <code>1e-8</code>.</p>
@@ -9494,10 +9507,10 @@ Classical max = 1, No-signalling max = 2. Quantum value is between 1 and 2.</p>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">    or no-signalling assumptions.</span>
 <a id="__codelineno-0-102" name="__codelineno-0-102"></a>
 <a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">    The maximum classical and no-signalling values are computed exactly. The maximum quantum value</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">    is upper bounded using the NPA (Navascués-Pironio-Acín) hierarchy `Navascues_2008_AConvergent`[@Navascues_2008_AConvergent].</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">    is upper bounded using the NPA (Navascués-Pironio-Acín) hierarchy</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">    `Navascues_2008_AConvergent`[@Navascues_2008_AConvergent].</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">    The CHSH inequality in Full Correlator (FC) notation.</span>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">    The classical maximum is 2, the quantum maximum (Tsirelson&#39;s bound) is \(2\sqrt{2}\),</span>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">    and the no-signalling maximum is 4.</span>
@@ -9562,19 +9575,19 @@ Classical max = 1, No-signalling max = 2. Quantum value is between 1 and 2.</p>
 <a id="__codelineno-0-169" name="__codelineno-0-169"></a><span class="sd">    ```</span>
 <a id="__codelineno-0-170" name="__codelineno-0-170"></a>
 <a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="sd">        `coefficients`: A matrix or tensor specifying the Bell inequality coefficients in either</span>
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="sd">        coefficients: A matrix or tensor specifying the Bell inequality coefficients in either</span>
 <a id="__codelineno-0-173" name="__codelineno-0-173"></a><span class="sd">                             full probability (FP), full correlator (FC), or Collins-Gisin (CG) notation.</span>
-<a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="sd">        `desc`: A list [\(oa\), \(ob\), \(ma\), \(mb\)]</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="sd">        desc: A list [\(oa\), \(ob\), \(ma\), \(mb\)]</span>
 <a id="__codelineno-0-175" name="__codelineno-0-175"></a><span class="sd">                     describing the number of outputs for Alice (\(oa\)) and Bob (\(ob\)),</span>
 <a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="sd">                     and the number of inputs for Alice (\(ma\)) and Bob (\(mb\)).</span>
-<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">        `notation`: A string (&#39;fp&#39;, &#39;fc&#39;, or &#39;cg&#39;) indicating the notation of the ``coefficients``.</span>
-<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">        `mtype`: The type of theory to maximize over (&#39;classical&#39;, &#39;quantum&#39;, or &#39;nosignal&#39;).</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">        notation: A string (&#39;fp&#39;, &#39;fc&#39;, or &#39;cg&#39;) indicating the notation of the ``coefficients``.</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">        mtype: The type of theory to maximize over (&#39;classical&#39;, &#39;quantum&#39;, or &#39;nosignal&#39;).</span>
 <a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">                      Defaults to &#39;classical&#39;. Note: &#39;quantum&#39; computes an upper bound via NPA hierarchy.</span>
-<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">        `k`: The level of the NPA hierarchy to use if ``mtype=&#39;quantum&#39;``. Can be an integer (e.g., 1, 2)</span>
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">        k: The level of the NPA hierarchy to use if ``mtype=&#39;quantum&#39;``. Can be an integer (e.g., 1, 2)</span>
 <a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">                  or a string specifying intermediate levels (e.g., &#39;1+ab&#39;, &#39;1+aab&#39;). Defaults to 1.</span>
 <a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">                  Higher levels yield tighter bounds but require more computation. Ignored if ``mtype`` is</span>
 <a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">                  not &#39;quantum&#39;.</span>
-<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">        `tol`: Tolerance for numerical comparisons and solver precision. Defaults to ``1e-8``.</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">        tol: Tolerance for numerical comparisons and solver precision. Defaults to ``1e-8``.</span>
 <a id="__codelineno-0-185" name="__codelineno-0-185"></a>
 <a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">        The maximum value (or quantum upper bound) of the Bell inequality.</span>
@@ -9857,8 +9870,8 @@ The method is from <sup><a id="cite-toqito-state_opt-bell_inequality_max-bell_in
     W^{T_P} \ge 0,\quad \text{for all bipartitions } P.
     \end{multline}
 \]</div>
-<p>Examples:</p>
-<p>Consider the I3322 Bell inequality from <sup><a id="cite-toqito-state_opt-bell_inequality_max-bell_inequality_max_qubits-3" href="#ref-toqito-state_opt-bell_inequality_max-bell_inequality_max_qubits-3">3</a></sup>.</p>
+<p>Examples:
+Consider the I3322 Bell inequality from <sup><a id="cite-toqito-state_opt-bell_inequality_max-bell_inequality_max_qubits-3" href="#ref-toqito-state_opt-bell_inequality_max-bell_inequality_max_qubits-3">3</a></sup>.</p>
 <div class="arithmatex">\[
     \begin{aligned}
     I_{3322} &amp;= P(A_1 = B_1) + P(B_1 = A_2) + P(A_2 = B_2) + P(B_2 = A_3) \\
@@ -10110,9 +10123,7 @@ The upper bound can then be found in <code>|toqito⟩</code> as follows.</p>
 <span class="normal"><a href="#__codelineno-0-573">573</a></span>
 <span class="normal"><a href="#__codelineno-0-574">574</a></span>
 <span class="normal"><a href="#__codelineno-0-575">575</a></span>
-<span class="normal"><a href="#__codelineno-0-576">576</a></span>
-<span class="normal"><a href="#__codelineno-0-577">577</a></span>
-<span class="normal"><a href="#__codelineno-0-578">578</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="k">def</span><span class="w"> </span><span class="nf">bell_inequality_max_qubits</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-576">576</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="k">def</span><span class="w"> </span><span class="nf">bell_inequality_max_qubits</span><span class="p">(</span>
 <a id="__codelineno-0-439" name="__codelineno-0-439"></a>    <span class="n">joint_coe</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <a id="__codelineno-0-440" name="__codelineno-0-440"></a>    <span class="n">a_coe</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <a id="__codelineno-0-441" name="__codelineno-0-441"></a>    <span class="n">b_coe</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -10138,121 +10149,119 @@ The upper bound can then be found in <code>|toqito⟩</code> as follows.</p>
 <a id="__codelineno-0-461" name="__codelineno-0-461"></a>
 <a id="__codelineno-0-462" name="__codelineno-0-462"></a>
 <a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a><span class="sd">    Consider the I3322 Bell inequality from [@Collins_2004].</span>
 <a id="__codelineno-0-465" name="__codelineno-0-465"></a>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a><span class="sd">    Consider the I3322 Bell inequality from [@Collins_2004].</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a><span class="sd">    \[</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a><span class="sd">        \begin{aligned}</span>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a><span class="sd">        I_{3322} &amp;= P(A_1 = B_1) + P(B_1 = A_2) + P(A_2 = B_2) + P(B_2 = A_3) \\</span>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a><span class="sd">                 &amp;\quad - P(A_1 = B_2) - P(A_2 = B_3) - P(A_3 = B_1) - P(A_3 = B_3) \\</span>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a><span class="sd">                 &amp;\le 2</span>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a><span class="sd">        \end{aligned}</span>
-<a id="__codelineno-0-474" name="__codelineno-0-474"></a><span class="sd">    \]</span>
-<a id="__codelineno-0-475" name="__codelineno-0-475"></a>
-<a id="__codelineno-0-476" name="__codelineno-0-476"></a><span class="sd">    The individual and joint coefficents and measurement values are encoded as matrices.</span>
-<a id="__codelineno-0-477" name="__codelineno-0-477"></a><span class="sd">    The upper bound can then be found in `|toqito⟩` as follows.</span>
-<a id="__codelineno-0-478" name="__codelineno-0-478"></a>
-<a id="__codelineno-0-479" name="__codelineno-0-479"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
-<a id="__codelineno-0-480" name="__codelineno-0-480"></a><span class="sd">    import numpy as np</span>
-<a id="__codelineno-0-481" name="__codelineno-0-481"></a><span class="sd">    from toqito.state_opt.bell_inequality_max import bell_inequality_max_qubits</span>
-<a id="__codelineno-0-482" name="__codelineno-0-482"></a>
-<a id="__codelineno-0-483" name="__codelineno-0-483"></a><span class="sd">    joint_coe = np.array([</span>
-<a id="__codelineno-0-484" name="__codelineno-0-484"></a><span class="sd">        [1, 1, -1],</span>
-<a id="__codelineno-0-485" name="__codelineno-0-485"></a><span class="sd">        [1, 1, 1],</span>
-<a id="__codelineno-0-486" name="__codelineno-0-486"></a><span class="sd">        [-1, 1, 0],</span>
-<a id="__codelineno-0-487" name="__codelineno-0-487"></a><span class="sd">    ])</span>
-<a id="__codelineno-0-488" name="__codelineno-0-488"></a><span class="sd">    a_coe = np.array([0, -1, 0])</span>
-<a id="__codelineno-0-489" name="__codelineno-0-489"></a><span class="sd">    b_coe = np.array([-1, -2, 0])</span>
-<a id="__codelineno-0-490" name="__codelineno-0-490"></a><span class="sd">    a_val = np.array([0, 1])</span>
-<a id="__codelineno-0-491" name="__codelineno-0-491"></a><span class="sd">    b_val = np.array([0, 1])</span>
-<a id="__codelineno-0-492" name="__codelineno-0-492"></a>
-<a id="__codelineno-0-493" name="__codelineno-0-493"></a><span class="sd">    result = bell_inequality_max_qubits(joint_coe, a_coe, b_coe, a_val, b_val)</span>
-<a id="__codelineno-0-494" name="__codelineno-0-494"></a><span class="sd">    print(f&quot;Bell inequality maximum value: {result:.3f}&quot;)</span>
-<a id="__codelineno-0-495" name="__codelineno-0-495"></a><span class="sd">    ```</span>
-<a id="__codelineno-0-496" name="__codelineno-0-496"></a>
-<a id="__codelineno-0-497" name="__codelineno-0-497"></a><span class="sd">    Raises: </span>
-<a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="sd">        ValueError: If `a_val` or `b_val` are not length 2.</span>
-<a id="__codelineno-0-499" name="__codelineno-0-499"></a>
-<a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">        joint_coe: The coefficents for terms containing both A and B.</span>
-<a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="sd">        a_coe: The coefficent for terms only containing A.</span>
-<a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">        b_coe: The coefficent for terms only containing B.</span>
-<a id="__codelineno-0-504" name="__codelineno-0-504"></a><span class="sd">        a_val: The value of each measurement outcome for A.</span>
-<a id="__codelineno-0-505" name="__codelineno-0-505"></a><span class="sd">        b_val: The value of each measurement outcome for B.</span>
-<a id="__codelineno-0-506" name="__codelineno-0-506"></a><span class="sd">        solver_name: The solver used.</span>
-<a id="__codelineno-0-507" name="__codelineno-0-507"></a>
-<a id="__codelineno-0-508" name="__codelineno-0-508"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-509" name="__codelineno-0-509"></a><span class="sd">        The upper bound for the maximum violation of the Bell inequality.</span>
-<a id="__codelineno-0-510" name="__codelineno-0-510"></a>
-<a id="__codelineno-0-511" name="__codelineno-0-511"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-512" name="__codelineno-0-512"></a>    <span class="n">m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">joint_coe</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-513" name="__codelineno-0-513"></a>
-<a id="__codelineno-0-514" name="__codelineno-0-514"></a>    <span class="c1"># Ensure the input vectors are column vectors.</span>
-<a id="__codelineno-0-515" name="__codelineno-0-515"></a>    <span class="n">a_val</span> <span class="o">=</span> <span class="n">a_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-516" name="__codelineno-0-516"></a>    <span class="n">b_val</span> <span class="o">=</span> <span class="n">b_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-517" name="__codelineno-0-517"></a>    <span class="n">a_coe</span> <span class="o">=</span> <span class="n">a_coe</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a>    <span class="n">b_coe</span> <span class="o">=</span> <span class="n">b_coe</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a>    <span class="c1"># Check if vectors a_val and b_val have only two elements.</span>
-<a id="__codelineno-0-521" name="__codelineno-0-521"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_val</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">b_val</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-<a id="__codelineno-0-522" name="__codelineno-0-522"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This script is only capable of handling Bell inequalities with two outcomes.&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-523" name="__codelineno-0-523"></a>
-<a id="__codelineno-0-524" name="__codelineno-0-524"></a>    <span class="n">tot_dim</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-525" name="__codelineno-0-525"></a>    <span class="n">obj_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">tot_dim</span><span class="p">,</span> <span class="n">tot_dim</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-<a id="__codelineno-0-526" name="__codelineno-0-526"></a>
-<a id="__codelineno-0-527" name="__codelineno-0-527"></a>    <span class="c1"># Nested loops to compute the objective matrix.</span>
-<a id="__codelineno-0-528" name="__codelineno-0-528"></a>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># a = 0 to 1</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a>        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># b = 0 to 1</span>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a>            <span class="c1"># Indices below are adjusted to account for Python-MATLAB difference.</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a>            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># x = 1 to m (1-indexed in MATLAB, hence the range adjustment)</span>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a>                <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># y = 1 to m</span>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a>                    <span class="n">b_coeff</span> <span class="o">=</span> <span class="n">joint_coe</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">a_val</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b_val</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a>                    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a>                        <span class="n">b_coeff</span> <span class="o">+=</span> <span class="n">a_coe</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">a_val</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-536" name="__codelineno-0-536"></a>                    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-537" name="__codelineno-0-537"></a>                        <span class="n">b_coeff</span> <span class="o">+=</span> <span class="n">b_coe</span><span class="p">[</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b_val</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-538" name="__codelineno-0-538"></a>
-<a id="__codelineno-0-539" name="__codelineno-0-539"></a>                    <span class="c1"># Construct Alice and Bob&#39;s extended measurement operators.</span>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a>                    <span class="n">perm_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">x</span> <span class="k">else</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-<a id="__codelineno-0-541" name="__codelineno-0-541"></a>                    <span class="n">perm_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">y</span> <span class="k">else</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-<a id="__codelineno-0-542" name="__codelineno-0-542"></a>                    <span class="n">M</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">([</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">perm_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-543" name="__codelineno-0-543"></a>                    <span class="n">N</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">([</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">perm_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a>                    <span class="c1"># Adding the result of the tensor product to the objective matrix.</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a>                    <span class="n">obj_mat</span> <span class="o">+=</span> <span class="n">b_coeff</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a>    <span class="c1"># Symmetrize the matrix to avoid numerical issues.</span>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a>    <span class="n">obj_mat</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj_mat</span> <span class="o">+</span> <span class="n">obj_mat</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a>    <span class="n">aux_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a>    <span class="c1"># Construct the SDP problem.</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a>    <span class="n">W</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Variable</span><span class="p">((</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">),</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">)),</span> <span class="n">symmetric</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a>    <span class="c1"># Dimension boost W to the same dimension as obj_mat.</span>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a>    <span class="n">M</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">))</span>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">cp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">aux_mat</span><span class="p">),</span> <span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a>    <span class="n">Z</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a><span class="sd">        \begin{aligned}</span>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a><span class="sd">        I_{3322} &amp;= P(A_1 = B_1) + P(B_1 = A_2) + P(A_2 = B_2) + P(B_2 = A_3) \\</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a><span class="sd">                 &amp;\quad - P(A_1 = B_2) - P(A_2 = B_3) - P(A_3 = B_1) - P(A_3 = B_3) \\</span>
+<a id="__codelineno-0-470" name="__codelineno-0-470"></a><span class="sd">                 &amp;\le 2</span>
+<a id="__codelineno-0-471" name="__codelineno-0-471"></a><span class="sd">        \end{aligned}</span>
+<a id="__codelineno-0-472" name="__codelineno-0-472"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-473" name="__codelineno-0-473"></a>
+<a id="__codelineno-0-474" name="__codelineno-0-474"></a><span class="sd">    The individual and joint coefficents and measurement values are encoded as matrices.</span>
+<a id="__codelineno-0-475" name="__codelineno-0-475"></a><span class="sd">    The upper bound can then be found in `|toqito⟩` as follows.</span>
+<a id="__codelineno-0-476" name="__codelineno-0-476"></a>
+<a id="__codelineno-0-477" name="__codelineno-0-477"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-478" name="__codelineno-0-478"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-479" name="__codelineno-0-479"></a><span class="sd">    from toqito.state_opt.bell_inequality_max import bell_inequality_max_qubits</span>
+<a id="__codelineno-0-480" name="__codelineno-0-480"></a>
+<a id="__codelineno-0-481" name="__codelineno-0-481"></a><span class="sd">    joint_coe = np.array([</span>
+<a id="__codelineno-0-482" name="__codelineno-0-482"></a><span class="sd">        [1, 1, -1],</span>
+<a id="__codelineno-0-483" name="__codelineno-0-483"></a><span class="sd">        [1, 1, 1],</span>
+<a id="__codelineno-0-484" name="__codelineno-0-484"></a><span class="sd">        [-1, 1, 0],</span>
+<a id="__codelineno-0-485" name="__codelineno-0-485"></a><span class="sd">    ])</span>
+<a id="__codelineno-0-486" name="__codelineno-0-486"></a><span class="sd">    a_coe = np.array([0, -1, 0])</span>
+<a id="__codelineno-0-487" name="__codelineno-0-487"></a><span class="sd">    b_coe = np.array([-1, -2, 0])</span>
+<a id="__codelineno-0-488" name="__codelineno-0-488"></a><span class="sd">    a_val = np.array([0, 1])</span>
+<a id="__codelineno-0-489" name="__codelineno-0-489"></a><span class="sd">    b_val = np.array([0, 1])</span>
+<a id="__codelineno-0-490" name="__codelineno-0-490"></a>
+<a id="__codelineno-0-491" name="__codelineno-0-491"></a><span class="sd">    result = bell_inequality_max_qubits(joint_coe, a_coe, b_coe, a_val, b_val)</span>
+<a id="__codelineno-0-492" name="__codelineno-0-492"></a><span class="sd">    print(f&quot;Bell inequality maximum value: {result:.3f}&quot;)</span>
+<a id="__codelineno-0-493" name="__codelineno-0-493"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a>
+<a id="__codelineno-0-495" name="__codelineno-0-495"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-496" name="__codelineno-0-496"></a><span class="sd">        ValueError: If `a_val` or `b_val` are not length 2.</span>
+<a id="__codelineno-0-497" name="__codelineno-0-497"></a>
+<a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="sd">        joint_coe: The coefficents for terms containing both A and B.</span>
+<a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">        a_coe: The coefficent for terms only containing A.</span>
+<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">        b_coe: The coefficent for terms only containing B.</span>
+<a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="sd">        a_val: The value of each measurement outcome for A.</span>
+<a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">        b_val: The value of each measurement outcome for B.</span>
+<a id="__codelineno-0-504" name="__codelineno-0-504"></a><span class="sd">        solver_name: The solver used.</span>
+<a id="__codelineno-0-505" name="__codelineno-0-505"></a>
+<a id="__codelineno-0-506" name="__codelineno-0-506"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-507" name="__codelineno-0-507"></a><span class="sd">        The upper bound for the maximum violation of the Bell inequality.</span>
+<a id="__codelineno-0-508" name="__codelineno-0-508"></a>
+<a id="__codelineno-0-509" name="__codelineno-0-509"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-510" name="__codelineno-0-510"></a>    <span class="n">m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">joint_coe</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-0-511" name="__codelineno-0-511"></a>
+<a id="__codelineno-0-512" name="__codelineno-0-512"></a>    <span class="c1"># Ensure the input vectors are column vectors.</span>
+<a id="__codelineno-0-513" name="__codelineno-0-513"></a>    <span class="n">a_val</span> <span class="o">=</span> <span class="n">a_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-514" name="__codelineno-0-514"></a>    <span class="n">b_val</span> <span class="o">=</span> <span class="n">b_val</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-515" name="__codelineno-0-515"></a>    <span class="n">a_coe</span> <span class="o">=</span> <span class="n">a_coe</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-516" name="__codelineno-0-516"></a>    <span class="n">b_coe</span> <span class="o">=</span> <span class="n">b_coe</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-517" name="__codelineno-0-517"></a>
+<a id="__codelineno-0-518" name="__codelineno-0-518"></a>    <span class="c1"># Check if vectors a_val and b_val have only two elements.</span>
+<a id="__codelineno-0-519" name="__codelineno-0-519"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_val</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">b_val</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-0-520" name="__codelineno-0-520"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This script is only capable of handling Bell inequalities with two outcomes.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-521" name="__codelineno-0-521"></a>
+<a id="__codelineno-0-522" name="__codelineno-0-522"></a>    <span class="n">tot_dim</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-523" name="__codelineno-0-523"></a>    <span class="n">obj_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">tot_dim</span><span class="p">,</span> <span class="n">tot_dim</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<a id="__codelineno-0-524" name="__codelineno-0-524"></a>
+<a id="__codelineno-0-525" name="__codelineno-0-525"></a>    <span class="c1"># Nested loops to compute the objective matrix.</span>
+<a id="__codelineno-0-526" name="__codelineno-0-526"></a>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># a = 0 to 1</span>
+<a id="__codelineno-0-527" name="__codelineno-0-527"></a>        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># b = 0 to 1</span>
+<a id="__codelineno-0-528" name="__codelineno-0-528"></a>            <span class="c1"># Indices below are adjusted to account for Python-MATLAB difference.</span>
+<a id="__codelineno-0-529" name="__codelineno-0-529"></a>            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># x = 1 to m (1-indexed in MATLAB, hence the range adjustment)</span>
+<a id="__codelineno-0-530" name="__codelineno-0-530"></a>                <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># y = 1 to m</span>
+<a id="__codelineno-0-531" name="__codelineno-0-531"></a>                    <span class="n">b_coeff</span> <span class="o">=</span> <span class="n">joint_coe</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">a_val</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b_val</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-532" name="__codelineno-0-532"></a>                    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-533" name="__codelineno-0-533"></a>                        <span class="n">b_coeff</span> <span class="o">+=</span> <span class="n">a_coe</span><span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">a_val</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a>                    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a>                        <span class="n">b_coeff</span> <span class="o">+=</span> <span class="n">b_coe</span><span class="p">[</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b_val</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-536" name="__codelineno-0-536"></a>
+<a id="__codelineno-0-537" name="__codelineno-0-537"></a>                    <span class="c1"># Construct Alice and Bob&#39;s extended measurement operators.</span>
+<a id="__codelineno-0-538" name="__codelineno-0-538"></a>                    <span class="n">perm_x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">x</span> <span class="k">else</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+<a id="__codelineno-0-539" name="__codelineno-0-539"></a>                    <span class="n">perm_y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">y</span> <span class="k">else</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+<a id="__codelineno-0-540" name="__codelineno-0-540"></a>                    <span class="n">M</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">([</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">perm_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-541" name="__codelineno-0-541"></a>                    <span class="n">N</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">permutation_operator</span><span class="p">([</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">perm_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-542" name="__codelineno-0-542"></a>
+<a id="__codelineno-0-543" name="__codelineno-0-543"></a>                    <span class="c1"># Adding the result of the tensor product to the objective matrix.</span>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a>                    <span class="n">obj_mat</span> <span class="o">+=</span> <span class="n">b_coeff</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a>
+<a id="__codelineno-0-546" name="__codelineno-0-546"></a>    <span class="c1"># Symmetrize the matrix to avoid numerical issues.</span>
+<a id="__codelineno-0-547" name="__codelineno-0-547"></a>    <span class="n">obj_mat</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj_mat</span> <span class="o">+</span> <span class="n">obj_mat</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<a id="__codelineno-0-548" name="__codelineno-0-548"></a>    <span class="n">aux_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<a id="__codelineno-0-549" name="__codelineno-0-549"></a>
+<a id="__codelineno-0-550" name="__codelineno-0-550"></a>    <span class="c1"># Construct the SDP problem.</span>
+<a id="__codelineno-0-551" name="__codelineno-0-551"></a>    <span class="n">W</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Variable</span><span class="p">((</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">),</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">)),</span> <span class="n">symmetric</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-552" name="__codelineno-0-552"></a>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a>    <span class="c1"># Dimension boost W to the same dimension as obj_mat.</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a>    <span class="n">M</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">))</span>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a>    <span class="n">X</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">cp</span><span class="o">.</span><span class="n">kron</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">aux_mat</span><span class="p">),</span> <span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-0-556" name="__codelineno-0-556"></a>    <span class="n">Z</span> <span class="o">=</span> <span class="n">swap</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-0-557" name="__codelineno-0-557"></a>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a>    <span class="n">objective</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Maximize</span><span class="p">(</span><span class="n">cp</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">Z</span> <span class="o">@</span> <span class="n">obj_mat</span><span class="p">))</span>
 <a id="__codelineno-0-559" name="__codelineno-0-559"></a>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>    <span class="n">objective</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Maximize</span><span class="p">(</span><span class="n">cp</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">Z</span> <span class="o">@</span> <span class="n">obj_mat</span><span class="p">))</span>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>    <span class="c1"># Define the constraints.</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span><span class="n">cp</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">W</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">W</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>    <span class="c1"># Adding PPT constraints.</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>    <span class="k">for</span> <span class="n">sz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a>        <span class="c1"># Generate all combinations of indices from 1 to 2*m-1 of size sz.</span>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>        <span class="k">for</span> <span class="n">ppt_partition</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">sz</span><span class="p">):</span>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a>            <span class="c1"># Convert to 0-based indexing for Python.</span>
-<a id="__codelineno-0-570" name="__codelineno-0-570"></a>            <span class="n">ppt_partition_updated</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ppt_partition</span><span class="p">]</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a>            <span class="c1"># Partial transpose on the partition, ensuring it&#39;s positive semidefinite.</span>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a>            <span class="n">pt_matrix</span> <span class="o">=</span> <span class="n">partial_transpose</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">ppt_partition_updated</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>            <span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pt_matrix</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-574" name="__codelineno-0-574"></a>
-<a id="__codelineno-0-575" name="__codelineno-0-575"></a>    <span class="n">prob</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
-<a id="__codelineno-0-576" name="__codelineno-0-576"></a>    <span class="n">prob</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">solver_name</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-577" name="__codelineno-0-577"></a>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a>    <span class="k">return</span> <span class="n">prob</span><span class="o">.</span><span class="n">value</span>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a>    <span class="c1"># Define the constraints.</span>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a>    <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span><span class="n">cp</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">W</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">W</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="c1"># Adding PPT constraints.</span>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a>    <span class="k">for</span> <span class="n">sz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="c1"># Generate all combinations of indices from 1 to 2*m-1 of size sz.</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="k">for</span> <span class="n">ppt_partition</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">sz</span><span class="p">):</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a>            <span class="c1"># Convert to 0-based indexing for Python.</span>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a>            <span class="n">ppt_partition_updated</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ppt_partition</span><span class="p">]</span>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>            <span class="c1"># Partial transpose on the partition, ensuring it&#39;s positive semidefinite.</span>
+<a id="__codelineno-0-570" name="__codelineno-0-570"></a>            <span class="n">pt_matrix</span> <span class="o">=</span> <span class="n">partial_transpose</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">ppt_partition_updated</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
+<a id="__codelineno-0-571" name="__codelineno-0-571"></a>            <span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pt_matrix</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a>    <span class="n">prob</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
+<a id="__codelineno-0-574" name="__codelineno-0-574"></a>    <span class="n">prob</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">solver_name</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-575" name="__codelineno-0-575"></a>
+<a id="__codelineno-0-576" name="__codelineno-0-576"></a>    <span class="k">return</span> <span class="n">prob</span><span class="o">.</span><span class="n">value</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

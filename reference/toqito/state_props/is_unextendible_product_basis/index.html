@@ -61,13 +61,13 @@
     
       <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../sg_gallery.css">
     
       <link rel="stylesheet" href="../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery.css">
-    
       <link rel="stylesheet" href="../../../../sg_gallery-binder.css">
+    
+      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -809,7 +809,7 @@
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Quantum classification, factor width, k-incoherence
   
 
     
@@ -8963,7 +8963,7 @@ See <a class="autorefs autorefs-internal" title="            tile" href="../../s
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_unextendible_product_basis</span><span class="p">(</span><span class="n">non_upb_tiles</span><span class="p">,</span> <span class="n">dims</span><span class="p">))</span>
 </code></pre></div>
-<p>(False, array([-0.00000000e+00,  0.00000000e+00,  0.00000000e+00, -0.00000000e+00,  0.00000000e+00,  0.00000000e+00, -6.83580866e-17,  7.07106781e-01,
+<p>(False, array([-0.00000000e+00,  0.00000000e+00,  0.00000000e+00, -0.00000000e+00,  0.00000000e+00,  0.00000000e+00, -1.11022302e-16,  7.07106781e-01,
         7.07106781e-01]))</p>
 <p>The orthogonal state is given by</p>
 <div class="arithmatex">\[
@@ -9014,10 +9014,17 @@ See <a class="autorefs autorefs-internal" title="            tile" href="../../s
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-              <code><span title="tuple">tuple</span>[<span title="bool">bool</span>, <span title="numpy.ndarray">ndarray</span> | None]</code>
+              <code><span title="bool">bool</span></code>
           –
           <div class="doc-md-description">
-            <p>Returns a tuple. The first element is <code>True</code> if input is a UPB and <code>False</code> otherwise. The second element is a witness (a product state orthogonal to all the input vectors) if the input is a PB and <code>None</code> otherwise.</p>
+            <p>Returns a tuple. The first element is <code>True</code> if input is a UPB and <code>False</code> otherwise. The second element is a</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+              <code><span title="numpy.ndarray">ndarray</span> | None</code>
+          –
+          <div class="doc-md-description">
+            <p>witness (a product state orthogonal to all the input vectors) if the input is a PB and <code>None</code> otherwise.</p>
           </div>
         </li>
     </ul>
@@ -9128,7 +9135,8 @@ See <a class="autorefs autorefs-internal" title="            tile" href="../../s
 <span class="normal"><a href="#__codelineno-0-110">110</a></span>
 <span class="normal"><a href="#__codelineno-0-111">111</a></span>
 <span class="normal"><a href="#__codelineno-0-112">112</a></span>
-<span class="normal"><a href="#__codelineno-0-113">113</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_unextendible_product_basis</span><span class="p">(</span><span class="n">vecs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_unextendible_product_basis</span><span class="p">(</span><span class="n">vecs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">dims</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check if a set of vectors form an unextendible product basis (UPB) [@Bennett_1999_UPB].</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    Consider a multipartite quantum system \(\mathcal{H} = \bigotimes_{i=1}^{m} \mathcal{H}_{i}\) with \(m\)</span>
@@ -9176,59 +9184,60 @@ See <a class="autorefs autorefs-internal" title="            tile" href="../../s
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">        dims: The list of dimensions.</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        Returns a tuple. The first element is `True` if input is a UPB and `False` otherwise. The second element is a witness (a product state orthogonal to all the input vectors) if the input is a PB and `None` otherwise.</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vecs</span><span class="p">)</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">!=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Product of dimensions does not equal the size of each vector&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">is_product</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">dims</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">vec</span> <span class="ow">in</span> <span class="n">vecs</span><span class="p">):</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;At least one vector is not a product state&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="c1"># Number of parties (m).</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="n">num_parties</span> <span class="o">=</span> <span class="n">dims</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="c1"># Number of vectors (n).</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="n">num_vecs</span> <span class="o">=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="c1"># If n &lt; m vectors are provided, then we cannot generate set partitions, so it is not a UPB. We will extend the set</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="c1"># with m-n null vectors and run the same algorithm.</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">num_vecs</span> <span class="o">:=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">num_parties</span><span class="p">:</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_parties</span> <span class="o">-</span> <span class="n">num_vecs</span><span class="p">,</span> <span class="o">*</span><span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="n">num_vecs</span> <span class="o">=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="c1"># Split products.</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="n">vecs_split</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">is_product</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">dims</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">vec</span> <span class="ow">in</span> <span class="n">vecs</span><span class="p">])</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="c1"># Acquire generator to m-partitions of [0, n-1].</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="n">parts_unordered</span> <span class="o">=</span> <span class="n">set_partitions</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_vecs</span><span class="p">)),</span> <span class="n">num_parties</span><span class="p">)</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="k">for</span> <span class="n">part_unordered</span> <span class="ow">in</span> <span class="n">parts_unordered</span><span class="p">:</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="k">for</span> <span class="n">part_ordered</span> <span class="ow">in</span> <span class="n">permutations</span><span class="p">(</span><span class="n">part_unordered</span><span class="p">):</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>            <span class="c1"># Witness vectors.</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>            <span class="n">wit</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>            <span class="n">witness_found</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_parties</span><span class="p">):</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>                <span class="c1"># For the i-th party, acquire the matrix.</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>                <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">vecs_split</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">part_ordered</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>                <span class="c1"># Find the basis of the null space.</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>                <span class="n">null_basis</span> <span class="o">=</span> <span class="n">null_space</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>                <span class="c1"># If null space is empty then break.</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>                <span class="k">if</span> <span class="n">null_basis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>                    <span class="n">witness_found</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>                    <span class="k">break</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>                <span class="c1"># If null space is non-empty, add a basis vector of null space to witness.</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>                <span class="n">wit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">null_basis</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>            <span class="c1"># If witness was found, then it is not a UPB, return tensor product of witness vectors.</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>            <span class="k">if</span> <span class="n">witness_found</span><span class="p">:</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>                <span class="c1"># If wit is empty, tensor returns None.</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>                <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">tensor</span><span class="p">(</span><span class="n">wit</span><span class="p">)</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="c1"># If no witness was found, it is a UPB.</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        Returns a tuple. The first element is `True` if input is a UPB and `False` otherwise. The second element is a</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        witness (a product state orthogonal to all the input vectors) if the input is a PB and `None` otherwise.</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vecs</span><span class="p">)</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="n">dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">!=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Product of dimensions does not equal the size of each vector&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">is_product</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">dims</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">vec</span> <span class="ow">in</span> <span class="n">vecs</span><span class="p">):</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;At least one vector is not a product state&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="c1"># Number of parties (m).</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="n">num_parties</span> <span class="o">=</span> <span class="n">dims</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="c1"># Number of vectors (n).</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">num_vecs</span> <span class="o">=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="c1"># If n &lt; m vectors are provided, then we cannot generate set partitions, so it is not a UPB. We will extend the set</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="c1"># with m-n null vectors and run the same algorithm.</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">num_vecs</span> <span class="o">:=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">num_parties</span><span class="p">:</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_parties</span> <span class="o">-</span> <span class="n">num_vecs</span><span class="p">,</span> <span class="o">*</span><span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="n">num_vecs</span> <span class="o">=</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="c1"># Split products.</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">vecs_split</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">is_product</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">dims</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">vec</span> <span class="ow">in</span> <span class="n">vecs</span><span class="p">])</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1"># Acquire generator to m-partitions of [0, n-1].</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="n">parts_unordered</span> <span class="o">=</span> <span class="n">set_partitions</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_vecs</span><span class="p">)),</span> <span class="n">num_parties</span><span class="p">)</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="k">for</span> <span class="n">part_unordered</span> <span class="ow">in</span> <span class="n">parts_unordered</span><span class="p">:</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="k">for</span> <span class="n">part_ordered</span> <span class="ow">in</span> <span class="n">permutations</span><span class="p">(</span><span class="n">part_unordered</span><span class="p">):</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>            <span class="c1"># Witness vectors.</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>            <span class="n">wit</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>            <span class="n">witness_found</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_parties</span><span class="p">):</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>                <span class="c1"># For the i-th party, acquire the matrix.</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>                <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">vecs_split</span><span class="p">[</span><span class="n">col</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">part_ordered</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>                <span class="c1"># Find the basis of the null space.</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>                <span class="n">null_basis</span> <span class="o">=</span> <span class="n">null_space</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>                <span class="c1"># If null space is empty then break.</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>                <span class="k">if</span> <span class="n">null_basis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>                    <span class="n">witness_found</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>                    <span class="k">break</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>                <span class="c1"># If null space is non-empty, add a basis vector of null space to witness.</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>                <span class="n">wit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">null_basis</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>            <span class="c1"># If witness was found, then it is not a UPB, return tensor product of witness vectors.</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>            <span class="k">if</span> <span class="n">witness_found</span><span class="p">:</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>                <span class="c1"># If wit is empty, tensor returns None.</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>                <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="n">tensor</span><span class="p">(</span><span class="n">wit</span><span class="p">)</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="c1"># If no witness was found, it is a UPB.</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

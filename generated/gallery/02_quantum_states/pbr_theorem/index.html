@@ -61,13 +61,13 @@
     
       <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../sg_gallery.css">
     
       <link rel="stylesheet" href="../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery.css">
-    
       <link rel="stylesheet" href="../../../../sg_gallery-binder.css">
+    
+      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -893,7 +893,7 @@
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Quantum classification, factor width, k-incoherence
   
 
     
@@ -8959,7 +8959,7 @@ quantum state (e.g., the wavefunction <span class="arithmatex">\(|\psi\rangle\)<
 property of a single system (an <em>ontic</em> state), or does it merely represent
 our incomplete knowledge or information about some deeper underlying reality
 (an <em>epistemic</em> state)?</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 17-42 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 16-41 -->
 
 <h2 id="pbr-argument">PBR Argument<a class="headerlink" href="#pbr-argument" title="Permanent link">&para;</a></h2>
 <p>The PBR theorem <sup id="fnref2:Pusey_2012_On"><a class="footnote-ref" href="#fn:Pusey_2012_On">1</a></sup> argues against a broad class of epistemic models.</p>
@@ -8982,7 +8982,7 @@ distributions to represent the hypothetical probability densities
 <span class="arithmatex">\(p(\lambda | \psi_0)\)</span> and <span class="arithmatex">\(p(\lambda | \psi_1)\)</span>. The specific choice of Gaussian distributions
 is arbitrary; any pair of distinct, overlapping distributions would
 demonstrate the same essential feature.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 42-71 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 41-70 -->
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -9013,7 +9013,7 @@ demonstrate the same essential feature.</p>
 <a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </code></pre></div>
 <p><img alt="pbr theorem" class="mkd-glr-single-img" src="../images/mkd_glr_pbr_theorem_001.png" srcset="../images/mkd_glr_pbr_theorem_001.png" /></p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 72-131 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 71-130 -->
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -9068,7 +9068,7 @@ preparation independence, the quantum state must be ontic.</p>
 <p>We can now use <code>|toqito⟩</code> to verify the key requirement for the PBR
 theorem that the set of four states constructed from <span class="arithmatex">\(|0\rangle\)</span>
 and <span class="arithmatex">\(|+\rangle\)</span> are indeed antidistinguishable.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 131-156 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 130-155 -->
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -9097,7 +9097,7 @@ and <span class="arithmatex">\(|+\rangle\)</span> are indeed antidistinguishable
 <p class="mkd-glr-script-out">Out:</p>
 <div class="mkd-glr-script-out-disp highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Are<span class="w"> </span>the<span class="w"> </span>four<span class="w"> </span>PBR<span class="w"> </span>states<span class="w"> </span>antidistinguishable?<span class="w"> </span>True
 </code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 157-165 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 156-164 -->
 
 <p>The result confirms that there exists a measurement
 that can perfectly exclude each of the four states, providing the
@@ -9106,7 +9106,7 @@ necessary ingredient for the PBR no-go theorem's contradiction.</p>
 <code>|toqito⟩</code>'s  <a class="autorefs autorefs-internal" title="            state_exclusion" href="../../../../reference/toqito/state_opt/state_exclusion/#toqito.state_opt.state_exclusion.state_exclusion"><code>state_exclusion</code></a> function supports the theorem's
 conclusion that the quantum state has a strong claim to being an
 objective feature of reality.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 167-178 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 166-177 -->
 
 <h2 id="general-pbr-states">General PBR States<a class="headerlink" href="#general-pbr-states" title="Permanent link">&para;</a></h2>
 <p>The theorem holds for any pair of non-orthogonal states. The <code>toqito</code>
@@ -9117,14 +9117,14 @@ proof in the PBR paper <sup id="fnref4:Pusey_2012_On"><a class="footnote-ref" hr
 |\psi_1\rangle = \cos(\frac{\theta}{2})|0\rangle - \sin(\frac{\theta}{2})|1\rangle
 \]</div>
 <p>For instance, we can generate a set of <span class="arithmatex">\(2^n\)</span> states for some <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(\theta\)</span>.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 178-183 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 177-182 -->
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">toqito.states</span><span class="w"> </span><span class="kn">import</span> <span class="n">pusey_barrett_rudolph</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Generate states for n=2 systems and theta = pi/3</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">general_pbr_states</span> <span class="o">=</span> <span class="n">pusey_barrett_rudolph</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<!-- GENERATED FROM PYTHON SOURCE LINES 184-190 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 183-189 -->
 
 <p>The inner product of the two base states is <span class="arithmatex">\(\cos(\theta)\)</span>.
 For these to be antidistinguishable, we need to check the condition from the paper.
@@ -9132,7 +9132,7 @@ The theorem states that if <span class="arithmatex">\(2^{1/n} - 1 &lt; \tan(\the
 For <span class="arithmatex">\(n=2\)</span> and <span class="arithmatex">\(\theta=\pi/3\)</span>, we have <span class="arithmatex">\(\tan(\theta/2) = \tan(\pi/6) \approx 0.577\)</span>.
 The other side of the inequality is <span class="arithmatex">\(2^{1/2} - 1 \approx 0.414\)</span>.
 Since <span class="arithmatex">\(0.414 &lt; 0.577\)</span>, the theorem applies and this set should be antidistinguishable.</p>
-<!-- GENERATED FROM PYTHON SOURCE LINES 190-195 -->
+<!-- GENERATED FROM PYTHON SOURCE LINES 189-194 -->
 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">is_ad_general</span> <span class="o">=</span> <span class="n">is_antidistinguishable</span><span class="p">(</span><span class="n">general_pbr_states</span><span class="p">)</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
@@ -9141,7 +9141,7 @@ Since <span class="arithmatex">\(0.414 &lt; 0.577\)</span>, the theorem applies 
 <p class="mkd-glr-script-out">Out:</p>
 <div class="mkd-glr-script-out-disp highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Are<span class="w"> </span>the<span class="w"> </span>four<span class="w"> </span>general<span class="w"> </span>PBR<span class="w"> </span>states<span class="w"> </span><span class="o">(</span><span class="nv">n</span><span class="o">=</span><span class="m">2</span>,<span class="w"> </span><span class="nv">theta</span><span class="o">=</span>pi/3<span class="o">)</span><span class="w"> </span>antidistinguishable?<span class="w"> </span>True
 </code></pre></div>
-<p><strong>Total running time of the script:</strong> ( 0 minutes  0.190 seconds)</p>
+<p><strong>Total running time of the script:</strong> ( 0 minutes  0.206 seconds)</p>
 <div id="download_links"></div>
 
 <p><a class="md-button center" href="../pbr_theorem.py"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v210.7l-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7zM64 320c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64h-46.9l-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg></span> Download Python source code: pbr_theorem.py</a></p>

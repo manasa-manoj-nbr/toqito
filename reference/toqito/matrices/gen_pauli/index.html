@@ -61,13 +61,13 @@
     
       <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../sg_gallery.css">
     
       <link rel="stylesheet" href="../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery.css">
-    
       <link rel="stylesheet" href="../../../../sg_gallery-binder.css">
+    
+      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -809,7 +809,7 @@
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Quantum classification, factor width, k-incoherence
   
 
     
@@ -8948,8 +8948,8 @@ from 0 to <code>dim-1</code>, inclusive.</p>
 <p>Note that the generalized Pauli operators are also known by the name of
 "discrete Weyl operators". (Lecture 6: Further Remarks On Measurements And Channels from
 <sup><a id="cite-toqito-matrices-gen_pauli-gen_pauli-2" href="#ref-toqito-matrices-gen_pauli-gen_pauli-2">2</a></sup>)</p>
-<p>Examples:</p>
-<p>The generalized Pauli operator for <code>k_1 = 1</code>, <code>k_2 = 0</code>, and
+<p>Examples:
+The generalized Pauli operator for <code>k_1 = 1</code>, <code>k_2 = 0</code>, and
 <code>dim = 2</code> is given as the standard Pauli-X matrix</p>
 <div class="arithmatex">\[
     G_{1, 0, 2} = \begin{pmatrix}
@@ -8978,7 +8978,7 @@ from 0 to <code>dim-1</code>, inclusive.</p>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">gen_pauli</span><span class="p">(</span><span class="n">k_1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k_2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
 <p>[[ 0.+0.0000000e+00j -1.+1.2246468e-16j]
- [ 1.+0.0000000e+00j -0.+0.0000000e+00j]]</p>
+ [ 1.+0.0000000e+00j  0.+0.0000000e+00j]]</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -9093,8 +9093,7 @@ from 0 to <code>dim-1</code>, inclusive.</p>
 <span class="normal"><a href="#__codelineno-0-71">71</a></span>
 <span class="normal"><a href="#__codelineno-0-72">72</a></span>
 <span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">gen_pauli</span><span class="p">(</span><span class="n">k_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">gen_pauli</span><span class="p">(</span><span class="n">k_1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k_2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Produce generalized Pauli operator [@WikiPauliGen].</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    Generates a `dim`-by-`dim` unitary operator. More specifically,</span>
@@ -9109,59 +9108,58 @@ from 0 to <code>dim-1</code>, inclusive.</p>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    [@Watrous_2011_Lecture_Notes])</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    The generalized Pauli operator for `k_1 = 1`, `k_2 = 0`, and</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    `dim = 2` is given as the standard Pauli-X matrix</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    \[</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        G_{1, 0, 2} = \begin{pmatrix}</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">                         0 &amp; 1 \\</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">                         1 &amp; 0</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">                      \end{pmatrix}.</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    \]</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    This can be obtained in `|toqito⟩` as follows.</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    from toqito.matrices import gen_pauli</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    print(gen_pauli(k_1=1, k_2=0, dim=2))</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    The generalized Pauli operator for `k_1 = 1`, `k_2 = 0`, and</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    `dim = 2` is given as the standard Pauli-X matrix</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        G_{1, 0, 2} = \begin{pmatrix}</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">                         0 &amp; 1 \\</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">                         1 &amp; 0</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">                      \end{pmatrix}.</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    This can be obtained in `|toqito⟩` as follows.</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    from toqito.matrices import gen_pauli</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    print(gen_pauli(k_1=1, k_2=0, dim=2))</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    The generalized Pauli matrix `k_1 = 1`, `k_2 = 1`, and</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    `dim = 2` is given as the standard Pauli-Y matrix</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    \[</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        G_{1, 1, 2} = \begin{pmatrix}</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">                        0 &amp; -1 \\</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">                        1 &amp; 0</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">                      \end{pmatrix}.</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    \]</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    This can be obtained in `|toqito⟩` as follows.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    from toqito.matrices import gen_pauli</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    print(gen_pauli(k_1=1, k_2=1, dim=2))</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    ```</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        k_1: (a non-negative integer from 0 to `dim-1` inclusive).</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">        k_2: (a non-negative integer from 0 to `dim-1` inclusive).</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        dim: (a positive integer indicating the dimension).</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        A generalized Pauli operator.</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="n">gpx_val</span> <span class="o">=</span> <span class="n">gen_pauli_x</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="n">gpz_val</span> <span class="o">=</span> <span class="n">gen_pauli_z</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="n">gen_pauli_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">gpx_val</span><span class="p">,</span> <span class="n">k_1</span><span class="p">)</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">gpz_val</span><span class="p">,</span> <span class="n">k_2</span><span class="p">)</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">return</span> <span class="n">gen_pauli_w</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    The generalized Pauli matrix `k_1 = 1`, `k_2 = 1`, and</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    `dim = 2` is given as the standard Pauli-Y matrix</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    \[</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        G_{1, 1, 2} = \begin{pmatrix}</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">                        0 &amp; -1 \\</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">                        1 &amp; 0</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">                      \end{pmatrix}.</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    \]</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    This can be obtained in `|toqito⟩` as follows.</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    from toqito.matrices import gen_pauli</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    print(gen_pauli(k_1=1, k_2=1, dim=2))</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        k_1: (a non-negative integer from 0 to `dim-1` inclusive).</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        k_2: (a non-negative integer from 0 to `dim-1` inclusive).</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">        dim: (a positive integer indicating the dimension).</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        A generalized Pauli operator.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="n">gpx_val</span> <span class="o">=</span> <span class="n">gen_pauli_x</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="n">gpz_val</span> <span class="o">=</span> <span class="n">gen_pauli_z</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="n">gen_pauli_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">gpx_val</span><span class="p">,</span> <span class="n">k_1</span><span class="p">)</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">gpz_val</span><span class="p">,</span> <span class="n">k_2</span><span class="p">)</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">return</span> <span class="n">gen_pauli_w</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

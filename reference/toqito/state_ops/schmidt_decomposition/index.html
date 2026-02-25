@@ -61,13 +61,13 @@
     
       <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../sg_gallery.css">
     
       <link rel="stylesheet" href="../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery.css">
-    
       <link rel="stylesheet" href="../../../../sg_gallery-binder.css">
+    
+      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -809,7 +809,7 @@
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Quantum classification, factor width, k-incoherence
   
 
     
@@ -9165,7 +9165,8 @@ Consider the <span class="arithmatex">\(3\)</span>-dimensional maximally entangl
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
 <span class="normal"><a href="#__codelineno-0-109">109</a></span>
 <span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">schmidt_decomposition</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">schmidt_decomposition</span><span class="p">(</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">rho</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">k_param</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the Schmidt decomposition of a bipartite vector [@WikiScmidtDecomp].</span>
@@ -9227,50 +9228,51 @@ Consider the <span class="arithmatex">\(3\)</span>-dimensional maximally entangl
 <a id="__codelineno-0-65" name="__codelineno-0-65"></a>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        The Schmidt decomposition of the `rho` input.</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="c1"># If the input is provided as a matrix, compute the operator Schmidt decomposition.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rho</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="k">if</span> <span class="n">rho</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">rho</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>            <span class="k">return</span> <span class="n">_operator_schmidt_decomposition</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">k_param</span><span class="p">)</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rho</span><span class="p">)))</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="c1"># Allow the user to enter a single number for `dim`.</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim</span><span class="p">])</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="c1"># Otherwise, use lots of Schmidt coefficients.</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="n">u_mat</span><span class="p">,</span> <span class="n">singular_vals</span><span class="p">,</span> <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">rho</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dim</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">))</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="c1"># Otherwise, use lots of Schmidt coefficients.</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="c1"># After taking the transpose, the columns of `vt_mat` are actually the</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1"># (conjugate) singular vectors.  We do not take the conjugate because the</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="c1"># tensor product implementation does not take the conjugate either.  This is</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="c1"># not consistent with Wikipedia, which also takes the conjugate for complex</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="c1"># vectors.  Taking the conjugate would return right singular values that</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="c1"># need to be conjugated to reconstruct `rho`, which would be obviously</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="c1"># strange behavior.</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">vt_mat</span><span class="o">.</span><span class="n">T</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>    <span class="k">if</span> <span class="n">k_param</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="n">u_mat</span> <span class="o">=</span> <span class="n">u_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k_param</span><span class="p">]</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="n">singular_vals</span> <span class="o">=</span> <span class="n">singular_vals</span><span class="p">[:</span><span class="n">k_param</span><span class="p">]</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">vt_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k_param</span><span class="p">]</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="n">singular_vals</span> <span class="o">=</span> <span class="n">singular_vals</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="k">if</span> <span class="n">k_param</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>        <span class="c1"># Schmidt rank.</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="n">r_param</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">singular_vals</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">spacing</span><span class="p">(</span><span class="n">singular_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="c1"># Schmidt coefficients.</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="n">singular_vals</span> <span class="o">=</span> <span class="n">singular_vals</span><span class="p">[:</span><span class="n">r_param</span><span class="p">]</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">u_mat</span> <span class="o">=</span> <span class="n">u_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r_param</span><span class="p">]</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>        <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">vt_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r_param</span><span class="p">]</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>    <span class="k">return</span> <span class="n">singular_vals</span><span class="p">,</span> <span class="n">vt_mat</span><span class="p">,</span> <span class="n">u_mat</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="c1"># If the input is provided as a matrix, compute the operator Schmidt decomposition.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rho</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="k">if</span> <span class="n">rho</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">rho</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>            <span class="k">return</span> <span class="n">_operator_schmidt_decomposition</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">k_param</span><span class="p">)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rho</span><span class="p">)))</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="c1"># Allow the user to enter a single number for `dim`.</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dim</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim</span><span class="p">])</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="c1"># Otherwise, use lots of Schmidt coefficients.</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="n">u_mat</span><span class="p">,</span> <span class="n">singular_vals</span><span class="p">,</span> <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">rho</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dim</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">))</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="c1"># Otherwise, use lots of Schmidt coefficients.</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="c1"># After taking the transpose, the columns of `vt_mat` are actually the</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="c1"># (conjugate) singular vectors.  We do not take the conjugate because the</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="c1"># tensor product implementation does not take the conjugate either.  This is</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="c1"># not consistent with Wikipedia, which also takes the conjugate for complex</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="c1"># vectors.  Taking the conjugate would return right singular values that</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="c1"># need to be conjugated to reconstruct `rho`, which would be obviously</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="c1"># strange behavior.</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">vt_mat</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>    <span class="k">if</span> <span class="n">k_param</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="n">u_mat</span> <span class="o">=</span> <span class="n">u_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k_param</span><span class="p">]</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="n">singular_vals</span> <span class="o">=</span> <span class="n">singular_vals</span><span class="p">[:</span><span class="n">k_param</span><span class="p">]</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">vt_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k_param</span><span class="p">]</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="n">singular_vals</span> <span class="o">=</span> <span class="n">singular_vals</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="k">if</span> <span class="n">k_param</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="c1"># Schmidt rank.</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="n">r_param</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">singular_vals</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">spacing</span><span class="p">(</span><span class="n">singular_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="c1"># Schmidt coefficients.</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">singular_vals</span> <span class="o">=</span> <span class="n">singular_vals</span><span class="p">[:</span><span class="n">r_param</span><span class="p">]</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>        <span class="n">u_mat</span> <span class="o">=</span> <span class="n">u_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r_param</span><span class="p">]</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>        <span class="n">vt_mat</span> <span class="o">=</span> <span class="n">vt_mat</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r_param</span><span class="p">]</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="k">return</span> <span class="n">singular_vals</span><span class="p">,</span> <span class="n">vt_mat</span><span class="p">,</span> <span class="n">u_mat</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>

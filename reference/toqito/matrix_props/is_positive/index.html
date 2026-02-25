@@ -61,13 +61,13 @@
     
       <link rel="stylesheet" href="../../../../assets/extra.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../sg_gallery.css">
     
       <link rel="stylesheet" href="../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../sg_gallery.css">
-    
       <link rel="stylesheet" href="../../../../sg_gallery-binder.css">
+    
+      <link rel="stylesheet" href="../../../../sg_gallery-dataframe.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -809,7 +809,7 @@
   <span class="md-ellipsis">
     
   
-    Quantum classification, factor width, $k$-incoherence
+    Quantum classification, factor width, k-incoherence
   
 
     
@@ -8944,7 +8944,8 @@ positive matrix <sup><a id="cite-toqito-matrix_props-is_positive-is_positive-1" 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This function is different from <a class="autorefs autorefs-internal" title="            is_positive_definite" href="../is_positive_definite/#toqito.matrix_props.is_positive_definite"><code>is_positive_definite</code></a>,
-<a class="autorefs autorefs-internal" title="            is_totally_positive" href="../is_totally_positive/#toqito.matrix_props.is_totally_positive"><code>is_totally_positive</code></a> and <a class="autorefs autorefs-internal" title="            is_positive_semidefinite" href="../is_positive_semidefinite/#toqito.matrix_props.is_positive_semidefinite"><code>is_positive_semidefinite</code></a>.</p>
+<a class="autorefs autorefs-internal" title="            is_totally_positive" href="../is_totally_positive/#toqito.matrix_props.is_totally_positive"><code>is_totally_positive</code></a> and
+<a class="autorefs autorefs-internal" title="            is_positive_semidefinite" href="../is_positive_semidefinite/#toqito.matrix_props.is_positive_semidefinite"><code>is_positive_semidefinite</code></a>.</p>
 </div>
 <p>Examples:
 We expect a matrix full of 1s to be positive.</p>
@@ -9001,7 +9002,8 @@ We expect a matrix full of 1s to be positive.</p>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
 <span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_positive</span><span class="p">(</span><span class="n">input_mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_positive</span><span class="p">(</span><span class="n">input_mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check if the matrix is positive.</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">    When all the entries in the matrix are larger than zero the matrix of interest is a</span>
@@ -9009,25 +9011,26 @@ We expect a matrix full of 1s to be positive.</p>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    !!! note</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">        This function is different from [`is_positive_definite`][toqito.matrix_props.is_positive_definite],</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">        [`is_totally_positive`][toqito.matrix_props.is_totally_positive] and [`is_positive_semidefinite`][toqito.matrix_props.is_positive_semidefinite].</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    We expect a matrix full of 1s to be positive.</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    import numpy as np</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    from toqito.matrix_props import is_positive</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    input_mat = np.array([[1, 1, 1],[1, 1, 1],[1, 1, 1]])</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    print(is_positive(input_mat))</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    ```</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        input_mat: Matrix of interest.</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">input_mat</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">        [`is_totally_positive`][toqito.matrix_props.is_totally_positive] and</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">        [`is_positive_semidefinite`][toqito.matrix_props.is_positive_semidefinite].</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    We expect a matrix full of 1s to be positive.</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    ```python exec=&quot;1&quot; source=&quot;above&quot;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    import numpy as np</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    from toqito.matrix_props import is_positive</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    input_mat = np.array([[1, 1, 1],[1, 1, 1],[1, 1, 1]])</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    print(is_positive(input_mat))</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    ```</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        input_mat: Matrix of interest.</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">input_mat</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
